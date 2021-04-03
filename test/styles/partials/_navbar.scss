@@ -1,0 +1,12 @@
+header.header nav.nabvar a {
+    text-decoration: none;
+    color: rgb(17, 19, 19);
+}
+
+.nabvar{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    @extend %border-test;
+}
