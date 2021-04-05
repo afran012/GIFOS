@@ -11,26 +11,41 @@
 
 </head>
 <body>
+    <div class="initial-bg"></div>
     <header class="header">
-        <img src="./assets/logo-mobile.svg" alt="logo" class="logo">
-        <nav >
+        <input type="checkbox" id="btn-nav" class="checkbox">
+
+        <div class="menu">                
+            <div class="menu-btn">
+                <span class="line" id="line1"></span>
+                <span class="line" id="line2"></span>
+                <span class="line" id="line3"></span>
+            </div>
+        </div>
+        
+        <!-- <figure class="logo-figure"> -->
+        <img src="./assets/images/logo-mobile.svg" alt="logo" class="logo">
+        <!-- </figure> -->
+        <nav>
             <ul class="navbar_menu">
                 <li>
-                    <a href="#">MODO NOCTURNO</a>
+                    <a href="#" class="nav-noct">MODO NOCTURNO</a>
                 </li>
-                <li>
+                <div class="nav-div1"></div>
+                <li class="nav-fav">
                     <a href="#">FAVORITO</a>
                 </li>
+                <div class="nav-div2"></div>
                 <li>
-                    <a href="#">GIFOS</a>
+                    <a href="#" class="nav-gif">GIFOS</a>
                 </li>
+                <div class="nav-div3"></div>
                 <li>
-                    <a href="#"><img src="" alt=""></a>
+                    <a href="#" class="nav-crea"><img src="./assets/images/button-crear-gifo.svg" alt="create_gifo"></a>
                 </li>
-            </ul>
-            
-        </nav>
-        <img src="./assets/burger.svg" alt="menu_burguer" class="menu_burguer">        
+                <div class="nav-div4"></div>
+            </ul>            
+        </nav>   
     </header>
     
 </body>
