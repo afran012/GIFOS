@@ -15,11 +15,39 @@
 }
 
 %style-menu{
-  font-size: 15px;
-  color: #ffffff;
-  text-align: center;
-  line-height: 30px;
   font-family: 'nabvar-1';
+  font-size: 15px;
+  color: $font-color2;
+  text-align: center;
+  line-height: 30px;  
+}
+
+%style-h1-main{
+  font-family: 'font-1';
+  font-size: 25px;
+  color: $font-color1;
+  text-align: center;
+  line-height: 33px;
+
+}
+
+%style-search-gif{
+  background: #FFFFFF;
+  border: 1px solid $border-primary;
+  border-radius: 27px;
+  font-family: 'font-search';
+  font-size: 16px;
+  color: $font-color4;
+  text-align: left;
+  
+}
+
+%style-search-input {
+  font-family: 'font-search';
+  font-size: 16px;
+  color: $font-color4;
+  text-align: left;
+
 }
 
 

@@ -1,0 +1,37 @@
+.main-tittle{
+    @extend %style-h1-main;
+}
+
+span.span-gifos::after{
+    content: "GIFOS";
+    color: $font-color3;
+}
+
+.main-search{
+    width: 100%;
+    
+}
+
+.search-gif{
+    display: grid;
+    justify-items: center;
+}
+
+.div-search {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    justify-items: center;
+    align-items: center;
+    @extend %style-search-gif;
+    width: 90%;
+    height: 3.13rem;
+}
+
+#search-gif{
+    @extend %style-search-input;
+    width: 67%;
+}
+
+.img-main {
+    width: 72.8%;
+}
