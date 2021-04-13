@@ -4,9 +4,11 @@
     grid-template-columns: auto;
     grid-template-rows:  100%auto auto;
     width: 100%;
+    position: sticky;
+    top: 0.0001%;
     height: 5.94rem;
-    /*justify-content: space-between;*/
-    @extend %border-test;
+    z-index: 1;
+    background: $bg-secondary;
 }
 
 .nav{

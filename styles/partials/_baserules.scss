@@ -9,45 +9,95 @@
   outline: none;
 }
 
+%grid-center {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
 %border-test{
   border: 1px solid #572EE5;
   border-radius: 10px;
 }
 
 %style-menu{
-  font-family: 'nabvar-1';
+  font-family: 'Montserrat-SemiBold';
   font-size: 15px;
   color: $font-color2;
   text-align: center;
   line-height: 30px;  
 }
 
-%style-h1-main{
-  font-family: 'font-1';
+%style-h2-main{
+  font-family: 'Montserrat-Bold';
   font-size: 25px;
   color: $font-color1;
   text-align: center;
   line-height: 33px;
+  
 
 }
 
 %style-search-gif{
   background: #FFFFFF;
   border: 1px solid $border-primary;
-  border-radius: 27px;
-  font-family: 'font-search';
-  font-size: 16px;
-  color: $font-color4;
-  text-align: left;
-  
+  border-radius: 27px;  
 }
+
 
 %style-search-input {
-  font-family: 'font-search';
+  font-family: 'Roboto-Regular';
   font-size: 16px;
   color: $font-color4;
   text-align: left;
-
 }
 
+%style-h2-trend {
+  font-family: 'Montserrat-Bold';
+  font-size: 16px;
+  color: $font-color1;
+  text-align: center;
+  line-height: 25px;
+}
+
+%style-p-trend {
+  font-family: 'Montserrat-Medium';
+  font-size: 14px;
+  color: $font-color1;
+  text-align: center;
+  line-height: 25px;
+}
+
+%style-h2-trend-gif {
+  font-family: 'Montserrat-Bold';
+  font-size: 20px;
+  color: $font-color1;
+  text-align: center;
+  line-height: 30px;
+}
+
+%style-p-trend-gif {
+  font-family: 'Roboto-Regular';
+  font-size: 16px;
+  color: $font-color5;
+  text-align: center;
+  line-height: 23px;
+}
+
+%style-h1-f{
+  font-family: 'Roboto-Regular';
+  font-size: 14px;
+  color: $font-color5;
+  letter-spacing: 0;
+  line-height: 20px;
+}
+
+%sytle-p-footer{
+  font-family: 'Roboto-Regular';
+  font-size: 14px;
+  color: $font-color5;
+  letter-spacing: 0;
+  line-height: 20px;
+
+}
 

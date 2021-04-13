@@ -92,3 +92,14 @@
     animation-duration: 1s;
     animation-name: slidedown;  
 } 
+
+  
+@keyframes slidedown {
+    from {
+      margin-top: -40%;
+    }
+  
+    to {
+      margin-top: 0%;
+    }
+}

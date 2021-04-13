@@ -1,5 +1,8 @@
 .main-tittle{
-    @extend %style-h1-main;
+    @extend %style-h2-main;
+    width: 70%;
+    margin-top: 1.6%;
+    margin-bottom: 7.6%;
 }
 
 span.span-gifos::after{
@@ -8,20 +11,17 @@ span.span-gifos::after{
 }
 
 .main-search{
+    @extend %grid-center;
     width: 100%;
-    
 }
 
 .search-gif{
-    display: grid;
-    justify-items: center;
+    @extend %grid-center;
 }
 
 .div-search {
-    display: grid;
+    @extend %grid-center;
     grid-template-columns: 80% 20%;
-    justify-items: center;
-    align-items: center;
     @extend %style-search-gif;
     width: 90%;
     height: 3.13rem;
@@ -34,4 +34,42 @@ span.span-gifos::after{
 
 .img-main {
     width: 72.8%;
+}
+
+.trending {
+    width: 100%;
+    @extend %grid-center;    
+}
+
+.h2-trend {
+    @extend %style-h2-trend;
+    margin-top: 7%;
+}
+
+.p-trend{
+    @extend %style-p-trend;
+    width: 51%;
+    margin-bottom: 7%;
+}
+
+.trending-gifos{
+    @extend %grid-center;
+    background: #F3F5F8;
+}
+
+.h2-trend-gif{
+    @extend %style-h2-trend-gif;
+    margin-top: 7%;
+    margin-bottom: 2%;
+}
+
+.p-trend-gif{
+    @extend %style-p-trend-gif;
+}
+
+.div-trend-gif{
+    width: 70%;
+    height: 35rem;
+    @extend %border-test;
+    margin-bottom: 7%;
 }
