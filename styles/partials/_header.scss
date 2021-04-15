@@ -1,26 +1,25 @@
 .header {
-    display: grid;
-    flex-direction: column;
-    grid-template-columns: auto;
-    grid-template-rows:  100%auto auto;
-    width: 100%;
-    position: sticky;
-    top: 0.0001%;
-    height: 5.94rem;
-    z-index: 1;
-    background: $bg-secondary;
+  display: grid;
+  flex-direction: column;
+  grid-template-columns: auto;
+  grid-template-rows: 100%auto auto;
+  width: 100%;
+  position: sticky;
+  top: 0.0001%;
+  height: 5.94rem;
+  z-index: 1;
+  background: $bg-secondary;
+  opacity: 0.7;
 }
 
-.nav{
-    grid-column-start: 2;
-    grid-row-end: 3;
+.nav {
+  grid-column-start: 2;
+  grid-row-end: 3;
 }
-
 
 .logo {
-
-    align-self: center;
-    padding: 0.5rem;
-    width: 6rem;
-    height: 3.5rem; 
+  align-self: center;
+  padding: 0.5rem;
+  width: 6rem;
+  height: 3.5rem;
 }

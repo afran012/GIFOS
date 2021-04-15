@@ -144,6 +144,7 @@ ul.navbar_menu li a {
   height: 5.94rem;
   z-index: 1;
   background: #FFFFFF 100%;
+  opacity: 0.7;
 }
 
 .nav {
@@ -436,4 +437,13 @@ section.icons-shared img {
     margin-top: 0%;
   }
 }
+
+/*
+@import "./Partials/body";
+@import "./Partials/header";
+@import "./Partials/navbar";
+@import "./Partials/main";
+@import "./Partials/footer";
+@import "./Partials/mediaqueries";
+@import "./Partials/menu";*/
 /*# sourceMappingURL=style.css.map */
