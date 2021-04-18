@@ -63,21 +63,28 @@
                 <img src="./assets/images/ilustra_header.svg" alt="img_header"
                 class="img-main">
                 <div class="div-search">
-                    <input type="text" value="Busca GIFOS y más" name="input-gif" id="search-gif">
+                    <input type="text" placeholder="Busca GIFOS y más" name="input-gif" id="search-gif">
                     <img src="./assets/images/icon-search.svg" alt="img-search" class="img-search">
                 </div>
             </form>
         </section>
         <section class="trending">
             <h2 class="h2-trend">Trending:</h2>
-            <p class="p-trend">
-                Reactions, Entertainment, Sports, Stickers, Artists
-            </p>
+            <p class="p-trend" id="p-trend-id"></p>
         </section>
         <section class="trending-gifos">
             <h2 class="h2-trend-gif">Trending GIFOS</h2>
             <p class="p-trend-gif">Mira los últimos GIFOS de nuestra comunidad.</p>
-            <div class="div-trend-gif"></div>
+            <div class="div-trend-gif">                
+                <div class="div-gifo">
+                    <!-- <img src="" alt=""> -->
+                    <div class="div-icons-gifo">
+                        <img src="./assets/images/icon-fav.svg" alt="icon-fav" class="icon-fav">
+                        <img src="./assets/images/icon-download.svg" alt="icon-download" class="icon-download">
+                        <img src="./assets/images/icon-max-normal.svg" alt="icon-max-normal" class="icon-max-normal">
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     <footer class="f-gifos">
@@ -92,6 +99,7 @@
         <p class="p-footer">© GIFOS 2020 All Rights Reserved.</p>
 
     </footer>
+    <script src="script.js"></script>
     
 </body>
 </html>

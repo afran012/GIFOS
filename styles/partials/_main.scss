@@ -1,75 +1,79 @@
-.main-tittle{
-    @extend %style-h2-main;
-    width: 70%;
-    margin-top: 1.6%;
-    margin-bottom: 7.6%;
+.main-tittle {
+  @extend %style-h2-main;
+  width: 70%;
+  margin-top: 1.6%;
+  margin-bottom: 7.6%;
 }
 
-span.span-gifos::after{
-    content: "GIFOS";
-    color: $font-color3;
+span.span-gifos::after {
+  content: "GIFOS";
+  color: $font-color3;
 }
 
-.main-search{
-    @extend %grid-center;
-    width: 100%;
+.main-search {
+  @extend %grid-center;
+  width: 100%;
 }
 
-.search-gif{
-    @extend %grid-center;
+.search-gif {
+  @extend %grid-center;
 }
 
 .div-search {
-    @extend %grid-center;
-    grid-template-columns: 80% 20%;
-    @extend %style-search-gif;
-    width: 90%;
-    height: 3.13rem;
+  @extend %grid-center;
+  grid-template-columns: 80% 20%;
+  @extend %style-search-gif;
+  width: 90%;
+  height: 3.13rem;
 }
 
-#search-gif{
-    @extend %style-search-input;
-    width: 67%;
+#search-gif {
+  @extend %style-search-input;
+  width: 67%;
 }
 
 .img-main {
-    width: 72.8%;
+  width: 72.8%;
 }
 
 .trending {
-    width: 100%;
-    @extend %grid-center;    
+  width: 100%;
+  @extend %grid-center;
 }
 
 .h2-trend {
-    @extend %style-h2-trend;
-    margin-top: 7%;
+  @extend %style-h2-trend;
+  margin-top: 7%;
 }
 
-.p-trend{
-    @extend %style-p-trend;
-    width: 51%;
-    margin-bottom: 7%;
+.p-trend {
+  @extend %grid-center;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  // grid-template-rows: 100%;
+
+  @extend %style-p-trend;
+  width: 51%;
+  margin-bottom: 7%;
 }
 
-.trending-gifos{
-    @extend %grid-center;
-    background: #F3F5F8;
+.trending-gifos {
+  @extend %grid-center;
+  background: #f3f5f8;
 }
 
-.h2-trend-gif{
-    @extend %style-h2-trend-gif;
-    margin-top: 7%;
-    margin-bottom: 2%;
+.h2-trend-gif {
+  @extend %style-h2-trend-gif;
+  margin-top: 7%;
+  margin-bottom: 2%;
 }
 
-.p-trend-gif{
-    @extend %style-p-trend-gif;
+.p-trend-gif {
+  @extend %style-p-trend-gif;
 }
 
-.div-trend-gif{
-    width: 70%;
-    height: 35rem;
-    @extend %border-test;
-    margin-bottom: 7%;
+.div-trend-gif {
+  width: 70%;
+  height: 50rem;
+  @extend %border-test;
+  margin-bottom: 7%;
 }
