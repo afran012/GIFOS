@@ -47,12 +47,20 @@ span.span-gifos::after {
 }
 
 .p-trend {
-  @extend %grid-center;
-  grid-template-columns: 20% 20% 20% 20% 20%;
   @extend %style-p-trend;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   width: 51%;
   margin-bottom: 7%;
 }
+
+p.p-trend span::first-letter{
+  text-transform: uppercase;
+  min-width: 100%;
+  
+
+} 
 
 .trending-gifos {
   @extend %grid-center;
@@ -68,10 +76,10 @@ span.span-gifos::after {
 .p-trend-gif {
   @extend %style-p-trend-gif;
 }
-
+/*
 .div-trend-gif {
   width: 70%;
   height: 50rem;
   @extend %border-test;
   margin-bottom: 7%;
-}
+}*/

@@ -1,0 +1,14 @@
+.gifs-search-section{
+    @extend %grid-center;
+    grid-template-columns: 30% 30% 30%;
+    grid-gap: 4%;
+    grid-template-rows: 20% 20% 20% 20%;
+    padding: 5%;
+    width: 100%;
+}
+
+.gifs-search-section-full{
+    margin-bottom: 7%;
+    margin-top: 7%;
+    @extend %border-test;
+}
