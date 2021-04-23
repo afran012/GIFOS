@@ -13,7 +13,7 @@ let trendArray = []
 
 
 
-let trendSearch = fetch(completeUrlTrend).then(response => response.json()).catch(error => console.log(error));
+let trendSearch = fetch(completeUrlTrend).then(response => response.json());
 
 let trendsStr = ''
 let pTrendData = document.getElementById('p-trend-id')
@@ -32,17 +32,12 @@ trendSearch.then(trendsDict => {
         flagTrend +=1 ;
         trendsStr += `${trend}, `;
         trendArray.push(trend)
-
-
-
         let wordsTrend = fillTrendP(trend, flagTrend)
-
-
         console.log(`wordsTrend eeeee ${wordsTrend}`);
     })
     console.log(`trendArray ${trendArray}`);
     //pTrendData.innerHTML = wordsTrend
-} )
+} ).catch(error => console.log(error))
 
 // Fill the tp-trend and add event with click
 
@@ -62,7 +57,7 @@ function fillTrendP(arraydTrend, positionTrend){
     wordTrend.textContent = ` ${arraydTrend}${dotOrComma} `;
     pTrendData.appendChild(wordTrend)
     wordTrend.addEventListener('click', ()=>(pInputSearch.value = `${arraydTrend}`))
-    return wordTrend
+    return 
 }
 
 
