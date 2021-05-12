@@ -36,10 +36,7 @@ let VARCONFIG_DEV = {
     limitSearch : 12,
     offsetSearch : 12,
     searchData : []
-
     // variable for shearch input
-
-
 }
 
 export { CONSTCONFIG_DEV , VARCONFIG_DEV};
