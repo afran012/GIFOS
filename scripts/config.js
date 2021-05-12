@@ -16,7 +16,7 @@ const CONSTCONFIG_DEV = {
     searchBtn : document.getElementById('search-btn'),
 
     sectionSearch : document.createElement("div"),
-    gifsSearchSectios : document.getElementById('gifs-search-section')
+    gifsSearchSections : document.getElementById('gifs-search-section')
 
 
 
