@@ -4,6 +4,7 @@ export default class Gifphy {
         this._urlOrig = builder.urlOrig;
         this._urlFix = builder.urlFix;
         this._urlSmall = builder.urlSmall;
+        this._favState = builder.favState;
     }
 
     get id() {
@@ -22,6 +23,10 @@ export default class Gifphy {
         return this._urlSmall;
     }
 
+    get favState() {
+        return this.favState;
+    }
+
     set id(id) {
         this._id = id;
     }
@@ -36,5 +41,9 @@ export default class Gifphy {
 
     set urlSmall(urlSmall) {
         this._urlSmall = urlSmall
+    }
+
+    set favState(favState) {
+        this.favState = favState
     }
 }
