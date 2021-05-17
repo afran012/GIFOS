@@ -29,7 +29,7 @@
   outline: none;
 }
 
-.main-search, .search-gif, .div-search, .trending, .trending-gifos, .div-trend-gif, .gifs-search-section, .f-gifos {
+.trending, .trending-gifos, .div-trend-gif, .main-search, .search-gif, .div-search, .gifs-search-section, .autocompleteContainer, .f-gifos {
   display: -ms-grid;
   display: grid;
   justify-items: center;
@@ -46,7 +46,7 @@
 ul.navbar_menu li a {
   font-family: "Montserrat-SemiBold";
   font-size: 15px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: center;
   line-height: 30px;
 }
@@ -54,28 +54,35 @@ ul.navbar_menu li a {
 .main-tittle {
   font-family: "Montserrat-Bold";
   font-size: 25px;
-  color: #572EE5;
+  color: #572ee5;
   text-align: center;
   line-height: 33px;
 }
 
-.div-search {
+.search {
   background: #ffffff;
-  border: 1px solid #572EE5;
+  border: 1px solid #572ee5;
   border-radius: 27px;
 }
 
 #search-gif {
   font-family: "Roboto-Regular";
   font-size: 16px;
-  color: #9CAFC3 100%;
+  color: #9cafc3 100%;
+  text-align: left;
+}
+
+.autocomplete {
+  font-family: "Roboto-Regular";
+  font-size: 16px;
+  color: #9cafc3;
   text-align: left;
 }
 
 .h2-trend {
   font-family: "Montserrat-Bold";
   font-size: 16px;
-  color: #572EE5;
+  color: #572ee5;
   text-align: center;
   line-height: 25px;
 }
@@ -83,7 +90,7 @@ ul.navbar_menu li a {
 .p-trend {
   font-family: "Montserrat-Medium";
   font-size: 14px;
-  color: #572EE5;
+  color: #572ee5;
   text-align: center;
   line-height: 25px;
 }
@@ -91,7 +98,7 @@ ul.navbar_menu li a {
 .h2-trend-gif {
   font-family: "Montserrat-Bold";
   font-size: 20px;
-  color: #572EE5;
+  color: #572ee5;
   text-align: center;
   line-height: 30px;
 }
@@ -121,7 +128,7 @@ ul.navbar_menu li a {
 }
 
 .initial-bg {
-  background: #572EE5 90%;
+  background: #572ee5 90%;
   width: 100%;
   height: 0.31rem;
 }
@@ -143,7 +150,7 @@ ul.navbar_menu li a {
   top: 0.0001%;
   height: 5.94rem;
   z-index: 1;
-  background: #FFFFFF 100%;
+  background: #ffffff 100%;
   opacity: 0.9;
 }
 
@@ -243,22 +250,7 @@ ul.navbar_menu li a {
 
 span.span-gifos::after {
   content: "GIFOS";
-  color: #50E3C2;
-}
-
-.main-search {
-  width: 100%;
-}
-
-.div-search {
-  -ms-grid-columns: 80% 20%;
-      grid-template-columns: 80% 20%;
-  width: 90%;
-  height: 3.13rem;
-}
-
-#search-gif {
-  width: 67%;
+  color: #50e3c2;
 }
 
 .img-main {
@@ -357,6 +349,24 @@ div.div-icons-gifo img {
       grid-template-rows: 100%;
 }
 
+.main-search {
+  width: 100%;
+}
+
+.search {
+  width: 90%;
+}
+
+.div-search {
+  -ms-grid-columns: 80% 20%;
+      grid-template-columns: 80% 20%;
+  height: 3.13rem;
+}
+
+#search-gif {
+  width: 67%;
+}
+
 .gifs-search-section {
   -ms-grid-columns: 30% 30% 30%;
       grid-template-columns: 30% 30% 30%;
@@ -370,6 +380,18 @@ div.div-icons-gifo img {
 .gifs-search-section-full {
   margin-bottom: 7%;
   margin-top: 7%;
+}
+
+.autocomplete {
+  height: 2.5rem;
+  width: 90%;
+}
+
+.separator {
+  height: 0.19rem;
+  width: 90%;
+  opacity: 0.5;
+  background-color: #9cafc3;
 }
 
 .h1-footer {

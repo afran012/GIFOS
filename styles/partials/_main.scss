@@ -10,28 +10,6 @@ span.span-gifos::after {
   color: $font-color3;
 }
 
-.main-search {
-  @extend %grid-center;
-  width: 100%;
-}
-
-.search-gif {
-  @extend %grid-center;
-}
-
-.div-search {
-  @extend %grid-center;
-  grid-template-columns: 80% 20%;
-  @extend %style-search-gif;
-  width: 90%;
-  height: 3.13rem;
-}
-
-#search-gif {
-  @extend %style-search-input;
-  width: 67%;
-}
-
 .img-main {
   width: 72.8%;
 }
@@ -55,12 +33,10 @@ span.span-gifos::after {
   margin-bottom: 7%;
 }
 
-p.p-trend span::first-letter{
+p.p-trend span::first-letter {
   text-transform: uppercase;
   min-width: 100%;
-  
-
-} 
+}
 
 .trending-gifos {
   @extend %grid-center;

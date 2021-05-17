@@ -1,14 +1,56 @@
-.gifs-search-section{
-    @extend %grid-center;
-    grid-template-columns: 30% 30% 30%;
-    grid-gap: 4%;
-    grid-template-rows: 20% 20% 20% 20%;
-    padding: 5%;
-    width: 100%;
+.main-search {
+  @extend %grid-center;
+  width: 100%;
 }
 
-.gifs-search-section-full{
-    margin-bottom: 7%;
-    margin-top: 7%;
-    @extend %border-test;
+.search-gif {
+  @extend %grid-center;
+}
+
+.search {
+  width: 90%;
+  @extend %style-search-gif;
+}
+
+.div-search {
+  @extend %grid-center;
+  grid-template-columns: 80% 20%;
+  height: 3.13rem;
+}
+
+#search-gif {
+  @extend %style-search-input;
+  width: 67%;
+}
+
+.gifs-search-section {
+  @extend %grid-center;
+  grid-template-columns: 30% 30% 30%;
+  grid-gap: 4%;
+  grid-template-rows: 20% 20% 20% 20%;
+  padding: 5%;
+  width: 100%;
+}
+
+.gifs-search-section-full {
+  margin-bottom: 7%;
+  margin-top: 7%;
+  @extend %border-test;
+}
+
+.autocompleteContainer {
+  @extend %grid-center;
+}
+
+.autocomplete {
+  @extend %style-search-autocomplete;
+  height: 2.5rem;
+  width: 90%;
+}
+
+.separator {
+  height: 0.19rem;
+  width: 90%;
+  opacity: 0.5;
+  background-color: #9cafc3;
 }
