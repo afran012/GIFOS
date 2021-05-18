@@ -1,4 +1,5 @@
 import {getGifTrend, gifAutocomplete} from './services/giftService.js'
+import {createContainerAutocomplete} from './domain/autocomplete.js'
 
 const searchBtn = document.getElementById('search-btn')
 const pInputSearch = document.getElementById('search-gif')
@@ -13,7 +14,7 @@ const offsetAutocomplete = 0
 
 pInputSearch.addEventListener('keypress', async (event) => {
     //event.preventDefault()
-    const autocomplete = await gifAutocomplete(pInputSearch.value, limitAutocomplete , offsetAutocomplete )
+    const autocomplete = await createContainerAutocomplete(pInputSearch.value, limitAutocomplete , offsetAutocomplete )
     console.log(autocomplete)
 })
 
