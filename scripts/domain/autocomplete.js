@@ -5,7 +5,8 @@ const createContainerAutocomplete = async (tag , limit , offset) =>{
     try{
         const autocompleteTags = await GifService.gifAutocomplete(tag,limit,offset)
 
-        if (autocompleteTags===0) {
+        if (autocompleteTags.length===0) {
+            return {}
             throw new Error("No se pudo obtener el tag")
         }
         console.log(autocompleteTags)

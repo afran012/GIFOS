@@ -7,6 +7,7 @@ let limitSearch = 12
 const offsetSearch = 12
 const limitAutocomplete = 4
 const offsetAutocomplete = 0
+let flagAuto = 0
 
 
 

@@ -9,30 +9,27 @@
     return autocompleteTemp
 }*/
 
-const searchDiv = document.getElementById(search)
+const searchDiv = document.getElementById("search")
+const searchIn = document.getElementById("search-gif")
+const searchAuto = document.getElementById("autoContain")
 
 const autocompleteTemplate = (tags) => {
-    let  autoContain= document.createElement("div")
+    searchDiv.parentNode.removeChild(searchAuto)
+    const  autoContain= document.createElement("div")
     autoContain.classList.add("autocompleteContainer")
-    searchDiv.appendChild(autoContain)
-    let  separator= document.createElement("div")
-    autoContain.classList.add("separator")
-    searchDiv.appendChild(separator) 
-
-    let index = 0
+    autoContain.setAttribute('id',"autoContain")
+    const  separator= document.createElement("div")
+    separator.classList.add("separator")
+    autoContain.appendChild(separator) 
 
     tags.forEach(tag => {
-        let  icons= document.createElement("div")
-        icons.classList.add("autocompleteContainer")
-
-        index += 1;
-        
-    });
-    let  icons= document.createElement("div")
-    icons.classList.add("div-icons-gifo")
-
-
-    
+        let  tagDiv = document.createElement("div")
+        tagDiv.classList.add("autocomplete")
+        autoContain.appendChild(tagDiv)
+        tagDiv.textContent = tag.name;
+        tagDiv.addEventListener('click', ()=>{searchIn.value = tag.name})
+    }); 
+    searchDiv.appendChild(autoContain)
 }
 
 export {autocompleteTemplate}
