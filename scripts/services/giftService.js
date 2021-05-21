@@ -17,14 +17,16 @@ async function getApiInfo(url){
 
 const getGifTrend = async () => {
     let response = getApiInfo(`${API_DETAILS.API_URL}/trending/searches?api_key=${API_DETAILS.API_KEY}`);
-    console.log(response)
+    //console.log(response)
     return response || {};
 }
 
 const gifAutocomplete = async (q, limit, offset) => {
-    let response = getApiInfo(`${API_DETAILS.API_URL}/search/tags?api_key=${API_DETAILS.API_KEY}&q=${q}&limit=${limit}&offset=${offset}`);
+    let response = getApiInfo(`${API_DETAILS.API_URL}/gifs/search/tags?api_key=${API_DETAILS.API_KEY}&q=${q}&limit=${limit}&offset=${offset}`);
     return response || {};
 }
+
+
 
 
 
