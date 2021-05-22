@@ -14,6 +14,7 @@ const offsetAutocomplete = 0
 let flagAuto = 0
 let currentSearch = 0
 const viewMoreBtn = document.getElementById('search-more')
+let inputSearchValue = ""
 
 
 
@@ -32,12 +33,13 @@ searchBtn.addEventListener('click', async (event) => {
     gifsSearchSectios.innerHTML = ""
     const  searchSection = await createSearchSection(pInputSearch.value, limitSearch , offsetSearch)
     console.log(searchSection)
+    return inputSearchValue = pInputSearch.value
 })
 
 
 viewMoreBtn.addEventListener('click', async (event) => {
     currentSearch += 12
-    const  searchSection = await createSearchSection(pInputSearch.value, limitSearch, currentSearch)
+    const  searchSection = await createSearchSection(inputSearchValue, limitSearch, currentSearch)
     console.log(searchSection)
 })
 
