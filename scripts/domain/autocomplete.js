@@ -3,11 +3,12 @@ import * as AutoTempleate from "../domain/autocompleteTemplate.js";
 
 const createContainerAutocomplete = async (tag , limit , offset) =>{
     try{
+        const searchAuto = document.getElementById("autoContain")
         const autocompleteTags = await GifService.gifAutocomplete(tag,limit,offset)
 
         if (autocompleteTags.length===0) {
-            return {}
-            throw new Error("No se pudo obtener el tag")
+            searchAuto.innerHTML = ""
+            return
         }
         console.log(autocompleteTags)
 
