@@ -11,10 +11,11 @@
 
 const searchDiv = document.getElementById("search")
 const searchIn = document.getElementById("search-gif")
-const searchAuto = document.getElementById("autoContain")
+
 
 const autocompleteTemplate = (tags) => {
-    //searchDiv.parentNode.removeChild(searchAuto)
+    const searchAuto = document.getElementById("autoContain")
+    searchAuto.innerHTML = ""
     const  autoContain= document.createElement("div")
     autoContain.classList.add("autocompleteContainer")
     autoContain.setAttribute('id',"autoContain")

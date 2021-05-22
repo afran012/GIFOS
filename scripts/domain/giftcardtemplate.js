@@ -1,4 +1,10 @@
-const gitcardTemplate = (gift) => {
+const createHtmElement = (tag , class) => {
+    let tagElement = document.create
+}
+
+
+const gitcardTemplate = ( url ) => {
+
     let card = document.createElement("div")
     card.classList.add("div-gifo")  
 
