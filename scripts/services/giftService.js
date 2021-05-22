@@ -26,8 +26,12 @@ const gifAutocomplete = async (q, limit, offset) => {
     return response || {};
 }
 
+const getGifSearch = async (q, limit, offset) => {
+    let response = getApiInfo(`${API_DETAILS.API_URL}/gifs/search?api_key=${API_DETAILS.API_KEY}&q=${q}&limit=${limit}&offset=${offset}`);
+    console.log(response)
+    return response || {};
+}
 
 
 
-
-export {getGifTrend, gifAutocomplete};
+export {getGifTrend, gifAutocomplete, getGifSearch} ;

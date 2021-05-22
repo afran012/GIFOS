@@ -1,6 +1,9 @@
-const createHtmElement = (tag , class) => {
-    let tagElement = document.create
-}
+/*const createHtmElement = ({tag , classElement}) => {
+    let tagElement = document.createElement(`${tag}`)
+    card.classList.add(`${classElement}`)
+    return tagElement
+
+}*/
 
 
 const gitcardTemplate = ( url ) => {
@@ -9,7 +12,7 @@ const gitcardTemplate = ( url ) => {
     card.classList.add("div-gifo")  
 
     let imgGif = document.createElement("img")
-    imgGif.src = urlGif;
+    imgGif.src = url;
     imgGif.setAttribute("alt", "gif-item");
     imgGif.classList.add("img-gif")
     
@@ -45,3 +48,5 @@ const gitcardTemplate = ( url ) => {
     return card
 
 }
+
+export {gitcardTemplate}

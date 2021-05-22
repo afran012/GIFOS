@@ -26,7 +26,7 @@ const autocompleteTemplate = (tags) => {
         tagDiv.textContent = tag.name;
         tagDiv.addEventListener('click', ()=>{searchIn.value = tag.name})
     }); 
-    searchDiv.appendChild(searchAuto)
+    return searchDiv.appendChild(searchAuto)
 }
 
 export {autocompleteTemplate}

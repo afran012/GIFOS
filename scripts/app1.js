@@ -1,16 +1,19 @@
 import {createContainerAutocomplete} from './domain/autocomplete.js'
 import {createTrendSection} from './domain/trend.js'
+import {createSearchSection} from './domain/giftcard.js'
 
 createTrendSection(4 , 0);
 
 
 const searchBtn = document.getElementById('search-btn')
 const pInputSearch = document.getElementById('search-gif')
-let limitSearch = 12
-const offsetSearch = 12
+const limitSearch = 12
+const offsetSearch = 0
 const limitAutocomplete = 4
 const offsetAutocomplete = 0
 let flagAuto = 0
+let currentSearch = 0
+const viewMoreBtn = document.getElementById('search-more')
 
 
 
@@ -21,5 +24,22 @@ pInputSearch.addEventListener('input', async (event) => {
     const autocomplete = await createContainerAutocomplete(pInputSearch.value, limitAutocomplete , offsetAutocomplete )
     console.log(autocomplete)
 })
+
+
+
+searchBtn.addEventListener('click', async (event) => {
+    const gifsSearchSectios= document.getElementById('gifs-search-container');
+    gifsSearchSectios.innerHTML = ""
+    const  searchSection = await createSearchSection(pInputSearch.value, limitSearch , offsetSearch)
+    console.log(searchSection)
+})
+
+
+viewMoreBtn.addEventListener('click', async (event) => {
+    currentSearch += 12
+    const  searchSection = await createSearchSection(pInputSearch.value, limitSearch, currentSearch)
+    console.log(searchSection)
+})
+
 
     
