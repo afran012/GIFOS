@@ -1,4 +1,4 @@
-import * as GifService from ".../services/gifService.js";
+import * as GifService from "../../services/giftService.js";
 import * as AutoTempleate from "../autocomplete/autocompleteTemplate.js";
 
 const createContainerAutocomplete = async (tag , limit , offset) =>{
