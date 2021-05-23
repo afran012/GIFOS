@@ -1,5 +1,5 @@
-import * as GifService from "../services/giftService.js";
-import * as TrendTempleate from "../domain/trendtemplate.js";
+import * as GifService from "../../services/giftService.js";
+import * as TrendTempleate from "../trend/trendtemplate.js";
 
 const createTrendSection = async (limit , offset) =>{
     try{

@@ -1,6 +1,6 @@
-import * as GifService from "../services/giftService.js";
+import * as GifService from "../../services/giftService.js";
 
-import * as gifTemplate from "../domain/giftcardtemplate.js";
+import * as gifTemplate from "../gifcard/gifcardtemplate.js";
 
 const createSearchSection = async (tag , limit , offset) => {
     const gifsSearchSectios= document.getElementById('gifs-search-container');

@@ -1,6 +1,6 @@
-import {createContainerAutocomplete} from './domain/autocomplete.js'
-import {createTrendSection} from './domain/trend.js'
-import {createSearchSection} from './domain/giftcard.js'
+import {createContainerAutocomplete} from './domain/autocomplete/autocomplete.js'
+import {createTrendSection} from './domain/trend/trend.js'
+import {createSearchSection} from './domain/gifcard/gifcard.js'
 
 createTrendSection(4 , 0);
 
