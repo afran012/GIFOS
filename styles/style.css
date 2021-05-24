@@ -370,7 +370,7 @@ div.div-icons-gifo img {
 .gifs-search-section {
   -ms-grid-columns: 30% 30% 30%;
       grid-template-columns: 30% 30% 30%;
-  grid-gap: 4%;
+  grid-gap: 3%;
   -ms-grid-rows: 20% 20% 20% 20%;
       grid-template-rows: 20% 20% 20% 20%;
   padding: 5%;
@@ -394,11 +394,97 @@ div.div-icons-gifo img {
   background-color: #9cafc3;
 }
 
+/*
 .search-more-btn {
   height: 1rem;
   width: 90%;
   opacity: 0.5;
   background-color: #9cafc3;
+}*/
+.full-size-gif {
+  display: none;
+  position: -webkit-sticky;
+  position: sticky;
+  -ms-grid-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+      grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+  -ms-grid-rows: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
+      grid-template-rows: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
+  width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+  top: 5%;
+}
+
+.user-title {
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-area: 5 / 3 / 6 / 4;
+}
+
+.gif-title {
+  -ms-grid-row: 6;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 3;
+  grid-area: 6 / 3 / 7 / 6;
+}
+
+.close-full-size-mode {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 7;
+  -ms-grid-column-span: 1;
+  grid-area: 1 / 7 / 2 / 8;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.gif-max {
+  height: 100%;
+  width: 100%;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 4;
+  grid-area: 2 / 3 / 5 / 7;
+}
+
+.before-full-size-mode {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-area: 3 / 2 / 4 / 3;
+}
+
+.next-full-size-mode {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 7;
+  -ms-grid-column-span: 1;
+  grid-area: 3 / 7 / 4 / 8;
+  justify-self: flex-end;
+}
+
+.favorite-full-size-mode {
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 1;
+  grid-area: 5 / 5 / 6 / 6;
+}
+
+.download-full-size-mode {
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 6;
+  -ms-grid-column-span: 1;
+  grid-area: 5 / 6 / 6 / 7;
 }
 
 .h1-footer {

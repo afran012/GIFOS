@@ -2,6 +2,9 @@ import * as GifService from "../../services/giftService.js";
 
 import * as gifTemplate from "../gifcard/gifcardtemplate.js";
 
+
+let gifLocalStorage = window.localStorage;
+
 const createSearchSection = async (tag , limit , offset) => {
     const gifsSearchSectios= document.getElementById('gifs-search-container');
     //gifsSearchSectios.innerHTML = ""
@@ -17,8 +20,13 @@ const createSearchSection = async (tag , limit , offset) => {
         const gifs = await GifService.getGifSearch(tag,limit,offset)
 
         gifs.forEach(gif => {
-            let gifUrl = gif.images.fixed_height_still.url;   
-            let cardGif = gifTemplate.gitcardTemplate(gifUrl)
+            let urlWrapper = {
+                gifId: gif.id,
+                urlGifSmall: gif.images.fixed_height_still.url,
+                urlGifOriginal: gif.images.original.url,
+            }
+            console.log(gif)
+            let cardGif = gifTemplate.gifcardTemplate(urlWrapper)
             gifsSearchDiv.appendChild(cardGif)
         })
         gifsSearchSectios.appendChild(gifsSearchDiv)
@@ -31,4 +39,4 @@ const createSearchSection = async (tag , limit , offset) => {
     }
 
 }
-export {createSearchSection}
+export {createSearchSection , gifLocalStorage}

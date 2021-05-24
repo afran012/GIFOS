@@ -4,15 +4,20 @@
     return tagElement
 
 }*/
+import {Favorite} from "../../models/favorites.js";
+import {gifLocalStorage} from "../gifcard/gifcard.js";
 
 
-const gitcardTemplate = ( url ) => {
+
+
+
+const gifcardTemplate = ( {urlGifSmall, urlGifOriginal, gifId}) => {
 
     let card = document.createElement("div")
     card.classList.add("div-gifo")  
 
     let imgGif = document.createElement("img")
-    imgGif.src = url;
+    imgGif.src = urlGifSmall;
     imgGif.setAttribute("alt", "gif-item");
     imgGif.classList.add("img-gif")
     
@@ -22,8 +27,19 @@ const gitcardTemplate = ( url ) => {
 
     let imgFav = document.createElement("img")
     imgFav.src = "./assets/images/icon-fav.svg";
-    imgFav.setAttribute("alt", "icon-fav");
     imgFav.classList.add("img-fav")
+    imgGif.setAttribute("gifId", gifId);
+    imgFav.addEventListener("click", (event) => {
+        console.log('gifLocalStorage', gifLocalStorage)
+        let gif = localStorage.getItem(gifId) 
+        if (!gif) {
+            let favoriteGif = new Favorite(gifId, urlGifOriginal, urlGifSmall)
+            gifLocalStorage.setItem(gifId, favoriteGif)
+        }
+        else {
+            gifLocalStorage.removeItem(gifId)
+        }
+    })
     
 
     let imgDown = document.createElement("img")
@@ -36,6 +52,7 @@ const gitcardTemplate = ( url ) => {
     imgFull.src = "./assets/images/icon-max-normal.svg"
     imgFull.setAttribute("alt", "icon-max-normal");
     imgFull.classList.add("icon-max-normal")
+    // element.classList.contains(className);
     
 
 
@@ -49,4 +66,4 @@ const gitcardTemplate = ( url ) => {
 
 }
 
-export {gitcardTemplate}
+export {gifcardTemplate}
