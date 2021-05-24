@@ -409,9 +409,9 @@ div.div-icons-gifo img {
       grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
   -ms-grid-rows: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
       grid-template-rows: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
-  width: 100%;
   min-height: 100vh;
   height: 100vh;
+  width: 100vw;
   top: 5%;
 }
 
