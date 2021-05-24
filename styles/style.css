@@ -43,7 +43,7 @@
   border-radius: 10px;
 }
 
-ul.navbar_menu li a {
+ul.navbar_menu li a, ul.navbar_menu li div {
   font-family: "Montserrat-SemiBold";
   font-size: 15px;
   color: #ffffff;
@@ -173,8 +173,12 @@ ul.navbar_menu li a {
   text-decoration: none;
 }
 
+ul.navbar_menu li div {
+  text-decoration: none;
+}
+
 .navbar_menu {
-  background: #572EE5 90%;
+  background: #572ee5 90%;
   display: none;
   -ms-grid-rows: 3rem 0.5rem 3rem 0.5rem 3rem 0.5rem 5rem 0.5rem;
       grid-template-rows: 3rem 0.5rem 3rem 0.5rem 3rem 0.5rem 5rem 0.5rem;
@@ -230,7 +234,10 @@ ul.navbar_menu li a {
   grid-area: 11/1/12/2;
 }
 
-.nav-div1, .nav-div2, .nav-div3, .nav-div4 {
+.nav-div1,
+.nav-div2,
+.nav-div3,
+.nav-div4 {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -239,7 +246,7 @@ ul.navbar_menu li a {
   opacity: 0.5;
   width: 2.56rem;
   height: 0.01rem;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 .main-tittle {
