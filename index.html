@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./styles/style.css">
 
 </head>
-<body>
+<body class="body">
     <div class="initial-bg"></div>
     <header class="header">
         <input type="checkbox" id="btn-nav" class="checkbox">
@@ -28,25 +28,26 @@
         <nav>
             <ul class="navbar_menu">
                 <li>
-                    <a href="#" class="nav-noct">MODO NOCTURNO</a>
+                    <!-- <a href="#" class="nav-noct">MODO NOCTURNO</a> -->
+                    <div class="nav-noct">MODO NOCTURNO</div>
                 </li>
                 <li>
                     <div class="nav-div1"></div>
                 </li>                
                 <li class="nav-fav">
-                    <a href="#">FAVORITO</a>
+                    <a href="./pages/favorites.html">FAVORITO</a>
                 </li>
                 <li>
                     <div class="nav-div2"></div>
                 </li>                
                 <li>
-                    <a href="#" class="nav-gif">GIFOS</a>
+                    <a href="./pages/myGifs.html" class="nav-gif">GIFOS</a>
                 </li>
                 <li>
                     <div class="nav-div3"></div>
                 </li>                
                 <li>
-                    <a href="#" class="nav-crea"><img src="./assets/images/button-crear-gifo.svg" alt="create_gifo"></a>
+                    <a href="./pages/createGif.html" class="nav-crea"><img src="./assets/images/button-crear-gifo.svg" alt="create_gifo"></a>
                 </li>
                 <li>
                     <div class="nav-div4"></div>
@@ -55,6 +56,17 @@
         </nav>   
     </header>
     <main>
+        <section class="full-size-gif">
+            <h1 class="user-title" id="user-title">User</h1>
+            <h2 class="gif-title" id="gif-title">Titulo GIFO</h2>
+
+            <img src="https://media0.giphy.com/media/26uf6wq5ojFsuigSs/200.gif?cid=85081a00h6sgo1v5lm3wzg6m5wf9aypm4ilshv1xr09sb71q&rid=200.gif&ct=g" alt="gif max" class="gif-max" id="gif-max">
+            <img src="./assets/images/close.svg" alt="close full size mode" class="close-full-size-mode" id="close-full-size-mode">
+            <img src="./assets/images/button-slider-left.svg" alt="before full size mode" class="before-full-size-mode" id="before-full-size-mode">
+            <img src="./assets/images/Button-Slider-right.svg" alt="next full size mode" class="next-full-size-mode" id="next-full-size-mode">
+            <img src="./assets/images/icon-fav-active.svg" alt="favorite full size mode" class="favorite-full-size-mode" id="favorite-full-size-mode">
+            <img src="./assets/images/icon-download.svg" alt="download full size mode" class="download-full-size-mode" id="download-full-size-mode">
+        </section>
         <section class="main-search">
             <h2 class="main-tittle">
                 Inspírate, busca, guarda, y crea los mejores <span class="span-gifos"> </span>
@@ -68,34 +80,16 @@
                         <input type="text" placeholder="Busca GIFOS y más" name="input-gif" id="search-gif">
                         <img src="./assets/images/icon-search.svg" alt="img-search" class="img-search" id="search-btn">
                     </div>
-                   
-
-                    
-                     <!--
-                    <div class="autocompleteContainer" >
-                        <div class="separator"></div>
-                        <div class="autocomplete 0">
-                            <img src="./assets/images/icon-search-mod-noc.svg" alt="magnifying glass">
-                            Resultado 0
-                        </div>
-                        <div class="autocomplete 1">
-                            <img src="./assets/images/icon-search-mod-noc.svg" alt="magnifying glass">
-                            Resultado 1</div>
-                        <div class="autocomplete 2">
-                            <img src="./assets/images/icon-search-mod-noc.svg" alt="magnifying glass">
-                            Resultado 3
-                        </div>
-                        <div class="autocomplete 3">
-                            <img src="./assets/images/icon-search-mod-noc.svg" alt="magnifying glass">
-                            Resultado 4
-                        </div>
-                    </div>
-                    -->
-                    
+                    <div class="autocompleteContainer" id="autoContain" ></div>
                 </section>
                 
             </form>
-            <section class="gifs-search-section-full" id="gifs-search-section"></section>
+            <section class="gifs-search-section-full" id="gifs-search-section">
+                <div id="gifs-search-container"></div>
+                <button id="search-more" class="search-more-btn">
+                    Buscar más
+                </button>
+            </section>
         </section>
         <section class="trending">
             <h2 class="h2-trend">Trending:</h2>
@@ -129,6 +123,7 @@
 
     </footer>
     <script src="./scripts/app1.js" type="module"></script>
+    
     
 </body>
 </html>

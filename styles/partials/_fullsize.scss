@@ -1,0 +1,50 @@
+.full-size-gif {
+  //display: grid;
+  display: none;
+  position: sticky;
+  grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+  grid-template-rows: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
+
+  //width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  top: 5%;
+}
+
+.user-title {
+  grid-area: 5 / 3 / 6 / 4;
+}
+
+.gif-title {
+  grid-area: 6 / 3 / 7 / 6;
+}
+
+.close-full-size-mode {
+  grid-area: 1 / 7 / 2 / 8;
+  align-self: center;
+  justify-self: center;
+}
+
+.gif-max {
+  height: 100%;
+  width: 100%;
+  grid-area: 2 / 3 / 5 / 7;
+}
+
+.before-full-size-mode {
+  grid-area: 3 / 2 / 4 / 3;
+}
+
+.next-full-size-mode {
+  grid-area: 3 / 7 / 4 / 8;
+  justify-self: flex-end;
+}
+
+.favorite-full-size-mode {
+  grid-area: 5 / 5 / 6 / 6;
+}
+
+.download-full-size-mode {
+  grid-area: 5 / 6 / 6 / 7;
+}
