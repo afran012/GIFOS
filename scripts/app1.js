@@ -2,6 +2,12 @@ import {createContainerAutocomplete} from './domain/autocomplete/autocomplete.js
 import {createTrendSection} from './domain/trend/trend.js'
 import {createSearchSection} from './domain/gifcard/gifcard.js'
 
+/*////// create video const TODO*/
+
+const btnCreateVideo = document.getElementById('btn-create-begin')
+
+///////
+
 createTrendSection(4 , 0);
 
 

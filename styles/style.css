@@ -769,6 +769,22 @@ section.icons-shared img {
   border-bottom: 1px solid #50e3c2;
 }
 
+.create-video {
+  height: 100%;
+  width: 100%;
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+
+.buttons-create-video {
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: 4 / 1 / 5 / 4;
+  border: 1px solid #50e3c2;
+}
+
 /*
 @import "./Partials/body";
 @import "./Partials/header";
