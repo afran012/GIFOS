@@ -7,6 +7,14 @@ let NOCTURNE_MODE = {
     NOCTURNE:false
 }
 
+let CREATE_GIF = {
+    api_key:'' ,
+    username:'' ,
+    file:'' ,
+    fileName:'' ,
+    tags:''
+}
 
 
-export {API_DETAILS,NOCTURNE_MODE}
+
+export {API_DETAILS , NOCTURNE_MODE , CREATE_GIF}

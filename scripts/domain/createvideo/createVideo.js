@@ -1,21 +1,22 @@
+import { createGif } from '../../services/giftService.js'
+import { API_DETAILS } from '../../configs/config.js'
+
+const api_key = api_key
+const username = username 
+const file = file 
+const fileName = fileName
+const tags = tags
+
+
+
+
 const btnVideo = document.getElementById ("btn-create-begin");
 
 let video = document.querySelector('video');
 let constraints = window.constraints = {
   audio: false,
-  video: true
+  video: { width: 360 , height: 200 }
 };
-
-
-//var errorElement = document.querySelector('#errorMsg');
-
-//const mediaStream = { audio: false, video: { width: 1280, height: 720 } };
-
-//let constraints = { audio: false, video: true };
-
-
-
-
 
 const openVideo = async () =>{
 
@@ -49,60 +50,43 @@ const recordVideo = async () =>{
            },
           });
         recorder.startRecording();
-        
+
       };
-    }).catch(function(err) { console.log(err.name); }); // always check for errors at the end. 
+    })
+    .catch(function(err) { console.log(err.name); }); // always check for errors at the end. 
+}
+const pauseVideo = async () =>{
+
+  await navigator.mediaDevices.getUserMedia(constraints)
+  .then(function(mediaStream) {
+    video.srcObject = mediaStream;
+    video.onloadedmetadata = function(e) {
+    // Do something with the video here.
+    video.pause()
+    btnVideo.textContent = "Detener"
+  };
+}).catch(function(err) { console.log(err.name); }); // always check for errors at the end.
 }
 
-const startVideo = async () =>{
-    
-}
 
 const stopVideo = async () =>{
-    
-}
 
-export {openVideo , recordVideo}
-
-
-/*
-//'use strict';
-
-// Put variables in global scope to make them available to the browser console.
-var video = document.querySelector('video');
-var constraints = window.constraints = {
-  audio: false,
-  video: true
-};
-var errorElement = document.querySelector('#errorMsg');
-
-navigator.mediaDevices.getUserMedia(constraints)
-.then(function(stream) {
-  var videoTracks = stream.getVideoTracks();
-  console.log('Got stream with constraints:', constraints);
-  console.log('Using video device: ' + videoTracks[0].label);
-  stream.onended = function() {
-    console.log('Stream ended');
+  await navigator.mediaDevices.getUserMedia(constraints)
+  .then(function(mediaStream) {
+    video.srcObject = mediaStream;
+    video.onloadedmetadata = function(e) {
+      recorder.stopRecording();
   };
-  window.stream = stream; // make variable available to browser console
-  video.srcObject = stream;
-})
-.catch(function(error) {
-  if (error.name === 'ConstraintNotSatisfiedError') {
-    errorMsg('The resolution ' + constraints.video.width.exact + 'x' +
-        constraints.video.width.exact + ' px is not supported by your device.');
-  } else if (error.name === 'PermissionDeniedError') {
-    errorMsg('Permissions have not been granted to use your camera and ' +
-      'microphone, you need to allow the page access to your devices in ' +
-      'order for the demo to work.');
-  }
-  errorMsg('getUserMedia error: ' + error.name, error);
-});
-
-function errorMsg(msg, error) {
-  errorElement.innerHTML += '<p>' + msg + '</p>';
-  if (typeof error !== 'undefined') {
-    console.error(error);
-  }
+}).catch(function(err) { console.log(err.name); }); // always check for errors at the end.
 }
-*/
+
+
+const uploadGif = async () => {
+  let file = await recorder.getBlob();
+  var formData = new FormData(api_key , username , file , fileName, tags);
+  await createGif(formData);  
+  console.log(file)
+
+}
+
+export {openVideo , recordVideo , stopVideo , uploadGif, pauseVideo}

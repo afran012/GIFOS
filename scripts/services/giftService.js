@@ -8,9 +8,9 @@ const checkStatusAndParse = async (res) => {
 }
 
 // funcion fetch asincrona
-async function getApiInfo(url){
-    const response = await fetch(url)
-    const data = await checkStatusAndParse(response);
+async function getApiInfo ( url ) {
+    const response = await fetch( url )
+    const data = await checkStatusAndParse( response );
     return data.data ;
 }
   
@@ -21,17 +21,36 @@ const getGifTrend = async () => {
     return response || {};
 }
 
-const gifAutocomplete = async (q, limit, offset) => {
+const gifAutocomplete = async (q , limit , offset) => {
     let response = getApiInfo(`${API_DETAILS.API_URL}/gifs/search/tags?api_key=${API_DETAILS.API_KEY}&q=${q}&limit=${limit}&offset=${offset}`);
     return response || {};
 }
 
-const getGifSearch = async (q, limit, offset) => {
+const getGifSearch = async (q , limit , offset) => {
     let response = getApiInfo(`${API_DETAILS.API_URL}/gifs/search?api_key=${API_DETAILS.API_KEY}&q=${q}&limit=${limit}&offset=${offset}`);
     console.log(response)
     return response || {};
 }
 
 
+const createGif = async (formData) => {
+    /*var formData = new FormData();
+    formData.append('api_key' , api_key);
+    formData.append('username' , username);
+    formData.append('file' , file , `${fileName}`);
+    formData.append('tags' , `${tags}`);*/
+    try {
+        await fetch(`https://upload.giphy.com/v1/gifs` , {
+            method: 'PUT' ,
+            body: formData
+    })
+    .then(response => response.json())
+    .then(response => console.log('Success:' , response));
+    }
+    catch (error){
+        console.error(error);
+    }
+    return response || {};
+}
 
-export {getGifTrend, gifAutocomplete, getGifSearch} ;
+export {getGifTrend , gifAutocomplete , getGifSearch , createGif} ;
