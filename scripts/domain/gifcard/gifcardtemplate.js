@@ -54,7 +54,7 @@ const gifcardTemplate = ( {urlGifSmall, urlGifOriginal, gifId, gifName}) => {
         a.download = gifName
         a.href = window.URL.createObjectURL(file);
         a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
-        // simalating link click
+        // simulating link click
         a.click();
         
     })
@@ -64,6 +64,11 @@ const gifcardTemplate = ( {urlGifSmall, urlGifOriginal, gifId, gifName}) => {
     imgFull.src = "./assets/images/icon-max-normal.svg"
     imgFull.setAttribute("alt", "icon-max-normal");
     imgFull.classList.add("icon-max-normal")
+    imgFull.addEventListener("click", async (event) => {
+        console.log('click')
+        // aca pones la logica de hacer grande
+
+    })
     // element.classList.contains(className);
     
 
