@@ -4,6 +4,7 @@ import * as gifTemplate from "../gifcard/gifcardtemplate.js";
 
 
 let gifLocalStorage = window.localStorage;
+gifLocalStorage.clear() 
 
 const createSearchSection = async (tag , limit , offset) => {
     const gifsSearchSectios= document.getElementById('gifs-search-container');
@@ -24,6 +25,7 @@ const createSearchSection = async (tag , limit , offset) => {
                 gifId: gif.id,
                 urlGifSmall: gif.images.fixed_height_still.url,
                 urlGifOriginal: gif.images.original.url,
+                gifName: gif.slug,
             }
             console.log(gif)
             let cardGif = gifTemplate.gifcardTemplate(urlWrapper)

@@ -11,7 +11,7 @@ import {gifLocalStorage} from "../gifcard/gifcard.js";
 
 
 
-const gifcardTemplate = ( {urlGifSmall, urlGifOriginal, gifId}) => {
+const gifcardTemplate = ( {urlGifSmall, urlGifOriginal, gifId, gifName}) => {
 
     let card = document.createElement("div")
     card.classList.add("div-gifo")  
@@ -30,7 +30,6 @@ const gifcardTemplate = ( {urlGifSmall, urlGifOriginal, gifId}) => {
     imgFav.classList.add("img-fav")
     imgGif.setAttribute("gifId", gifId);
     imgFav.addEventListener("click", (event) => {
-        console.log('gifLocalStorage', gifLocalStorage)
         let gif = localStorage.getItem(gifId) 
         if (!gif) {
             let favoriteGif = new Favorite(gifId, urlGifOriginal, urlGifSmall)
@@ -39,13 +38,26 @@ const gifcardTemplate = ( {urlGifSmall, urlGifOriginal, gifId}) => {
         else {
             gifLocalStorage.removeItem(gifId)
         }
+        console.log('gifLocalStorage', gifLocalStorage)
     })
     
 
     let imgDown = document.createElement("img")
     imgDown.src = "./assets/images/icon-download.svg";
     imgDown.setAttribute("alt", "icon-download");
-    imgDown.classList.add("icon-download")
+    imgDown.classList.add("icon-download");
+    imgDown.addEventListener("click", async (event) => {
+        let a = document.createElement('a');
+        let response = await fetch(urlGifOriginal)
+        console.log('response', response)
+        let file = await response.blob();
+        a.download = gifName
+        a.href = window.URL.createObjectURL(file);
+        a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
+        // simalating link click
+        a.click();
+        
+    })
     
 
     let imgFull = document.createElement("img")
