@@ -1,9 +1,8 @@
 class FormData {
-    constructor(api_key , username , file , fileName, tags) {
+    constructor(api_key , username , file , tags) {
         this._api_key = api_key;
         this._username = username;
         this._file = file;
-        this._fileName = fileName
         this._tags = tags
     }
 
@@ -19,9 +18,6 @@ class FormData {
         return this._file
     }
 
-    get fileName(){
-        return this._fileName
-    }
 
     get tags(){
         return this._tags
