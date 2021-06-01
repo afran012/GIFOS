@@ -1,25 +1,29 @@
  import {openVideo , recordVideo , stopVideo , uploadGif} from './domain/createvideo/createVideo.js';
  
  const btnVideo = document.getElementById ("btn-create-begin");
- let flagVideo = 0;
+ let action = "openVideo";
 
  btnVideo.addEventListener("click" , async (event) => {
-     if ( flagVideo == 0) {
+     if ( action === "openVideo") {
         await openVideo();
-        return (flagVideo = 1)
+        action = "recordVideo"
      }
 
-     if ( flagVideo == 1) {
+     else if ( action === "recordVideo") {
         await recordVideo();
-        return (flagVideo = 2)
+        action = "stopVideo"
      }
 
 
-     if ( flagVideo == 2) {
+     else if ( action === "stopVideo") {
         await stopVideo();
-        await uploadGif();
-        return (flagVideo = 0)
+        action = "uploadVideo"
      }
+
+     else if ( action === "uploadVideo") {
+      await uploadGif();
+      action = "openVideo"
+   }
 
     
 

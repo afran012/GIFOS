@@ -1,6 +1,6 @@
 import { createGif } from '../../services/giftService.js'
 import { API_DETAILS , CREATE_GIF } from '../../configs/config.js'
-import { FormData } from '../../models/createGif.js'
+//import { FormData } from '../../models/createGif.js'
 
 
 const api_key = CREATE_GIF.api_key
@@ -42,7 +42,7 @@ const openVideo =  async function getMedia() {
     video.onloadedmetadata = function(e) {
     // Do something with the video here.
     video.play()
-    btnVideo.textContent = "Grabar"
+    btnVideo.textContent = "Detener"
   };
 
   } catch(err) {
@@ -62,23 +62,25 @@ const recordVideo = async () =>{
         video.srcObject = mediaStream;
         video.onloadedmetadata = function(e) {
         // Do something with the video here.
-        video.play()
-      };
-      recorder = RecordRTC(mediaStream, {
-        type: 'gif',
-        frameRate: 1,
-        quality: 10,
-        width: 360,
-        hidden: 240,
-        onGifRecordingStarted: function() {
-         console.log('started')
-       }
-      });
-    recorder.startRecording();
+          video.play()
+        };
+        recorder = RecordRTC(mediaStream, {
+          type: 'gif',
+          frameRate: 1,
+          quality: 10,
+          width: 360,
+          hidden: 240,
+          onGifRecordingStarted: function() {
+            console.log('started')
+          }
+        });
+        recorder.startRecording();
     })
     //.catch(function(err) { console.log(err.name); }); // always check for errors at the end. 
     .catch(function(err) { console.log(err); });
 }
+
+
 const pauseVideo = async () =>{
 
   await navigator.mediaDevices.getUserMedia(constraints)
@@ -101,10 +103,10 @@ const stopVideo = async () =>{
     video.srcObject = mediaStream;
     video.onloadedmetadata = function(e) {
       console.log('stop recording')
-      btnVideo.textContent = "Empezar"
+      btnVideo.textContent = "Grabar"
       recorder.stopRecording();
       console.log('recorder', recorder)
-      video.pause()
+      //video.pause()
   };
   
   //console.log(recorder)
@@ -114,12 +116,26 @@ const stopVideo = async () =>{
 
 const uploadGif = async () => {
   try {
-    let file = await recorder.getBlob();
-    //let file = fileBlob.push('Gif');
-    console.log(file)    
-    var formData = new FormData(api_key , username , (file , 'Gif') , tags);
-    console.log('Form dadata::' , formData)
-    await createGif(formData);    
+    //console.log('recorder2', recorder)
+    //console.log("recordFile Type" , typeof(recorder))
+    //let recorderBlob = recorder.blob
+    //console.log("recordFile.blob" , typeof(recorderBlob))
+    //console.log("recordFile.blob Type" , typeof(recorderBlob))
+
+    let recordFile = recorder.getBlob();
+    //let file = (recordFile , "Gif")
+    //console.log("recordFile:" , recordFile)
+    //console.log("recordFile type" , typeof(recordFile))
+    //console.log("recordFile Type" , typeof(recordFile))  
+    //let form = new FormData(api_key , username , file  , tags);
+
+    var form = new FormData();
+
+    form.append('api_key', api_key);
+    form.append('username', username);
+    form.append('file', recordFile, 'myGif.gif');
+    form.append('tags', tags);
+    await createGif(form);    
   }
   catch (error){
     console.error(error);

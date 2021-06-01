@@ -40,8 +40,10 @@ const createGif = async (formData) => {
     formData.append('file' , file , `${fileName}`);
     formData.append('tags' , `${tags}`);*/
     try {
-        await fetch(`https://upload.giphy.com/v1/gifs` , {
-            method: 'PUT' ,
+        console.log("formData creategif",formData.get("api_key"))
+        console.log("formData creategif",formData.get("file"))
+        await fetch(`https://upload.giphy.com/v1/gifs`, {
+            method: 'POST' ,
             body: formData
     })
     .then(response => response.json())
@@ -50,7 +52,7 @@ const createGif = async (formData) => {
     catch (error){
         console.error(error);
     }
-    return response || {};
+    //return response || {};
 }
 
 export {getGifTrend , gifAutocomplete , getGifSearch , createGif} ;

@@ -8,7 +8,7 @@ let NOCTURNE_MODE = {
 }
 
 let CREATE_GIF = {
-    api_key:'https://api.giphy.com/v1' ,
+    api_key:'VGMet3jkVt6odgACtHxZOolIHWxqwLZs' ,
     username:'afran012' ,
     tags:'Acamica'
 }
