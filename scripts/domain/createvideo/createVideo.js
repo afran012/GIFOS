@@ -16,7 +16,7 @@ const btnVideo = document.getElementById ("btn-create-begin");
 let video = document.querySelector('video');
 let constraints = window.constraints = {
   audio: false,
-  video: true//video: { width: 360 , height: 200 }
+  video: { width: 360 , height: 200 }
 };
 /*
 const openVideo = async () =>{
