@@ -51,7 +51,8 @@
   align-self: center;
   justify-self: center;
   //grid-area: 2 / 2 / 3 / 3;
-  //width: auto;
+  max-width: 100%;
+  max-height: auto;
   //height: 90% auto;
   transform: rotate(-180deg);
   border: 1px solid #572ee5;

@@ -716,6 +716,8 @@ section.icons-shared img {
       align-self: center;
   -ms-grid-column-align: center;
       justify-self: center;
+  max-width: 100%;
+  max-height: auto;
   -webkit-transform: rotate(-180deg);
           transform: rotate(-180deg);
   border: 1px solid #572ee5;
