@@ -1,6 +1,12 @@
 import { createGif } from '../../services/giftService.js'
 import { API_DETAILS , CREATE_GIF } from '../../configs/config.js'
+import {action} from '../../appVideo.js'
 //import { FormData } from '../../models/createGif.js'
+
+const step1 = document.getElementById ("button-step1")
+const step2 = document.getElementById ("button-step2")
+const step3 = document.getElementById ("button-step3")
+const btnVideo = document.getElementById ("btn-create-begin");
 
 
 const api_key = CREATE_GIF.api_key
@@ -11,7 +17,6 @@ let recorder
 
 
 
-const btnVideo = document.getElementById ("btn-create-begin");
 
 let video = document.querySelector('video');
 let constraints = window.constraints = {
@@ -36,17 +41,20 @@ const openVideo = async () =>{
 const openVideo =  async function getMedia() {
   let stream = null;
   try {
+    step1.classList.remove("btnstep");
+    step1.classList.add("btnstepActive");
     stream = await navigator.mediaDevices.getUserMedia(constraints);
     /* use the stream */
     video.srcObject = stream;
     video.onloadedmetadata = function(e) {
-    // Do something with the video here.
-    video.play()
-    btnVideo.textContent = "Detener"
+      // Do something with the video here.
+      video.play()
+      btnVideo.textContent = "Grabar"
   };
 
   } catch(err) {
     /* handle the error */
+    action = "openVideo";
     console.log(err)
   }
 }
@@ -57,6 +65,10 @@ const openVideo =  async function getMedia() {
 
 
 const recordVideo = async () =>{
+  step2.classList.remove("btnstep");
+  step2.classList.add("btnstepActive");
+  step1.classList.remove("btnstepActive");
+  step1.classList.add("btnstep");
     await navigator.mediaDevices.getUserMedia(constraints)
     .then(function(mediaStream) {
         video.srcObject = mediaStream;
@@ -77,7 +89,9 @@ const recordVideo = async () =>{
         recorder.startRecording();
     })
     //.catch(function(err) { console.log(err.name); }); // always check for errors at the end. 
-    .catch(function(err) { console.log(err); });
+    .catch(function(err) { 
+      action = "recordVideo"
+      console.log(err); });
 }
 
 
@@ -97,6 +111,11 @@ const pauseVideo = async () =>{
 
 
 const stopVideo = async () =>{
+  
+  step3.classList.remove("btnstep");
+  step3.classList.add("btnstepActive");
+  step2.classList.remove("btnstepActive");
+  step2.classList.add("btnstep");
 
   await navigator.mediaDevices.getUserMedia(constraints)
   .then(function(mediaStream) {

@@ -133,17 +133,41 @@
 
 .button-step {
   //grid-area: 1/2/2/3;
+  display: grid;
+  justify-items: center;
+  align-items: center;
   width: 1.5rem;
   height: 1.5rem;
-  background-color: #572ee5;
+  
   border: 1px solid #572ee5;
   border-radius: 50%;
 
   font-family: "Roboto-Regular";
   font-size: 16px;
-  color: #FFFFFF;
-  text-align: center;
+  
+  //text-align: center;
+  //color: #FFFFFF;
+  background-color: #572ee5;
 }
+
+.btnstep {
+  color: #FFFFFF;
+  background-color: #572ee5;
+}
+
+.btnstepActive {
+  color: #572eeF;
+  background-color: #FFFFFF;
+}
+
+
+
+
+
+
+
+
+
 
 .separator-create-gif {
   width: 98%;
@@ -179,4 +203,20 @@
 .btn-create-begin:hover {
   background-color: #572EE5;
   color: #ffffff;
+}
+
+.btn-create-begin {
+  display: grid;
+  border: 1px solid #572EE5;
+  border-radius: 25px;
+  width: 7.94rem;
+  height: 3.13rem;
+  font-family: "Montserrat-Bold";
+  font-size: 15px;
+  color: #572EE5;
+  letter-spacing: 0;
+  text-align: center;
+  //text-justify: center;
+  justify-items: center;
+  align-items: center;
 }

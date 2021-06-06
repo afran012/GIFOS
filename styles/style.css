@@ -841,15 +841,29 @@ section.icons-shared img {
 }
 
 .button-step {
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 1.5rem;
   height: 1.5rem;
-  background-color: #572ee5;
   border: 1px solid #572ee5;
   border-radius: 50%;
   font-family: "Roboto-Regular";
   font-size: 16px;
+  background-color: #572ee5;
+}
+
+.btnstep {
   color: #FFFFFF;
-  text-align: center;
+  background-color: #572ee5;
+}
+
+.btnstepActive {
+  color: #572eeF;
+  background-color: #FFFFFF;
 }
 
 .separator-create-gif {
@@ -893,6 +907,24 @@ section.icons-shared img {
 .btn-create-begin:hover {
   background-color: #572EE5;
   color: #ffffff;
+}
+
+.btn-create-begin {
+  display: -ms-grid;
+  display: grid;
+  border: 1px solid #572EE5;
+  border-radius: 25px;
+  width: 7.94rem;
+  height: 3.13rem;
+  font-family: "Montserrat-Bold";
+  font-size: 15px;
+  color: #572EE5;
+  letter-spacing: 0;
+  text-align: center;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 /*

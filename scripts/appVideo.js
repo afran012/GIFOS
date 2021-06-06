@@ -1,17 +1,28 @@
- import {openVideo , recordVideo , stopVideo , uploadGif} from './domain/createvideo/createVideo.js';
+import {openVideo , recordVideo , stopVideo , uploadGif} from './domain/createvideo/createVideo.js';
  
- const btnVideo = document.getElementById ("btn-create-begin");
- let action = "openVideo";
+const btnVideo = document.getElementById ("btn-create-begin");
+let action = "openVideo";
+
+
+//const btnVideo = document.getElementById ("btn-create-begin");
+const step1 = document.getElementById ("button-step1")
+const step2 = document.getElementById ("button-step2")
+const step3 = document.getElementById ("button-step3")
+
+
 
  btnVideo.addEventListener("click" , async (event) => {
+    console.log(action)
      if ( action === "openVideo") {
         await openVideo();
         action = "recordVideo"
      }
 
      else if ( action === "recordVideo") {
-        await recordVideo();
-        action = "stopVideo"
+         await recordVideo();
+         action = "stopVideo"
+        
+        
      }
 
 
@@ -28,3 +39,5 @@
     
 
 })
+
+export {action}
