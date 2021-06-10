@@ -55,7 +55,7 @@
   //min-height: 32.5rem;
   height: 85%;
   width: 85%;
-  transform: rotate(-180deg);
+  //transform: rotate(-180deg);
   border: 1px solid #572ee5;
 }
 .video-border {
@@ -97,7 +97,7 @@
   grid-area: 2 / 2 / 3 / 3;
   height: 100%;
   width: 100%;
-  transform: rotateX(180deg);
+  //transform: rotateX(180deg);
 }
 
 .buttons-create-video {
@@ -219,4 +219,41 @@
   //text-justify: center;
   justify-items: center;
   align-items: center;
+}
+
+.message-step {
+  display: grid;
+  align-self: center;
+  justify-self: center;
+  grid-area: 2 / 2 / 3 / 3;
+  justify-items: center;
+  align-items: center;
+  //width: 30%;
+}
+
+.message-1 , .message-2 {
+  font-family: "Montserrat-Bold";
+  font-size: 25px;
+  color: #572EE5;
+  text-align: center;
+  line-height: 35px;
+  //width: 100%;
+}
+
+
+.message-3 {
+  font-family: "Montserrat-Bold";
+  font-size: 25px;
+  color: #50E3C2;
+  text-align: center;
+  line-height: 35px;
+  //width: 100%;
+}
+
+.message-4 , .message-5 {
+  font-family: "Roboto-Regular";
+  font-size: 16px;
+  color: #000000;
+  text-align: center;
+  line-height: 29px;
 }
