@@ -7,6 +7,8 @@ const step1 = document.getElementById ("button-step1")
 const step2 = document.getElementById ("button-step2")
 const step3 = document.getElementById ("button-step3")
 const btnVideo = document.getElementById ("btn-create-begin");
+const msgStep1 = document.getElementById ("msg-step-1");
+const msgStep2 = document.getElementById ("msg-step-2");
 
 
 const api_key = CREATE_GIF.api_key
@@ -41,6 +43,11 @@ const openVideo = async () =>{
 const openVideo =  async function getMedia() {
   let stream = null;
   try {
+    btnVideo.style.display="none";
+    msgStep1.classList.remove("msg-active");
+    msgStep1.classList.add("msg-inactive");
+    msgStep2.classList.remove("msg-inactive");
+    msgStep2.classList.add("msg-active");
     step1.classList.remove("btnstep");
     step1.classList.add("btnstepActive");
     stream = await navigator.mediaDevices.getUserMedia(constraints);
@@ -50,9 +57,16 @@ const openVideo =  async function getMedia() {
       // Do something with the video here.
       video.play()
       btnVideo.textContent = "Grabar"
-  };
-
-  } catch(err) {
+    }
+    msgStep2.classList.remove("msg-active");
+    msgStep2.classList.add("msg-inactive");
+    btnVideo.style.display="grid";
+    step2.classList.remove("btnstep");
+    step2.classList.add("btnstepActive");
+    step1.classList.remove("btnstepActive");
+    step1.classList.add("btnstep");
+  } 
+  catch(err) {
     /* handle the error */
     action = "openVideo";
     console.log(err)
@@ -65,10 +79,9 @@ const openVideo =  async function getMedia() {
 
 
 const recordVideo = async () =>{
-  step2.classList.remove("btnstep");
-  step2.classList.add("btnstepActive");
-  step1.classList.remove("btnstepActive");
-  step1.classList.add("btnstep");
+  btnVideo.textContent = "Finalizar"
+  btnVideo.style.display="none";
+  
     await navigator.mediaDevices.getUserMedia(constraints)
     .then(function(mediaStream) {
         video.srcObject = mediaStream;
@@ -87,6 +100,7 @@ const recordVideo = async () =>{
           }
         });
         recorder.startRecording();
+        btnVideo.style.display="grid";
     })
     //.catch(function(err) { console.log(err.name); }); // always check for errors at the end. 
     .catch(function(err) { 
@@ -96,6 +110,7 @@ const recordVideo = async () =>{
 
 
 const pauseVideo = async () =>{
+  btnVideo.style.display="none";
 
   await navigator.mediaDevices.getUserMedia(constraints)
   .then(function(mediaStream) {
@@ -105,17 +120,17 @@ const pauseVideo = async () =>{
     console.log('paused')
     video.pause()
     btnVideo.textContent = "Detener"
+    btnVideo.style.display="grid";
   };
 }).catch(function(err) { console.log(err.name); }); // always check for errors at the end.
 }
 
 
 const stopVideo = async () =>{
+ 
+  btnVideo.style.display="none";
   
-  step3.classList.remove("btnstep");
-  step3.classList.add("btnstepActive");
-  step2.classList.remove("btnstepActive");
-  step2.classList.add("btnstep");
+  
 
   await navigator.mediaDevices.getUserMedia(constraints)
   .then(function(mediaStream) {
@@ -126,6 +141,9 @@ const stopVideo = async () =>{
       recorder.stopRecording();
       console.log('recorder', recorder)
       //video.pause()
+      btnVideo.textContent = "Subir Gifo"
+      btnVideo.style.display="grid";
+      let recordFile = recorder.getBlob();
   };
   
   //console.log(recorder)
@@ -135,6 +153,11 @@ const stopVideo = async () =>{
 
 const uploadGif = async () => {
   try {
+    btnVideo.style.display="none";
+    step3.classList.remove("btnstep");
+    step3.classList.add("btnstepActive");
+    step2.classList.remove("btnstepActive");
+    step2.classList.add("btnstep");
     //console.log('recorder2', recorder)
     //console.log("recordFile Type" , typeof(recorder))
     //let recorderBlob = recorder.blob
@@ -142,6 +165,7 @@ const uploadGif = async () => {
     //console.log("recordFile.blob Type" , typeof(recorderBlob))
 
     let recordFile = recorder.getBlob();
+
     //let file = (recordFile , "Gif")
     //console.log("recordFile:" , recordFile)
     //console.log("recordFile type" , typeof(recordFile))
@@ -154,7 +178,10 @@ const uploadGif = async () => {
     form.append('username', username);
     form.append('file', recordFile, 'myGif.gif');
     form.append('tags', tags);
-    await createGif(form);    
+    await createGif(form);   
+    btnVideo.style.display="grid"; 
+    recorder = null
+    btnVideo.textContent = "Subir"
   }
   catch (error){
     console.error(error);

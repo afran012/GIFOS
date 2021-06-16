@@ -47,12 +47,17 @@ const createGif = async (formData) => {
             body: formData
     })
     .then(response => response.json())
-    .then(response => console.log('Success:' , response));
+    .then(response => {
+        console.log('Success:' , response)
+        console.log(response.data.id)
+    });
     }
     catch (error){
         console.error(error);
     }
     //return response || {};
 }
+
+get
 
 export {getGifTrend , gifAutocomplete , getGifSearch , createGif} ;

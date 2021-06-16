@@ -1,4 +1,4 @@
-import {openVideo , recordVideo , stopVideo , uploadGif} from './domain/createvideo/createVideo.js';
+import {openVideo , recordVideo , stopVideo , uploadGif , pauseVideo} from './domain/createvideo/createVideo.js';
  
 const btnVideo = document.getElementById ("btn-create-begin");
 let action = "openVideo";
@@ -27,6 +27,7 @@ const step3 = document.getElementById ("button-step3")
 
 
      else if ( action === "stopVideo") {
+        //await pauseVideo();
         await stopVideo();
         action = "uploadVideo"
      }

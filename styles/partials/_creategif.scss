@@ -150,24 +150,15 @@
   background-color: #572ee5;
 }
 
-.btnstep {
-  color: #FFFFFF;
-  background-color: #572ee5;
-}
-
-.btnstepActive {
+.btnstep {  
   color: #572eeF;
   background-color: #FFFFFF;
 }
 
-
-
-
-
-
-
-
-
+.btnstepActive {
+  color: #FFFFFF;
+  background-color: #572ee5;  
+}
 
 .separator-create-gif {
   width: 98%;
@@ -221,8 +212,18 @@
   align-items: center;
 }
 
-.message-step {
+.msg-active {
   display: grid;
+  //display: none;
+}
+
+.msg-inactive{
+  display: none;
+  //display: grid;
+}
+
+.message-step {
+  
   align-self: center;
   justify-self: center;
   grid-area: 2 / 2 / 3 / 3;
@@ -230,6 +231,8 @@
   align-items: center;
   //width: 30%;
 }
+
+
 
 .message-1 , .message-2 {
   font-family: "Montserrat-Bold";
@@ -256,4 +259,26 @@
   color: #000000;
   text-align: center;
   line-height: 29px;
+}
+
+.message-upload {
+  @extend %grid-center;
+  grid-area: 2 / 2 / 3 / 3; 
+  grid-template-rows: 50% 50%;
+  font-family: 'Montserrat-Bold';
+  font-size: 15px;
+  color: #FFFFFF;
+  text-align: center;
+  opacity: 0.6;
+  background: #572EE5;
+  width: 100%;
+  height: 100%;
+}
+
+.upload-spiner {
+  align-self: flex-end;
+}
+
+.msg-upload {
+  align-self: flex-start;
 }
