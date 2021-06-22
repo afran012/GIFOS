@@ -430,7 +430,7 @@ template {
   display: none;
 }
 
-.trending, .trending-gifos, .div-trend-gif, .main-search, .search-gif, .div-search, .gifs-search-section, .autocompleteContainer, .f-gifos, .create-gif-animation, .message-upload {
+.trending, .trending-gifos, .div-trend-gif, .main-search, .search-gif, .div-search, .gifs-search-section, .autocompleteContainer, .f-gifos, .create-gif-animation, .message-upload, .fav-title, .not-favorites {
   display: -ms-grid;
   display: grid;
   justify-items: center;
@@ -1400,6 +1400,22 @@ section.icons-shared img {
 .msg-upload {
   -ms-flex-item-align: start;
       align-self: flex-start;
+}
+
+.fav-title {
+  font-family: 'Montserrat-Bold';
+  font-size: 25px;
+  color: #572EE5;
+  text-align: center;
+  line-height: 30px;
+}
+
+.not-favorites {
+  font-family: 'Montserrat-Bold';
+  font-size: 22px;
+  color: #50E3C2;
+  text-align: center;
+  line-height: 33px;
 }
 
 /*

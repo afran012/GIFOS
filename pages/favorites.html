@@ -7,7 +7,7 @@
     <meta name="description" content="This repository is about the layout of a landing page of a podcast.">
     <meta name="keywords" content="gifos, landing page, proyect, acamica">
     <title>GIFOS</title>
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="../styles/style.css">
 
 </head>
 <body class="body">
@@ -23,7 +23,9 @@
             </div>
         </div>
         
-        <img src="./assets/images/logo-mobile.svg" alt="logo" class="logo">
+        <a href="../index.html">
+            <img src="../assets/images/logo-mobile.svg" alt="logo" class="logo">
+        </a> 
 
         <nav>
             <ul class="navbar_menu">
@@ -46,7 +48,7 @@
                     <div class="nav-div3"></div>
                 </li>                
                 <li>
-                    <a href="#" class="nav-crea"><img src="./assets/images/button-crear-gifo.svg" alt="create_gifo"></a>
+                    <a href="../pages/createGif.html" class="nav-crea"><img src="../assets/images/button-crear-gifo.svg" alt="create_gifo"></a>
                 </li>
                 <li>
                     <div class="nav-div4"></div>
@@ -66,34 +68,26 @@
             <img src="./assets/images/icon-fav-active.svg" alt="favorite full size mode" class="favorite-full-size-mode" id="favorite-full-size-mode">
             <img src="./assets/images/icon-download.svg" alt="download full size mode" class="download-full-size-mode" id="download-full-size-mode">
         </section>
-        <section class="main-search">
-            <h2 class="main-tittle">
-                Inspírate, busca, guarda, y crea los mejores <span class="span-gifos"> </span>
-            </h2>            
-            <form action="post" class="search-gif">
-                <img src="./assets/images/ilustra_header.svg" alt="img_header"
-                class="img-main">
+        <section class="fav-title">
+            <img src="../assets/images/icon-favoritos.svg" alt="">
+            <span class="favorite-title">Favoritos</span>
 
-                <section class="search" id="search">
-                    <div class="div-search">
-                        <input type="text" placeholder="Busca GIFOS y más" name="input-gif" id="search-gif">
-                        <img src="./assets/images/icon-search.svg" alt="img-search" class="img-search" id="search-btn">
-                    </div>
-                    <div class="autocompleteContainer" id="autoContain" ></div>
-                </section>
-                
-            </form>
-            <section class="gifs-search-section-full" id="gifs-search-section">
-                <div id="gifs-search-container"></div>
-                <button id="search-more" class="search-more-btn">
-                    Buscar más
-                </button>
+        </section>
+
+        <section class="main-favorites">
+            <section class="not-favorites">
+                <img src="../assets/images/icon-fav-sin-contenido.svg" alt="favorites dont found">
+                <span>
+                    "¡Guarda tu primer GIFO en Favoritos 
+                </span>
+                <span>
+                    para que se muestre aquí!"
+                </span>
+
             </section>
+
         </section>
-        <section class="trending">
-            <h2 class="h2-trend">Trending:</h2>
-            <p class="p-trend" id="p-trend-id"></p>
-        </section>
+
         <section class="trending-gifos">
             <h2 class="h2-trend-gif">Trending GIFOS</h2>
             <p class="p-trend-gif">Mira los últimos GIFOS de nuestra comunidad.</p>
