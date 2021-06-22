@@ -58,6 +58,5 @@ const createGif = async (formData) => {
     //return response || {};
 }
 
-get
 
 export {getGifTrend , gifAutocomplete , getGifSearch , createGif} ;

@@ -9,6 +9,8 @@ const step3 = document.getElementById ("button-step3")
 const btnVideo = document.getElementById ("btn-create-begin");
 const msgStep1 = document.getElementById ("msg-step-1");
 const msgStep2 = document.getElementById ("msg-step-2");
+const msgStep3 = document.getElementById ("msg-step-3");
+const msgStep4 = document.getElementById ("msg-step-4");
 
 
 const api_key = CREATE_GIF.api_key
@@ -126,16 +128,15 @@ const pauseVideo = async () =>{
 }
 
 
-const stopVideo = async () =>{
- 
+const stopVideo = async () =>{ 
   btnVideo.style.display="none";
-  
-  
 
   await navigator.mediaDevices.getUserMedia(constraints)
   .then(function(mediaStream) {
     video.srcObject = mediaStream;
     video.onloadedmetadata = function(e) {
+
+      video.play()
       console.log('stop recording')
       btnVideo.textContent = "Grabar"
       recorder.stopRecording();
@@ -143,7 +144,8 @@ const stopVideo = async () =>{
       //video.pause()
       btnVideo.textContent = "Subir Gifo"
       btnVideo.style.display="grid";
-      let recordFile = recorder.getBlob();
+      let recordFile = recorder.getBlob()
+
   };
   
   //console.log(recorder)
@@ -153,6 +155,8 @@ const stopVideo = async () =>{
 
 const uploadGif = async () => {
   try {
+    msgStep3.classList.remove("msg-inactive");
+    msgStep3.classList.add("msg-active");
     btnVideo.style.display="none";
     step3.classList.remove("btnstep");
     step3.classList.add("btnstepActive");
@@ -182,6 +186,11 @@ const uploadGif = async () => {
     btnVideo.style.display="grid"; 
     recorder = null
     btnVideo.textContent = "Subir"
+
+    msgStep3.classList.remove("msg-active");
+    msgStep3.classList.add("msg-inactive");
+    msgStep4.classList.remove("msg-inactive");
+    msgStep4.classList.add("msg-active");
   }
   catch (error){
     console.error(error);

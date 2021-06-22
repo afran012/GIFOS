@@ -25,7 +25,6 @@ const step3 = document.getElementById ("button-step3")
         
      }
 
-
      else if ( action === "stopVideo") {
         //await pauseVideo();
         await stopVideo();
@@ -36,9 +35,6 @@ const step3 = document.getElementById ("button-step3")
       await uploadGif();
       action = "openVideo"
    }
-
-    
-
 })
 
 export {action}
