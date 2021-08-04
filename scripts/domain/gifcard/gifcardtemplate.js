@@ -5,10 +5,7 @@
 
 }*/
 import {Favorite} from "../../models/favorites.js";
-import {gifLocalStorage} from "../gifcard/gifcard.js";
-
-
-
+//import {gifLocalStorage} from "../gifcard/gifcard.js";
 
 
 const gifcardTemplate = ( {urlGifSmall, urlGifOriginal, gifId, gifName}) => {
@@ -30,15 +27,24 @@ const gifcardTemplate = ( {urlGifSmall, urlGifOriginal, gifId, gifName}) => {
     imgFav.classList.add("img-fav")
     imgGif.setAttribute("gifId", gifId);
     imgFav.addEventListener("click", (event) => {
-        let gif = localStorage.getItem(gifId) 
-        if (!gif) {
-            let favoriteGif = new Favorite(gifId, urlGifOriginal, urlGifSmall)
-            gifLocalStorage.setItem(gifId, favoriteGif)
+        let favLocal = JSON.parse(localStorage.getItem('favorites'))
+        console.log( "favLocal" , favLocal )
+        if ( !favLocal ) {
+            localStorage.setItem( 'favorites' , JSON.stringify([]))
+        }
+        let favoriteGif = new Favorite(gifId, urlGifOriginal, urlGifSmall)
+        console.log( `favoriteGif ${favoriteGif.gifId} ` , typeof(favoriteGif.gifId) )
+        let favLocalStorage = JSON.parse(localStorage.getItem('favorites'))
+        let found = favLocalStorage.find( (gifo) => gifo._gifId == favoriteGif.gifId);
+        console.log( "found" , found )
+        if ( !found ) {
+            favLocalStorage.push(favoriteGif)
         }
         else {
-            gifLocalStorage.removeItem(gifId)
+            favLocalStorage.pop( (gifo) => gifo.gifId === favoriteGif.gifId)     
         }
-        console.log('gifLocalStorage', gifLocalStorage)
+        localStorage.setItem( 'favorites' , JSON.stringify(favLocalStorage))      
+        console.log('gifLocalStorage', localStorage)
     })
     
 

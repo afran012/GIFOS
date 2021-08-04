@@ -1,10 +1,7 @@
 import * as GifService from "../../services/giftService.js";
-
 import * as gifTemplate from "../gifcard/gifcardtemplate.js";
 
-
 let gifLocalStorage = window.localStorage;
-gifLocalStorage.clear() 
 
 const createSearchSection = async (tag , limit , offset) => {
     const gifsSearchSectios= document.getElementById('gifs-search-container');
