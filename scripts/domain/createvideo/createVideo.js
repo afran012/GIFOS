@@ -1,6 +1,7 @@
 import { createGif } from '../../services/giftService.js'
 import { API_DETAILS , CREATE_GIF } from '../../configs/config.js'
 import {action} from '../../appVideo.js'
+import {localStorageCreatedGif} from '../createvideo/myGifs.js'
 //import { FormData } from '../../models/createGif.js'
 
 const step1 = document.getElementById ("button-step1")
@@ -182,7 +183,10 @@ const uploadGif = async () => {
     form.append('username', username);
     form.append('file', recordFile, 'myGif.gif');
     form.append('tags', tags);
-    await createGif(form);   
+    
+    let gifoIdCreated = await createGif(form);
+    await localStorageCreatedGif(gifoIdCreated);
+
     btnVideo.style.display="grid"; 
     recorder = null
     btnVideo.textContent = "Subir"

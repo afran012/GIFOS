@@ -24,4 +24,16 @@ class FormData {
     }
 }
 
-export {FormData} ;
+class MyGif {
+    constructor(gifId) {
+        this._gifId = gifId;
+    }
+
+    get gifId(){
+        return this._gifId
+    }
+
+}
+
+
+export {FormData , MyGif} ;

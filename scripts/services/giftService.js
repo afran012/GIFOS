@@ -42,20 +42,21 @@ const createGif = async (formData) => {
     try {
         console.log("formData creategif",formData.get("api_key"))
         console.log("formData creategif",formData.get("file"))
-        await fetch(`https://upload.giphy.com/v1/gifs`, {
+        let responseData = await fetch(`https://upload.giphy.com/v1/gifs`, {
             method: 'POST' ,
             body: formData
-    })
-    .then(response => response.json())
-    .then(response => {
-        console.log('Success:' , response)
-        console.log(response.data.id)
-    });
+        }).then(response => {
+            console.log('Success:' , response)
+            return response.json()})
+        console.log( "responseData" , responseData )
+        responseData = responseData.data.id
+        console.log( "responseData" , responseData )
+        return responseData
     }
     catch (error){
         console.error(error);
     }
-    //return response || {};
+    
 }
 
 
