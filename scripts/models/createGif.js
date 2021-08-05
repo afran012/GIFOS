@@ -1,4 +1,4 @@
-class FormData {
+class FormDataMyGif {
     constructor(api_key , username , file , tags) {
         this._api_key = api_key;
         this._username = username;
@@ -36,4 +36,4 @@ class MyGif {
 }
 
 
-export {FormData , MyGif} ;
+export {FormDataMyGif , MyGif} ;

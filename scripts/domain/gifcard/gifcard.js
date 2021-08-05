@@ -5,22 +5,24 @@ let gifLocalStorage = window.localStorage;
 
 const createSearchSection = async (tag , limit , offset) => {
     const gifsSearchSectios= document.getElementById('gifs-search-container');
-    //gifsSearchSectios.innerHTML = ""
-    //const gifsSearchDiv = document.getElementById('gifs-search');
-    //gifsSearchDiv.innerHTML = ""
-
-    const gifsSearchDiv =  document.createElement("div")
-    //imgGif.setAttribute("alt", "gif-item");
-    gifsSearchDiv.classList.add("gifs-search-section")
-    //class="gifs-search-section" id="gifs-search">
-
+    
     try {
+        let gifsSearchDiv = document.getElementById('favorites-section')
+        console.log("gifsSearchDiv" , gifsSearchDiv )
+        if (!gifsSearchDiv) {
+            gifsSearchDiv =  document.createElement("div")
+            console.log("gifsSearchDiv" , gifsSearchDiv )   
+            gifsSearchDiv.classList.add("favorites-section")
+            gifsSearchDiv.setAttribute("id", "favorites-section")
+            console.log("gifsSearchDiv" , gifsSearchDiv )    
+        }
         const gifs = await GifService.getGifSearch(tag,limit,offset)
 
         gifs.forEach(gif => {
             let urlWrapper = {
                 gifId: gif.id,
-                urlGifSmall: gif.images.fixed_height_still.url,
+                urlGifSmall: gif.images.preview_webp.url,
+                urlGifBig: gif.images.fixed_width.url,
                 urlGifOriginal: gif.images.original.url,
                 gifName: gif.slug,
             }
@@ -31,8 +33,6 @@ const createSearchSection = async (tag , limit , offset) => {
         gifsSearchSectios.appendChild(gifsSearchDiv)
 
     }
-
-    //return await gifTempleate.
     catch (error) {
         console.error(error);
     }

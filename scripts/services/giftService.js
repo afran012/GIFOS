@@ -13,6 +13,20 @@ async function getApiInfo ( url ) {
     const data = await checkStatusAndParse( response );
     return data.data ;
 }
+
+
+const getMyGifs = async (id) => {
+    try {
+        let urlMyGifs = `${API_DETAILS.API_URL}/gifs/${id}?api_key=${API_DETAILS.API_KEY}`
+        console.log( "urlMyGifs" , urlMyGifs )
+        let response = getApiInfo(urlMyGifs);
+        return response || {};
+    }
+    catch (error){
+        console.error(error);
+    }
+    
+}
   
 
 const getGifTrend = async () => {
@@ -60,4 +74,4 @@ const createGif = async (formData) => {
 }
 
 
-export {getGifTrend , gifAutocomplete , getGifSearch , createGif} ;
+export {getGifTrend , gifAutocomplete , getGifSearch , createGif , getMyGifs} ;

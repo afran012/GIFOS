@@ -23,8 +23,8 @@
             </div>
         </div>
         
-        <a href="../index.html">
-            <img src="../assets/images/logo-mobile.svg" href="../index.html" alt="logo" class="logo">
+        <a href="../index.html" class="logo">
+            <img src="../assets/images/logo-mobile.svg" alt="logo" class="logo">
         </a> 
 
         <nav>
@@ -42,7 +42,7 @@
                     <div class="nav-div2"></div>
                 </li>                
                 <li>
-                    <a href="#" class="nav-gif">GIFOS</a>
+                    <a href="../pages/myGifs.html" class="nav-gif">GIFOS</a>
                 </li>
                 <li>
                     <div class="nav-div3"></div>
@@ -60,8 +60,9 @@
         <section class="full-size-gif">
             <h1 class="user-title" id="user-title">User</h1>
             <h2 class="gif-title" id="gif-title">Titulo GIFO</h2>
-
+<!-- 
             <img src="https://media0.giphy.com/media/26uf6wq5ojFsuigSs/200.gif?cid=85081a00h6sgo1v5lm3wzg6m5wf9aypm4ilshv1xr09sb71q&rid=200.gif&ct=g" alt="gif max" class="gif-max" id="gif-max">
+             -->
             <img src="../assets/images/close.svg" alt="close full size mode" class="close-full-size-mode" id="close-full-size-mode">
             <img src="../assets/images/button-slider-left.svg" alt="before full size mode" class="before-full-size-mode" id="before-full-size-mode">
             <img src="../assets/images/Button-Slider-right.svg" alt="next full size mode" class="next-full-size-mode" id="next-full-size-mode">
@@ -73,8 +74,8 @@
             <span class="favorite-title">Favoritos</span>
         </section>
 
-        <section class="main-favorites">
-            <section class="not-favorites">
+        <section class="icon-favoritos"  id="icon-favoritos">
+            <section class="not-favorites" id="not-favorites">
                 <img src="../assets/images/icon-fav-sin-contenido.svg" alt="favorites dont found">
                 <span>
                     "¡Guarda tu primer GIFO en Favoritos 
@@ -87,12 +88,23 @@
 
         </section>
 
+        <section class="favorite-gifs">
+            <section class="favorites-section-full" id="gifs-search-section">
+                <div id="favorites-container">
+                  
+                </div>
+            </section>
+            
+        </section>
+
         <section class="trending-gifos">
             <h2 class="h2-trend-gif">Trending GIFOS</h2>
             <p class="p-trend-gif">Mira los últimos GIFOS de nuestra comunidad.</p>
             <div class="div-trend-gif">                
                 <div class="div-gifo">
-                    <img src="https://media0.giphy.com/media/26uf6wq5ojFsuigSs/200.gif?cid=85081a00h6sgo1v5lm3wzg6m5wf9aypm4ilshv1xr09sb71q&rid=200.gif&ct=g" alt="" class="img-gif">
+
+                    <!-- <img src="https://media0.giphy.com/media/26uf6wq5ojFsuigSs/200.gif?cid=85081a00h6sgo1v5lm3wzg6m5wf9aypm4ilshv1xr09sb71q&rid=200.gif&ct=g" alt="" class="img-gif"> -->
+
                     <div class="div-icons-gifo">
                         <img src="../assets/images/icon-fav.svg" alt="icon-fav" class="icon-fav">
                         <img src="../assets/images/icon-download.svg" alt="icon-download" class="icon-download">
@@ -116,7 +128,7 @@
         <p class="p-footer">© GIFOS 2020 All Rights Reserved.</p>
 
     </footer>
-    <!-- <script src="./scripts/app1.js" type="module"></script> -->
+    <script src="../scripts/app/appFavorites.js" type="module"></script>
     
     
 </body>

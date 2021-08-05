@@ -28,4 +28,6 @@ const localStorageCreatedGif = async (myGifId) => {
 
 }
 
-export {localStorageCreatedGif}
+
+
+export {localStorageCreatedGif }

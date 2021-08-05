@@ -50,8 +50,6 @@ let favById = fillFavGifById( favoritesLocal, favorite5 )
 
 */
 
-const btnCreateVideo = document.getElementById('btn-create-begin')
-
 ///////
 
 createTrendSection(4 , 0);
