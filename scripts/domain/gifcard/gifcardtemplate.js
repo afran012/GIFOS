@@ -25,6 +25,7 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
 
     let imgFav = document.createElement("img")
     imgFav.src = "../assets/images/icon-fav.svg";
+    
     imgFav.classList.add("img-fav")
     imgGif.setAttribute("gifId", gifId);
     imgFav.addEventListener("click", (event) => {
