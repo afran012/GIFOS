@@ -1,26 +1,34 @@
 class FormDataMyGif {
-    constructor(api_key , username , file , tags) {
-        this._api_key = api_key;
-        this._username = username;
-        this._file = file;
-        this._tags = tags
+    constructor(gifId, urlGifBig, urlOrig , _urlSmall) {
+        this._gifId = gifId;
+        this._urlGifBig = urlGifBig;
+        this._urlOrig = urlOrig;
+        this._urlSmall = _urlSmall;
+        this._addedToFavorites = false
     }
 
-    get api_key(){
-        return this._api_key
+    get urlGifBig(){
+        return this._urlGifBig
     }
 
-    get username(){
-        return this._username
+    get urlOrig(){
+        return this._urlOrig
     }
 
-    get file(){
-        return this._file
+    get urlSmall(){
+        return this._urlSmall
     }
 
+    get gifId(){
+        return this._gifId
+    }
 
-    get tags(){
-        return this._tags
+    get addedToFavorites(){
+        return this._addedToFavorites
+    }
+
+    set addedToFavorites(addedToFavorites){
+        this._addedToFavorites = addedToFavorites
     }
 }
 

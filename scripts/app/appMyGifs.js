@@ -3,13 +3,13 @@ import {getMyGifs} from '../services/giftService.js'
 import {createMyGifsSection} from '../domain/myGifs/myGifs.js'
 
 
-let favLocal = JSON.parse(localStorage.getItem('favorites'))
+let gifsLocal = JSON.parse(localStorage.getItem('myGifs'))
 const iconFavoritos = document.getElementById("icon-favoritos")
-if (!favLocal || favLocal.length == 0){
+if (!gifsLocal || gifsLocal.length == 0){
     iconFavoritos.style.display = 'inline'
 }
 
-createMyGifsSection(favLocal)
+createMyGifsSection(gifsLocal)
 
 let myGifsLocal = JSON.parse(localStorage.getItem('myGifs'))
 console.log( "myGifsLocal" , myGifsLocal )

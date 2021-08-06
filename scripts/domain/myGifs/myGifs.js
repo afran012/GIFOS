@@ -1,35 +1,4 @@
-import {MyGif} from "../../models/myGifs.js";
-import * as favoritesTemplate from "../favorites/favoritesTemplate.js";
-
-const localStorageCreatedGif = async (myGifId) => {
-    console.log( "myGifId" , myGifId )
-    try {
-        let myGifLocal = JSON.parse(localStorage.getItem('myGifs'))
-        if ( !myGifLocal ) {
-            localStorage.setItem( 'myGifs' , JSON.stringify([]))
-        }
-        let myGif = new MyGif(myGifId)
-        console.log( `myGif ${myGif.gifId} ` , typeof(myGif.gifId) )
-        let myGifLocalStorage = JSON.parse(localStorage.getItem('myGifs'))
-        let found = myGifLocalStorage.find( (gifo) => gifo._gifId == myGif.gifId);
-        console.log( "found" , found )
-        if ( !found ) {
-            myGifLocalStorage.push(myGif)
-        }
-        else {
-            myGifLocalStorage.pop( (gifo) => gifo.gifId === myGif.gifId)     
-        }
-        localStorage.setItem( 'myGifs' , JSON.stringify(myGifLocalStorage))      
-        console.log('gifLocalStorage', localStorage)
-
-    }
-    catch (error) {
-        console.error(error);
-    }
-
-}
-
-
+import * as myGifsTemplate from "../myGifs/myGifsTemplate.js";
 
 
 const createMyGifsSection = async (favoritos=[]) => {
@@ -45,7 +14,7 @@ const createMyGifsSection = async (favoritos=[]) => {
         if (favoritos) {
             favoritos.forEach(gif => {
                 //console.log(gif)
-                let cardGif = favoritesTemplate.favoriteTemplate(gif)
+                let cardGif = myGifsTemplate.myGifTemplate(gif)
                 gifsFavoritesDiv.appendChild(cardGif)
             })
             gifsFavoriteSection.appendChild(gifsFavoritesDiv)
@@ -61,4 +30,4 @@ const createMyGifsSection = async (favoritos=[]) => {
 
 
 
-export {localStorageCreatedGif , createMyGifsSection}
+export {createMyGifsSection}

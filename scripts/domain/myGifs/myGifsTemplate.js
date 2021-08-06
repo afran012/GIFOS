@@ -5,7 +5,7 @@ import {MyGif} from "../../models/myGifs.js";
 
 
 
-const favoriteTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName}) => {
+const myGifTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName}) => {
 
     let card = document.createElement("div")
     card.classList.add("favorite-gifo")   
@@ -87,4 +87,4 @@ const favoriteTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName}) => {
 
 }
 
-export {favoriteTemplate}
+export {myGifTemplate}

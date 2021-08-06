@@ -1,17 +1,23 @@
-import {MyGif} from "../../models/createGif.js";
+import {getMyGifs} from '../../services/giftService.js'
+import {Favorite} from "../../models/favorites.js";
 
 const localStorageCreatedGif = async (myGifId) => {
-    console.log( "myGifId" , myGifId )
     try {
+        let myGifData = await getMyGifs(myGifId)
+        let gifId = myGifData.id
+        let urlGifSmall = myGifData.images.original_still.url
+        let urlGifBig = myGifData.images.fixed_width.url
+        let urlGifOriginal = myGifData.images.original.url
+        let gifName = myGifData.slug
+
+        let myGif = new Favorite( gifId , urlGifSmall , urlGifBig , urlGifOriginal , gifName )
+
         let myGifLocal = JSON.parse(localStorage.getItem('myGifs'))
         if ( !myGifLocal ) {
             localStorage.setItem( 'myGifs' , JSON.stringify([]))
         }
-        let myGif = new MyGif(myGifId)
-        console.log( `myGif ${myGif.gifId} ` , typeof(myGif.gifId) )
         let myGifLocalStorage = JSON.parse(localStorage.getItem('myGifs'))
-        let found = myGifLocalStorage.find( (gifo) => gifo._gifId == myGif.gifId);
-        console.log( "found" , found )
+        let found = myGifLocalStorage.find( (gifo) => gifo._gifId == myGifId);
         if ( !found ) {
             myGifLocalStorage.push(myGif)
         }
@@ -28,6 +34,4 @@ const localStorageCreatedGif = async (myGifId) => {
 
 }
 
-
-
-export {localStorageCreatedGif }
+export {localStorageCreatedGif  }

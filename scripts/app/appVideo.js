@@ -1,4 +1,14 @@
-import {openVideo , recordVideo , stopVideo , uploadGif , pauseVideo} from './domain/createvideo/createVideo.js';
+import {openVideo , recordVideo , stopVideo , uploadGif , pauseVideo} from '../domain/createvideo/createVideo.js';
+
+
+import {localStorageCreatedGif} from '../domain/createvideo/createVideoGifs.js'
+
+localStorageCreatedGif("pBj0EoGSYjGms")
+
+
+
+
+
  
 const btnVideo = document.getElementById ("btn-create-begin");
 let action = "openVideo";
