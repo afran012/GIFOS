@@ -1,7 +1,7 @@
-import {createContainerAutocomplete} from '../domain/autocomplete/autocomplete.js'
-import {createTrendSection} from '../domain/trend/trend.js'
-import {createSearchSection} from '../domain/gifcard/gifcard.js'
-import {trendGifsSection} from '../domain/trend/trendSection.js'
+import {createContainerAutocomplete} from './domain/autocomplete/autocomplete.js'
+import {createTrendSection} from './domain/trend/trend.js'
+import {createSearchSection} from './domain/gifcard/gifcard.js'
+import {trendGifsSection} from './domain/trend/trendSection.js'
 
 await trendGifsSection();
 
