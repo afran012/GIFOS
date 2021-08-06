@@ -3,7 +3,6 @@ import {openVideo , recordVideo , stopVideo , uploadGif , pauseVideo} from '../d
 
 import {localStorageCreatedGif} from '../domain/createvideo/createVideoGifs.js'
 
-localStorageCreatedGif("pBj0EoGSYjGms")
 
 
 
