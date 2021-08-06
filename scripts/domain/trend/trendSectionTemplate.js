@@ -1,4 +1,4 @@
-import {Favorite} from "../../ models/favorites.js";
+import {Favorite} from "../../models/favorites.js";
 
 
 const gifcardTrendTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
