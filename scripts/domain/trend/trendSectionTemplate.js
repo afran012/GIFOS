@@ -17,7 +17,7 @@ const gifcardTrendTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) 
     icons.classList.add("div-icons-gifo")
 
     let imgFav = document.createElement("img")
-    imgFav.src = "../../assets/images/icon-fav.svg";
+    imgFav.src = "../../../assets/images/icon-fav.svg";
     imgFav.classList.add("img-fav")
     imgGif.setAttribute("gifId", gifId);
     imgFav.addEventListener("click", (event) => {
@@ -43,7 +43,7 @@ const gifcardTrendTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) 
     
 
     let imgDown = document.createElement("img")
-    imgDown.src = "../../assets/images/icon-download.svg";
+    imgDown.src = "../../../assets/images/icon-download.svg";
     imgDown.setAttribute("alt", "icon-download");
     imgDown.classList.add("icon-download");
     imgDown.addEventListener("click", async (event) => {
@@ -61,7 +61,7 @@ const gifcardTrendTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) 
     
 
     let imgFull = document.createElement("img")
-    imgFull.src = "../../assets/images/icon-max-normal.svg"
+    imgFull.src = "../../../assets/images/icon-max-normal.svg"
     imgFull.setAttribute("alt", "icon-max-normal");
     imgFull.classList.add("icon-max-normal")
     imgFull.addEventListener("click", async (event) => {
