@@ -2,7 +2,7 @@ import {trendSection} from '../../services/giftService.js';
 import * as gifTemplate from "../trend/trendSectionTemplate.js";
 
 
-const trendGifsSection = async ( limit = 3 ,offset = 0) => {
+const trendGifsSection = async ( path = './', limit = 3 ,offset = 0) => {
     
     const gifsTrendSectios= document.getElementById('div-trend-gif');
     
@@ -29,7 +29,7 @@ const trendGifsSection = async ( limit = 3 ,offset = 0) => {
                 gifName: gif.slug,
             }
             console.log(gif)
-            let cardGif = gifTemplate.gifcardTrendTemplate(urlWrapper)
+            let cardGif = gifTemplate.gifcardTrendTemplate(path,urlWrapper)
             console.log(cardGif)
 
             cardGif.classList.add("trendgif-section")

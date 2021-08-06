@@ -1,8 +1,8 @@
 
 import {createFavoritesSection} from '../domain/favorites/favorites.js'
 import {trendGifsSection} from '../domain/trend/trendSection.js'
-
-await trendGifsSection();
+let path
+await trendGifsSection( path = '../');
 
 
 let favLocal = JSON.parse(localStorage.getItem('favorites'))

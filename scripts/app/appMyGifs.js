@@ -2,8 +2,8 @@
 import {getMyGifs} from '../services/giftService.js'
 import {createMyGifsSection} from '../domain/myGifs/myGifs.js'
 import {trendGifsSection} from '../domain/trend/trendSection.js'
-
-await trendGifsSection();
+let path
+await trendGifsSection( path = '../');
 
 
 let gifsLocal = JSON.parse(localStorage.getItem('myGifs'))
