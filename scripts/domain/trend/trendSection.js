@@ -1,23 +1,24 @@
-import {trendSection} from '../../services/giftService.js'
-
-import * as GifService from "../../services/giftService.js";
-import * as gifTemplate from "../gifcard/gifcardtemplate.js";
+import {trendSection} from '../../services/giftService.js';
+import * as gifTemplate from "../trend/trendSectionTemplate.js";
 
 
-const createTrendSection = async ( limit , offset) => {
-    const gifsSearchSectios= document.getElementById('div-trend-gif');
+const trendGifsSection = async ( limit = 3 ,offset = 0) => {
+    
+    const gifsTrendSectios= document.getElementById('div-trend-gif');
     
     try {
-        let gifsSearchDiv = document.getElementById('favorites-section')
-        console.log("gifsSearchDiv" , gifsSearchDiv )
-        if (!gifsSearchDiv) {
-            gifsSearchDiv =  document.createElement("div")
-            console.log("gifsSearchDiv" , gifsSearchDiv )   
-            gifsSearchDiv.classList.add("favorites-section")
-            gifsSearchDiv.setAttribute("id", "favorites-section")
-            console.log("gifsSearchDiv" , gifsSearchDiv )    
-        }
-        const gifs = await GifService.getGifSearch( limit,offset)
+
+        /*
+        let gifsTrendDiv = document.getElementById('trend-section')
+        console.log("gifsTrendDiv" , gifsTrendDiv )
+        if (!gifsTrendDiv) {
+            gifsTrendDiv =  document.createElement("div")
+            console.log("gifsTrendDiv" , gifsTrendDiv )   
+            gifsTrendDiv.classList.add("trend-section")
+            gifsTrendDiv.setAttribute("id", "trend-section")
+            console.log("gifsTrendDiv" , gifsTrendDiv )    
+        }*/
+        const gifs = await trendSection( limit ,offset )
 
         gifs.forEach(gif => {
             let urlWrapper = {
@@ -28,10 +29,14 @@ const createTrendSection = async ( limit , offset) => {
                 gifName: gif.slug,
             }
             console.log(gif)
-            let cardGif = gifTemplate.gifcardTemplate(urlWrapper)
-            gifsSearchDiv.appendChild(cardGif)
+            let cardGif = gifTemplate.gifcardTrendTemplate(urlWrapper)
+            console.log(cardGif)
+
+            cardGif.classList.add("trendgif-section")
+            //gifsTrendDiv.appendChild(cardGif)
+            gifsTrendSectios.appendChild(cardGif)
         })
-        gifsSearchSectios.appendChild(gifsSearchDiv)
+        //gifsTrendSectios.appendChild(gifsTrendDiv)
 
     }
     catch (error) {
@@ -39,4 +44,4 @@ const createTrendSection = async ( limit , offset) => {
     }
 
 }
-export {createSearchSection , gifLocalStorage}
+export {trendGifsSection}

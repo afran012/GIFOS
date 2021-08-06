@@ -9,6 +9,7 @@ const checkStatusAndParse = async (res) => {
 
 // funcion fetch asincrona
 async function getApiInfo ( url ) {
+    console.log( "url" , url)
     const response = await fetch( url )
     const data = await checkStatusAndParse( response );
     return data.data ;
@@ -17,7 +18,7 @@ async function getApiInfo ( url ) {
 
 
 const trendSection = async (limit , offset) => {
-    let response = getApiInfo(`${API_DETAILS.API_URL}/gifs/trending?api_key=${API_DETAILS.API_KEY}}&limit=${limit}&offset=${offset}`);
+    let response = getApiInfo(`${API_DETAILS.API_URL}/gifs/trending?api_key=${API_DETAILS.API_KEY}&limit=${limit}&offset=${offset}`);
     return response || {};
 }
 

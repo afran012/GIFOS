@@ -430,7 +430,7 @@ template {
   display: none;
 }
 
-.trending, .trending-gifos, .main-search, .search-gif, .div-search, .gifs-search-section, .autocompleteContainer, .f-gifos, .create-gif-animation, .message-upload, .fav-title, .not-favorites {
+.trending, .trending-gifos, .div-trend-gif, .main-search, .search-gif, .div-search, .gifs-search-section, .autocompleteContainer, .f-gifos, .create-gif-animation, .message-upload, .fav-title, .not-favorites {
   display: -ms-grid;
   display: grid;
   justify-items: center;
@@ -439,7 +439,7 @@ template {
           align-items: center;
 }
 
-.gifs-search-section-full, .favorites-section-full {
+.div-trend-gif, .gifs-search-section-full, .favorites-section-full {
   border: 1px solid #572ee5;
   border-radius: 10px;
 }
@@ -730,26 +730,25 @@ p.p-trend span::first-letter {
 }
 
 .div-trend-gif {
-  /*
-  @extend %grid-center;
-  grid-template-columns: 30% 30% 30%;
+  -ms-grid-columns: 30% 30% 30%;
+      grid-template-columns: 30% 30% 30%;
   grid-gap: 4%;
-  grid-template-rows: 20% 20% 20% 20%;
+  -ms-grid-rows: 100%;
+      grid-template-rows: 100%;
   padding: 5%;
   width: 100%;
-  //height: 100%;
-  @extend %border-test;
   margin-bottom: 7%;
-  */
-  display: -webkit-box;
-  display: -ms-flexbox;
+  /*
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  justify-content: space-around;
+  flex-wrap: wrap;
   gap: 1rem;
-  padding: 1rem;
+  padding: 1rem;*/
+}
+
+div.trendgif-section {
+  width: 80%;
+  height: 80%;
 }
 
 div.div-icons-gifo img {
