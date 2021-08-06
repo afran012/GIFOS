@@ -41,7 +41,7 @@ const gifcardTrendTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) 
         console.log('gifLocalStorage', localStorage)
     })
     
-
+//
     let imgDown = document.createElement("img")
     imgDown.src = "./assets/images/icon-download.svg";
     imgDown.setAttribute("alt", "icon-download");
