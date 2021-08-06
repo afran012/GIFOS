@@ -1,7 +1,7 @@
 import {Favorite} from "../../models/favorites.js";
 
 
-const gifcardTrendTemplate = ( path ,{urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
+const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
 
     let card = document.createElement("div")
     //card.classList.add("div-gifo")
@@ -17,7 +17,7 @@ const gifcardTrendTemplate = ( path ,{urlGifSmall, urlGifBig, urlGifOriginal, gi
     icons.classList.add("div-icons-gifo")
 
     let imgFav = document.createElement("img")
-    imgFav.src = `${path}assets/images/icon-fav.svg`;
+    imgFav.src = `${patho}assets/images/icon-fav.svg`;
     imgFav.classList.add("img-fav")
     imgGif.setAttribute("gifId", gifId);
     imgFav.addEventListener("click", (event) => {
@@ -43,7 +43,7 @@ const gifcardTrendTemplate = ( path ,{urlGifSmall, urlGifBig, urlGifOriginal, gi
     
 //
     let imgDown = document.createElement("img")
-    imgDown.src = `${path}assets/images/icon-download.svg`;
+    imgDown.src = `${patho}assets/images/icon-download.svg`;
     imgDown.setAttribute("alt", "icon-download");
     imgDown.classList.add("icon-download");
     imgDown.addEventListener("click", async (event) => {
@@ -61,7 +61,7 @@ const gifcardTrendTemplate = ( path ,{urlGifSmall, urlGifBig, urlGifOriginal, gi
     
 
     let imgFull = document.createElement("img")
-    imgFull.src = `${path}assets/images/icon-max-normal.svg`
+    imgFull.src = `${patho}assets/images/icon-max-normal.svg`
     imgFull.setAttribute("alt", "icon-max-normal");
     imgFull.classList.add("icon-max-normal")
     imgFull.addEventListener("click", async (event) => {

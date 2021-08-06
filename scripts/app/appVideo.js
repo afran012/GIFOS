@@ -1,12 +1,6 @@
 import {openVideo , recordVideo , stopVideo , uploadGif , pauseVideo} from '../domain/createvideo/createVideo.js';
 
 
-import {localStorageCreatedGif} from '../domain/createvideo/createVideoGifs.js'
-
-
-
-
-
 
  
 const btnVideo = document.getElementById ("btn-create-begin");
