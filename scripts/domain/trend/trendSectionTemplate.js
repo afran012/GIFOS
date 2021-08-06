@@ -11,7 +11,7 @@ const gifcardTrendTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) 
     imgGif.src = urlGifSmall;
     imgGif.setAttribute("alt", "gif-item");
     imgGif.classList.add("img-gif")
-    
+    //
 
     let  icons= document.createElement("div")
     icons.classList.add("div-icons-gifo")
