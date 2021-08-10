@@ -7,7 +7,7 @@
     <meta name="description" content="This repository is about the layout of a landing page of a podcast.">
     <meta name="keywords" content="gifos, landing page, proyect, acamica">
     <title>GIFOS</title>
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="../styles/style.css">
 
 </head>
 <body class="body">
@@ -23,7 +23,9 @@
             </div>
         </div>
         
-        <img src="./assets/images/logo-mobile.svg" alt="logo" class="logo">
+        <a href="../index.html" class="logo">
+            <img src="../assets/images/logo-mobile.svg" alt="logo" class="logo">
+        </a> 
 
         <nav>
             <ul class="navbar_menu">
@@ -40,13 +42,13 @@
                     <div class="nav-div2"></div>
                 </li>                
                 <li>
-                    <a href="#" class="nav-gif">GIFOS</a>
+                    <a href="../pages/myGifs.html" class="nav-gif">GIFOS</a>
                 </li>
                 <li>
                     <div class="nav-div3"></div>
                 </li>                
                 <li>
-                    <a href="#" class="nav-crea"><img src="./assets/images/button-crear-gifo.svg" alt="create_gifo"></a>
+                    <a href="../pages/createGif.html" class="nav-crea"><img src="../assets/images/button-crear-gifo.svg" alt="create_gifo"></a>
                 </li>
                 <li>
                     <div class="nav-div4"></div>
@@ -58,70 +60,66 @@
         <section class="full-size-gif">
             <h1 class="user-title" id="user-title">User</h1>
             <h2 class="gif-title" id="gif-title">Titulo GIFO</h2>
-
+<!-- 
             <img src="https://media0.giphy.com/media/26uf6wq5ojFsuigSs/200.gif?cid=85081a00h6sgo1v5lm3wzg6m5wf9aypm4ilshv1xr09sb71q&rid=200.gif&ct=g" alt="gif max" class="gif-max" id="gif-max">
-            <img src="./assets/images/close.svg" alt="close full size mode" class="close-full-size-mode" id="close-full-size-mode">
-            <img src="./assets/images/button-slider-left.svg" alt="before full size mode" class="before-full-size-mode" id="before-full-size-mode">
-            <img src="./assets/images/Button-Slider-right.svg" alt="next full size mode" class="next-full-size-mode" id="next-full-size-mode">
-            <img src="./assets/images/icon-fav-active.svg" alt="favorite full size mode" class="favorite-full-size-mode" id="favorite-full-size-mode">
-            <img src="./assets/images/icon-download.svg" alt="download full size mode" class="download-full-size-mode" id="download-full-size-mode">
+             -->
+            <img src="../assets/images/close.svg" alt="close full size mode" class="close-full-size-mode" id="close-full-size-mode">
+            <img src="../assets/images/button-slider-left.svg" alt="before full size mode" class="before-full-size-mode" id="before-full-size-mode">
+            <img src="../assets/images/Button-Slider-right.svg" alt="next full size mode" class="next-full-size-mode" id="next-full-size-mode">
+            <img src="../assets/images/icon-fav-active.svg" alt="favorite full size mode" class="favorite-full-size-mode" id="favorite-full-size-mode">
+            <img src="../assets/images/icon-download.svg" alt="download full size mode" class="download-full-size-mode" id="download-full-size-mode">
         </section>
-        <section class="main-search">
-            <h2 class="main-tittle">
-                Inspírate, busca, guarda, y crea los mejores <span class="span-gifos"> </span>
-            </h2>            
-            <form action="post" class="search-gif">
-                <img src="./assets/images/ilustra_header.svg" alt="img_header"
-                class="img-main">
+        <section class="fav-title">
+            <img src="../assets/images/icon-favoritos.svg" alt="">
+            <span class="favorite-title">Favoritos</span>
+        </section>
 
-                <section class="search" id="search">
-                    <div class="div-search">
-                        <input type="text" placeholder="Busca GIFOS y más" name="input-gif" id="search-gif">
-                        <img src="./assets/images/icon-search.svg" alt="img-search" class="img-search" id="search-btn">
-                    </div>
-                    <div class="autocompleteContainer" id="autoContain" ></div>
-                </section>
-                
-            </form>
-            <section class="gifs-search-section-full" id="gifs-search-section">
-                <div id="gifs-search-container"></div>
-                <button id="search-more" class="search-more-btn">
-                    Buscar más
-                </button>
+        <section class="icon-favoritos"  id="icon-favoritos">
+            <section class="not-favorites" id="not-favorites">
+                <img src="../assets/images/icon-fav-sin-contenido.svg" alt="favorites dont found">
+                <span>
+                    "¡Guarda tu primer GIFO en Favoritos 
+                </span>
+                <span>
+                    para que se muestre aquí!"
+                </span>
+
             </section>
+
         </section>
-        <section class="trending">
-            <h2 class="h2-trend">Trending:</h2>
-            <p class="p-trend" id="p-trend-id"></p>
+
+        <section class="favorite-gifs">
+            <section class="favorites-section-full" id="gifs-search-section">
+                <div id="favorites-container">
+                  
+                </div>
+            </section>
+            
         </section>
+
         <section class="trending-gifos">
             <h2 class="h2-trend-gif">Trending GIFOS</h2>
             <p class="p-trend-gif">Mira los últimos GIFOS de nuestra comunidad.</p>
-            <div class="div-trend-gif">                
-                <div class="div-gifo">
-                    <img src="https://media0.giphy.com/media/26uf6wq5ojFsuigSs/200.gif?cid=85081a00h6sgo1v5lm3wzg6m5wf9aypm4ilshv1xr09sb71q&rid=200.gif&ct=g" alt="" class="img-gif">
-                    <div class="div-icons-gifo">
-                        <img src="./assets/images/icon-fav.svg" alt="icon-fav" class="icon-fav">
-                        <img src="./assets/images/icon-download.svg" alt="icon-download" class="icon-download">
-                        <img src="./assets/images/icon-max-normal.svg" alt="icon-max-normal" class="icon-max-normal">
-                    </div>
-                </div>
+            <div class="div-trend-gif" id="div-trend-gif"  >                
+
             </div>
         </section>
     </main>
+    
     <footer class="f-gifos">
         <h1 class="h1-footer">Compartir en:</h1>
         <section class="icons-shared">
 
-            <img src="./assets/images/icon_facebook.svg" alt="icon_facebook">
-            <img src="./assets/images/icon-twitter.svg" alt="icon-twitter">
-            <img src="./assets/images/icon_instagram.svg" alt="icon_instagram">
+
+            <img src="../assets/images/icon_facebook.svg" alt="icon_facebook">
+            <img src="../assets/images/icon-twitter.svg" alt="icon-twitter">
+            <img src="../assets/images/icon_instagram.svg" alt="icon_instagram">
             
         </section>
         <p class="p-footer">© GIFOS 2020 All Rights Reserved.</p>
 
     </footer>
-    <script src="./scripts/app1.js" type="module"></script>
+    <script src="../scripts/app/appFavorites.js" type="module"></script>
     
     
 </body>

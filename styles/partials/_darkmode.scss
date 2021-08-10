@@ -1,0 +1,60 @@
+.dark-mode-1 {
+    background: $bg-color-1-dm ; 
+    
+}
+
+.light-mode-1 {
+    background: $bg-color-1-lm ;     
+}
+
+
+.dark-mode-2 {
+    background: $bg-color-2-dm ; 
+    color: $font-color2;
+    
+}
+
+.light-mode-2 {
+    background: $bg-color-2-lm ; 
+    color: $font-color1;  
+      
+}
+
+.dark-mode-3 {        
+    border: $border-secondary;
+    background: $bg-color-2-dm ; 
+    color: $font-color2;
+}
+
+.light-mode-3 {
+    
+    border: $border-primary;  
+    background: $bg-color-2-lm ; 
+    color: $font-color1;  
+    
+}
+
+
+.dark-mode-4 {
+    background: $bg-color-3-dm ; 
+    
+}
+
+
+.dark-mode-4 {
+    background: $bg-color-3-dm;     
+}
+
+.light-mode-4 {
+    background: $bg-color-3-lm ;     
+}
+
+
+
+
+
+/*
+div.light-mode-1 {
+    background: $font-color-1-lm ;     
+}
+*/

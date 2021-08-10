@@ -1,14 +1,7 @@
-/*const createHtmElement = ({tag , classElement}) => {
-    let tagElement = document.createElement(`${tag}`)
-    card.classList.add(`${classElement}`)
-    return tagElement
-
-}*/
 import {Favorite} from "../../models/favorites.js";
-//import {gifLocalStorage} from "../gifcard/gifcard.js";
 
 
-const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
+const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
 
     let card = document.createElement("div")
     //card.classList.add("div-gifo")
@@ -18,13 +11,13 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
     imgGif.src = urlGifSmall;
     imgGif.setAttribute("alt", "gif-item");
     imgGif.classList.add("img-gif")
-    
+    //
 
     let  icons= document.createElement("div")
     icons.classList.add("div-icons-gifo")
 
     let imgFav = document.createElement("img")
-    imgFav.src = "./assets/images/icon-fav.svg";
+    imgFav.src = `${patho}assets/images/icon-fav.svg`;
     imgFav.classList.add("img-fav")
     imgGif.setAttribute("gifId", gifId);
     imgFav.addEventListener("click", (event) => {
@@ -48,9 +41,9 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
         console.log('gifLocalStorage', localStorage)
     })
     
-
+//
     let imgDown = document.createElement("img")
-    imgDown.src = "./assets/images/icon-download.svg";
+    imgDown.src = `${patho}assets/images/icon-download.svg`;
     imgDown.setAttribute("alt", "icon-download");
     imgDown.classList.add("icon-download");
     imgDown.addEventListener("click", async (event) => {
@@ -68,7 +61,7 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
     
 
     let imgFull = document.createElement("img")
-    imgFull.src = "./assets/images/icon-max-normal.svg"
+    imgFull.src = `${patho}assets/images/icon-max-normal.svg`
     imgFull.setAttribute("alt", "icon-max-normal");
     imgFull.classList.add("icon-max-normal")
     imgFull.addEventListener("click", async (event) => {
@@ -90,4 +83,4 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
 
 }
 
-export {gifcardTemplate}
+export {gifcardTrendTemplate}

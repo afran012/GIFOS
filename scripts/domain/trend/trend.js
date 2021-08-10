@@ -4,6 +4,7 @@ import * as TrendTempleate from "../trend/trendtemplate.js";
 const createTrendSection = async (limit , offset) =>{
     try{
         const trendTags = await GifService.getGifTrend(limit,offset)
+        //console.log("trendTags" , trendTags )
 /*
         if (trendTags.length===0) {
             return {}

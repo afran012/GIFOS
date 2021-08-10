@@ -1,4 +1,4 @@
-class Favorite {
+class FormDataMyGif {
     constructor(gifId, urlGifBig, urlOrig , _urlSmall) {
         this._gifId = gifId;
         this._urlGifBig = urlGifBig;
@@ -32,7 +32,16 @@ class Favorite {
     }
 }
 
-export {Favorite} ;
+class MyGif {
+    constructor(gifId) {
+        this._gifId = gifId;
+    }
+
+    get gifId(){
+        return this._gifId
+    }
+
+}
 
 
-
+export {FormDataMyGif , MyGif} ;

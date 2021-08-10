@@ -1,4 +1,4 @@
-class Favorite {
+class MyGif {
     constructor(gifId, urlGifBig, urlOrig , _urlSmall) {
         this._gifId = gifId;
         this._urlGifBig = urlGifBig;
@@ -32,7 +32,7 @@ class Favorite {
     }
 }
 
-export {Favorite} ;
+export {MyGif} ;
 
 
 
