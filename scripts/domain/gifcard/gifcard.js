@@ -1,9 +1,11 @@
 import * as GifService from "../../services/giftService.js";
+import { $ } from "../../utils/domUtils.js";
 import * as gifTemplate from "../gifcard/gifcardtemplate.js";
 
 let gifLocalStorage = window.localStorage;
 
 const createSearchSection = async (tag , limit , offset) => {
+    $("#search-more").show()
     const gifsSearchSectios= document.getElementById('gifs-search-container');
     
     try {

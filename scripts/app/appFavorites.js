@@ -1,4 +1,4 @@
-
+import {darkMode} from '../domain/darkMode/darkMode.js'
 import {createFavoritesSection} from '../domain/favorites/favorites.js'
 import {trendGifsSection} from '../domain/trend/trendSection.js'
 
