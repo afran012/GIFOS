@@ -9,6 +9,9 @@ function $(selector) {
       hide: () => {
         self.htmlElement.style.display = "none";
       },
+      show: () => {
+        self.htmlElement.style.display = "inline";
+      },
       attr: (name, value) => {
         if (value == null) return self.htmlElement.getAttribute(name);
         else self.htmlElement.setAttribute(name, value);
