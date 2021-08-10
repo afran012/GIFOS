@@ -1,3 +1,4 @@
+import {darkMode} from '../domain/darkMode/darkMode.js'
 import {openVideo , recordVideo , stopVideo , uploadGif , pauseVideo} from '../domain/createvideo/createVideo.js';
 
 

@@ -13,6 +13,10 @@ function $(selector) {
         self.htmlElement.style.display = "inline";
       },
       attr: (name, value) => {
+        if (!self.htmlElement) {
+          return console.log("locoo")
+
+        }
         if (value == null) return self.htmlElement.getAttribute(name);
         else self.htmlElement.setAttribute(name, value);
       },

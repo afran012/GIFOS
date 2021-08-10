@@ -1,4 +1,5 @@
 
+import {darkMode} from '../domain/darkMode/darkMode.js'
 import {getMyGifs} from '../services/giftService.js'
 import {createMyGifsSection} from '../domain/myGifs/myGifs.js'
 import {trendGifsSection} from '../domain/trend/trendSection.js'

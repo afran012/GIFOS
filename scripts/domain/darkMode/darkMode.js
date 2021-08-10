@@ -41,6 +41,7 @@ const changeColors = async (valueMode) => {
             await changeClassElement( "light-mode-4" , "dark-mode-4" )
             await changeClassElement( "light-mode-5" , "dark-mode-5" )
             $("#search-btn").attr("src", "./assets/images/icon-search-mod-noc.svg")
+            $("#search-btn").attr("src", "./assets/images/icon-search-mod-noc.svg")
         }
         else {
             await changeClassElement( "dark-mode-1" , "light-mode-1" )
@@ -48,6 +49,7 @@ const changeColors = async (valueMode) => {
             await changeClassElement( "dark-mode-3" , "light-mode-3" )
             await changeClassElement( "dark-mode-4" , "light-mode-4" )
             await changeClassElement( "dark-mode-5" , "light-mode-5" )
+            $("#search-btn").attr("src", "./assets/images/icon-search.svg")
             $("#search-btn").attr("src", "./assets/images/icon-search.svg")
         }
     } catch(error) { console.log(error)}
