@@ -28,9 +28,9 @@ const trendGifsSection = async ( patho = './', limit = 3 ,offset = 0) => {
                 urlGifOriginal: gif.images.original.url,
                 gifName: gif.slug,
             }
-            console.log(gif)
+            //console.log(gif)
             let cardGif = gifTemplate.gifcardTrendTemplate(patho,urlWrapper)
-            console.log(cardGif)
+            //console.log(cardGif)
 
             cardGif.classList.add("trendgif-section")
             //gifsTrendDiv.appendChild(cardGif)

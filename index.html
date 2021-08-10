@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="./styles/style.css">
 
 </head>
-<body class="body">
-    <div class="initial-bg"></div>
-    <header class="header">
+<body class="body"> 
+    <div class="light-mode-1 initial-bg" ></div>
+    <header class="header light-mode-2">
         <input type="checkbox" id="btn-nav" class="checkbox">
 
         <div class="menu">                
@@ -26,10 +26,10 @@
         <img src="./assets/images/logo-mobile.svg" alt="logo" class="logo">
 
         <nav>
-            <ul class="navbar_menu">
+            <ul class="light-mode-1 navbar_menu">
                 <li>
                     <!-- <a href="#" class="nav-noct">MODO NOCTURNO</a> -->
-                    <div class="nav-noct">MODO NOCTURNO</div>
+                    <div class="nav-noct" id="dark-mode" >MODO NOCTURNO</div>
                 </li>
                 <li>
                     <div class="nav-div1"></div>
@@ -67,17 +67,17 @@
             <img src="./assets/images/icon-fav-active.svg" alt="favorite full size mode" class="favorite-full-size-mode" id="favorite-full-size-mode">
             <img src="./assets/images/icon-download.svg" alt="download full size mode" class="download-full-size-mode" id="download-full-size-mode">
         </section>
-        <section class="main-search">
+        <section class="main-search light-mode-2">
             <h2 class="main-tittle">
                 Inspírate, busca, guarda, y crea los mejores <span class="span-gifos"> </span>
             </h2>            
-            <form action="post" class="search-gif">
+            <form action="post" class="search-gif light-mode-2">
                 <img src="./assets/images/ilustra_header.svg" alt="img_header"
                 class="img-main">
 
-                <section class="search" id="search">
-                    <div class="div-search">
-                        <input type="text" placeholder="Busca GIFOS y más" name="input-gif" id="search-gif">
+                <section class="search light-mode-3" id="search">
+                    <div class="div-search ">
+                        <input type="text" placeholder="Busca GIFOS y más" name="input-gif" id="search-gif" class="light-mode-2">
                         <img src="./assets/images/icon-search.svg" alt="img-search" class="img-search" id="search-btn">
                     </div>
                     <div class="autocompleteContainer" id="autoContain" ></div>
@@ -91,9 +91,9 @@
                 </button>
             </section>
         </section>
-        <section class="trending">
+        <section class="trending light-mode-2">
             <h2 class="h2-trend">Trending:</h2>
-            <p class="p-trend" id="p-trend-id"></p>
+            <p class="p-trend light-mode-2" id="p-trend-id"></p>
         </section>
         <section class="trending-gifos">
             <h2 class="h2-trend-gif">Trending GIFOS</h2>
@@ -103,7 +103,7 @@
             </div>
         </section>
     </main>
-    <footer class="f-gifos">
+    <footer class="f-gifos light-mode-2">
         <h1 class="h1-footer">Compartir en:</h1>
         <section class="icons-shared">
 

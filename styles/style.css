@@ -1,3 +1,52 @@
+/*
+
+
+daymode colors
+
+/ menu
+
+background: rgba(87,46,229,0.90);
+
+header 
+
+background: #FFFFFF;
+
+
+
+/ header and greeting
+background: #37383C;
+
+/ menu lines and every border, and every color
+
+background: #FFFFFF ;
+
+trending and footer
+
+background: #222326;
+
+
+
+///////////////////////////////////////////////////
+
+darkmode colors
+
+/ menu
+
+background: #000000;
+
+/ header and greeting
+background: #37383C;
+
+/ menu lines and every border, and every color
+
+background: #FFFFFF ;
+
+trending and footer
+
+background: #222326;
+
+
+*/
 @font-face {
   src: url(../assets/fonts/Montserrat-SemiBold.ttf);
   font-family: 'Montserrat-SemiBold';
@@ -455,14 +504,12 @@ ul.navbar_menu li a, ul.navbar_menu li div {
 .main-tittle {
   font-family: "Montserrat-Bold";
   font-size: 25px;
-  color: #572ee5;
   text-align: center;
   line-height: 33px;
 }
 
 .search {
   background: #ffffff;
-  border: 1px solid #572ee5;
   border-radius: 27px;
 }
 
@@ -483,7 +530,6 @@ ul.navbar_menu li a, ul.navbar_menu li div {
 .h2-trend {
   font-family: "Montserrat-Bold";
   font-size: 16px;
-  color: #572ee5;
   text-align: center;
   line-height: 25px;
 }
@@ -529,7 +575,6 @@ ul.navbar_menu li a, ul.navbar_menu li div {
 }
 
 .initial-bg {
-  background: #572ee5 90%;
   width: 100%;
   height: 0.31rem;
 }
@@ -580,7 +625,6 @@ ul.navbar_menu li div {
 }
 
 .navbar_menu {
-  background: #572ee5 90%;
   display: none;
   -ms-grid-rows: 3rem 0.5rem 3rem 0.5rem 3rem 0.5rem 5rem 0.5rem;
       grid-template-rows: 3rem 0.5rem 3rem 0.5rem 3rem 0.5rem 5rem 0.5rem;
@@ -1469,6 +1513,41 @@ section.icons-shared img {
   display: none;
 }
 
+.dark-mode-1 {
+  background: #000000;
+}
+
+.light-mode-1 {
+  background: #572ee5;
+}
+
+.dark-mode-2 {
+  background: #37383C;
+  color: #ffffff;
+}
+
+.light-mode-2 {
+  background: #FFFFFF;
+  color: #572ee5;
+}
+
+.dark-mode-3 {
+  border: 2px solid #ffffff;
+  background: #37383C;
+  color: #ffffff;
+}
+
+.light-mode-3 {
+  border: 2px solid #572ee5;
+  background: #FFFFFF;
+  color: #572ee5;
+}
+
+/*
+div.light-mode-1 {
+    background: $font-color-1-lm ;     
+}
+*/
 /*
 @import "./Partials/body";
 @import "./Partials/header";

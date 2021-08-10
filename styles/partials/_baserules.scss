@@ -441,14 +441,14 @@ template {
 %style-h2-main {
   font-family: "Montserrat-Bold";
   font-size: 25px;
-  color: $font-color1;
+  //color: $font-color1;
   text-align: center;
   line-height: 33px;
 }
 
 %style-search-gif {
   background: #ffffff;
-  border: 1px solid $border-primary;
+  //border: $border-primary;
   border-radius: 27px;
 }
 
@@ -469,7 +469,7 @@ template {
 %style-h2-trend {
   font-family: "Montserrat-Bold";
   font-size: 16px;
-  color: $font-color1;
+  //color: $font-color1;
   text-align: center;
   line-height: 25px;
 }

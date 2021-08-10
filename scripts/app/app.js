@@ -1,13 +1,18 @@
+// Import
+
 import {createContainerAutocomplete} from '../domain/autocomplete/autocomplete.js'
 import {createTrendSection} from '../domain/trend/trend.js'
 import {createSearchSection} from '../domain/gifcard/gifcard.js'
 import {trendGifsSection} from '../domain/trend/trendSection.js'
+import {darkMode} from '../domain/darkMode/darkMode.js'
 
+
+
+/////// Trend 
 await trendGifsSection();
-
-///////
-
 createTrendSection(4 , 0);
+
+
 
 
 const searchBtn = document.getElementById('search-btn')

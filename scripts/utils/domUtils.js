@@ -1,6 +1,7 @@
 function $(selector) {
     const self = {
       htmlElement: document.querySelector(selector),
+      htmlAllElements: document.querySelectorAll(selector),
       html: () => self.htmlElement,
       on: (event, callback) => {
         self.htmlElement.addEventListener(event, callback);
