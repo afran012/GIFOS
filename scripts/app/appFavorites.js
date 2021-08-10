@@ -1,4 +1,5 @@
 import {darkMode} from '../domain/darkMode/darkMode.js'
+import {closeMaximize} from '../domain/maximize/maximize.js'
 import {createFavoritesSection} from '../domain/favorites/favorites.js'
 import {trendGifsSection} from '../domain/trend/trendSection.js'
 

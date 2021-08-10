@@ -1,11 +1,6 @@
-/*const createHtmElement = ({tag , classElement}) => {
-    let tagElement = document.createElement(`${tag}`)
-    card.classList.add(`${classElement}`)
-    return tagElement
-
-}*/
+import {openMaximize} from './../maximize/maximize.js'
 import {Favorite} from "../../models/favorites.js";
-//import {gifLocalStorage} from "../gifcard/gifcard.js";
+
 
 
 const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
@@ -73,6 +68,7 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
     imgFull.classList.add("icon-max-normal")
     imgFull.addEventListener("click", async (event) => {
         console.log('click')
+        openMaximize(urlGifBig)
         // aca pones la logica de hacer grande
 
     })

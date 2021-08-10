@@ -1,5 +1,6 @@
 
 import {darkMode} from '../domain/darkMode/darkMode.js'
+import {closeMaximize} from '../domain/maximize/maximize.js'
 import {getMyGifs} from '../services/giftService.js'
 import {createMyGifsSection} from '../domain/myGifs/myGifs.js'
 import {trendGifsSection} from '../domain/trend/trendSection.js'

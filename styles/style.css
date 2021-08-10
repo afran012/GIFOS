@@ -860,6 +860,16 @@ div.div-icons-gifo img {
   display: none;
 }
 
+.img-full-size-mode {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 6;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 8;
+  grid-area: 1 / 1 / 7 / 9;
+  width: 100%;
+  height: 100%;
+}
+
 .full-size-gif {
   display: none;
   position: -webkit-sticky;
@@ -891,16 +901,17 @@ div.div-icons-gifo img {
 }
 
 .close-full-size-mode {
-  -ms-grid-row: 1;
+  -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   -ms-grid-column: 7;
   -ms-grid-column-span: 1;
-  grid-area: 1 / 7 / 2 / 8;
+  grid-area: 2 / 7 / 3 / 8;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
   -ms-grid-column-align: center;
       justify-self: center;
+  z-index: 1;
 }
 
 .gif-max {
@@ -914,6 +925,7 @@ div.div-icons-gifo img {
 }
 
 .before-full-size-mode {
+  display: none;
   -ms-grid-row: 3;
   -ms-grid-row-span: 1;
   -ms-grid-column: 2;
@@ -922,6 +934,7 @@ div.div-icons-gifo img {
 }
 
 .next-full-size-mode {
+  display: none;
   -ms-grid-row: 3;
   -ms-grid-row-span: 1;
   -ms-grid-column: 7;
@@ -931,6 +944,7 @@ div.div-icons-gifo img {
 }
 
 .favorite-full-size-mode {
+  display: none;
   -ms-grid-row: 5;
   -ms-grid-row-span: 1;
   -ms-grid-column: 5;
@@ -939,6 +953,7 @@ div.div-icons-gifo img {
 }
 
 .download-full-size-mode {
+  display: none;
   -ms-grid-row: 5;
   -ms-grid-row-span: 1;
   -ms-grid-column: 6;
