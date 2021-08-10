@@ -1,8 +1,6 @@
 import { createGif } from '../../services/giftService.js'
 import { API_DETAILS , CREATE_GIF } from '../../configs/config.js'
-//import {action} from '../../appVideo.js'
 import {localStorageCreatedGif} from '../createvideo/createVideoGifs.js'
-//import { FormData } from '../../models/createGif.js'
 
 const step1 = document.getElementById ("button-step1")
 const step2 = document.getElementById ("button-step2")
@@ -13,35 +11,16 @@ const msgStep2 = document.getElementById ("msg-step-2");
 const msgStep3 = document.getElementById ("msg-step-3");
 const msgStep4 = document.getElementById ("msg-step-4");
 
-
 const api_key = CREATE_GIF.api_key
 const username = CREATE_GIF.username 
 const tags = CREATE_GIF.tags
 let recorder
-
-
-
-
 
 let video = document.querySelector('video');
 let constraints = window.constraints = {
   audio: false,
   video: { width: 360 , height: 200 }
 };
-/*
-const openVideo = async () =>{
-
-    await navigator.mediaDevices.getUserMedia(constraints)
-    .then(function(mediaStream) {
-        video.srcObject = mediaStream;
-        video.onloadedmetadata = function(e) {
-        // Do something with the video here.
-        video.play()
-        btnVideo.textContent = "Grabar"
-      };
-    }).catch(function(err) { console.log(err.name); }); // always check for errors at the end.
-
-}*/
 
 const openVideo =  async function getMedia() {
   let stream = null;
@@ -76,11 +55,6 @@ const openVideo =  async function getMedia() {
   }
 }
 
-
-
-
-
-
 const recordVideo = async () =>{
   btnVideo.textContent = "Finalizar"
   btnVideo.style.display="none";
@@ -111,7 +85,6 @@ const recordVideo = async () =>{
       console.log(err); });
 }
 
-
 const pauseVideo = async () =>{
   btnVideo.style.display="none";
 
@@ -127,7 +100,6 @@ const pauseVideo = async () =>{
   };
 }).catch(function(err) { console.log(err.name); }); // always check for errors at the end.
 }
-
 
 const stopVideo = async () =>{ 
   btnVideo.style.display="none";
@@ -148,11 +120,8 @@ const stopVideo = async () =>{
       let recordFile = recorder.getBlob()
 
   };
-  
-  //console.log(recorder)
 }).catch(function(err) { console.log(err); }); // always check for errors at the end.
 }
-
 
 const uploadGif = async () => {
   try {
@@ -163,20 +132,7 @@ const uploadGif = async () => {
     step3.classList.add("btnstepActive");
     step2.classList.remove("btnstepActive");
     step2.classList.add("btnstep");
-    //console.log('recorder2', recorder)
-    //console.log("recordFile Type" , typeof(recorder))
-    //let recorderBlob = recorder.blob
-    //console.log("recordFile.blob" , typeof(recorderBlob))
-    //console.log("recordFile.blob Type" , typeof(recorderBlob))
-
     let recordFile = recorder.getBlob();
-
-    //let file = (recordFile , "Gif")
-    //console.log("recordFile:" , recordFile)
-    //console.log("recordFile type" , typeof(recordFile))
-    //console.log("recordFile Type" , typeof(recordFile))  
-    //let form = new FormData(api_key , username , file  , tags);
-
     var form = new FormData();
 
     form.append('api_key', api_key);
@@ -200,8 +156,6 @@ const uploadGif = async () => {
   catch (error){
     console.error(error);
   }
-  
-
 }
 
 export {openVideo , recordVideo , stopVideo , uploadGif, pauseVideo}

@@ -16,7 +16,6 @@ const trendTemplate = (tags) => {
         pTrendData.appendChild(wordTrend)        
         wordTrend.addEventListener('click' , ()=>{searchIn.value = trend})
         flagTrend += 1
-        //console.log(flagTrend)
     })    
 }
 

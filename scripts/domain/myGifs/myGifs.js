@@ -13,7 +13,6 @@ const createMyGifsSection = async (favoritos=[]) => {
         }
         if (favoritos) {
             favoritos.forEach(gif => {
-                //console.log(gif)
                 let cardGif = myGifsTemplate.myGifTemplate(gif)
                 gifsFavoritesDiv.appendChild(cardGif)
             })

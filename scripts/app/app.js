@@ -32,7 +32,6 @@ let inputSearchValue = ""
 
 
 pInputSearch.addEventListener('input', async (event) => {
-    //event.preventDefault()
     const autocomplete = await createContainerAutocomplete(pInputSearch.value, limitAutocomplete , offsetAutocomplete )
     console.log(autocomplete)
 })

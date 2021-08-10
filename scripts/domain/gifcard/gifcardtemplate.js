@@ -1,12 +1,9 @@
 import {openMaximize} from './../maximize/maximize.js'
 import {Favorite} from "../../models/favorites.js";
 
-
-
 const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
 
     let card = document.createElement("div")
-    //card.classList.add("div-gifo")
     card.classList.add("favorite-gifo")   
 
     let imgGif = document.createElement("img")
@@ -14,7 +11,6 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
     imgGif.setAttribute("alt", "gif-item");
     imgGif.classList.add("img-gif")
     
-
     let  icons= document.createElement("div")
     icons.classList.add("div-icons-gifo")
 
@@ -22,6 +18,7 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
     imgFav.src = "./assets/images/icon-fav.svg";
     imgFav.classList.add("img-fav")
     imgGif.setAttribute("gifId", gifId);
+
     imgFav.addEventListener("click", (event) => {
         let favLocal = JSON.parse(localStorage.getItem('favorites'))
         console.log( "favLocal" , favLocal )
@@ -43,7 +40,6 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
         console.log('gifLocalStorage', localStorage)
     })
     
-
     let imgDown = document.createElement("img")
     imgDown.src = "./assets/images/icon-download.svg";
     imgDown.setAttribute("alt", "icon-download");
@@ -57,11 +53,9 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
         a.href = window.URL.createObjectURL(file);
         a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
         // simulating link click
-        a.click();
-        
+        a.click();   
     })
     
-
     let imgFull = document.createElement("img")
     imgFull.src = "./assets/images/icon-max-normal.svg"
     imgFull.setAttribute("alt", "icon-max-normal");
@@ -69,21 +63,14 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
     imgFull.addEventListener("click", async (event) => {
         console.log('click')
         openMaximize(urlGifBig)
-        // aca pones la logica de hacer grande
-
     })
-    // element.classList.contains(className);
-    
-
 
     card.appendChild(imgGif)  
     icons.appendChild(imgFav)  
     icons.appendChild(imgDown)
     icons.appendChild(imgFull)
     card.appendChild(icons)
-    //console.log(card)
     return card
-
 }
 
 export {gifcardTemplate}

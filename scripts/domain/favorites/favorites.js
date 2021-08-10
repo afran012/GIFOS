@@ -1,6 +1,5 @@
 import * as favoritesTemplate from "../favorites/favoritesTemplate.js";
 
-
 const createFavoritesSection = async (favoritos=[]) => {
     const gifsFavoriteSection= document.getElementById('favorites-container');
     
@@ -13,18 +12,15 @@ const createFavoritesSection = async (favoritos=[]) => {
         }
         if (favoritos) {
             favoritos.forEach(gif => {
-                //console.log(gif)
                 let cardGif = favoritesTemplate.favoriteTemplate(gif)
                 gifsFavoritesDiv.appendChild(cardGif)
             })
             gifsFavoriteSection.appendChild(gifsFavoritesDiv)
-
         }
-
     }
     catch (error) {
         console.error(error);
     }
-
 }
+
 export {createFavoritesSection}
