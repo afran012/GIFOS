@@ -1,14 +1,3 @@
-/*const autocompleteTemplate = ({tags,position}) => {
-    const autocompleteTemp =`
-        <div class="autocompleteContainer">
-            <div class="separator"></div>
-
-                ${tags.map((tag,index) => {`<div class="autocomplete ${index + 1}"><img src="./assets/images/icon-search-mod-noc.svg" alt="magnifying glass">${tag.name}</div>`}).join("")
-                }</div>`;
-    console.log(autocompleteTemp) 
-    return autocompleteTemp
-}*/
-
 
 const autocompleteTemplate = (tags) => {
     const searchDiv = document.getElementById("search")

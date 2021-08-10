@@ -2,10 +2,6 @@ import {Favorite} from "../../models/favorites.js";
 import {MyGif} from "../../models/myGifs.js";
 import {openMaximize} from './../maximize/maximize.js'
 
-
-
-
-
 const myGifTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName}) => {
 
     let card = document.createElement("div")
@@ -14,8 +10,7 @@ const myGifTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName}) => {
     let imgGif = document.createElement("img")
     imgGif.src = _urlSmall;
     imgGif.setAttribute("alt", "gif-item");
-    imgGif.classList.add("img-gif")
-    
+    imgGif.classList.add("img-gif")    
 
     let  icons= document.createElement("div")
     icons.classList.add("div-icons-gifo")
@@ -44,8 +39,7 @@ const myGifTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName}) => {
             card.style.display = 'none'   
         }
         localStorage.setItem( 'favorites' , JSON.stringify(favLocalStorage))      
-    })
-    
+    })    
 
     let imgDown = document.createElement("img")
     imgDown.src = "../assets/images/icon-download.svg";
@@ -60,33 +54,24 @@ const myGifTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName}) => {
         a.href = window.URL.createObjectURL(file);
         a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
         // simulating link click
-        a.click();
-        
+        a.click();        
     })
-    
 
     let imgFull = document.createElement("img")
     imgFull.src = "../assets/images/icon-max-normal.svg"
     imgFull.setAttribute("alt", "icon-max-normal");
     imgFull.classList.add("icon-max-normal")
+    
     imgFull.addEventListener("click", async (event) => {
         console.log('click')
         openMaximize(_urlOrig)
-        // aca pones la logica de hacer grande
-
     })
-    // element.classList.contains(className);
-    
-
-
     card.appendChild(imgGif)  
     icons.appendChild(imgFav)  
     icons.appendChild(imgDown)
     icons.appendChild(imgFull)
     card.appendChild(icons)
-    //console.log(card)
     return card
-
 }
 
 export {myGifTemplate}

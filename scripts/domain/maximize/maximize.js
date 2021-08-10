@@ -1,7 +1,5 @@
 import { $ } from "./../../utils/domUtils.js";
 
-
-
 const closeMaximize = async () => {
     let close = $("#full-size-gif").htmlElement
     close.style.display = "none"

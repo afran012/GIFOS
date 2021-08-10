@@ -1,31 +1,24 @@
 import { $ } from "./../../utils/domUtils.js";
 
-
 // verify Dark Mode in Local Storage
 let darkLocal = JSON.parse(localStorage.getItem('darkLocal'))
 
 if ( !darkLocal ) {
     localStorage.setItem( 'darkLocal' , JSON.stringify("light"))
 }
-
 const darkMode = async () =>{
     try{
         let darkLocal = JSON.parse(localStorage.getItem('darkLocal'))
         if (darkLocal == "light") { 
             darkLocal = "dark"
-
         }
         else {
             darkLocal = "light"
         }
-
         await changeColors(darkLocal)
         return localStorage.setItem( 'darkLocal' , JSON.stringify(darkLocal))
-
     } catch (error) { console.log(error) }
-
 }
-
 
 const changeColors = async (valueMode) => {
     try{
@@ -50,7 +43,6 @@ const changeColors = async (valueMode) => {
     } catch(error) { console.log(error)}
 }
 
-
 const changeClassElement = async ( elementToRemove , elementToAdd ) => {
     try {
         $( `.${elementToRemove}` ).htmlAllElements.forEach(element => {
@@ -58,13 +50,9 @@ const changeClassElement = async ( elementToRemove , elementToAdd ) => {
             element.classList.remove( `${elementToRemove}` )
         })
     }catch (error) { console.log(error) }
-
 }
 
-
-
 changeColors(darkLocal)
-
 
 $("#dark-mode").on("click", darkMode)
 

@@ -55,11 +55,8 @@ const favoriteTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName}) => {
         a.download = _gifName
         a.href = window.URL.createObjectURL(file);
         a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
-        // simulating link click
-        a.click();
-        
-    })
-    
+        a.click();        
+    })    
 
     let imgFull = document.createElement("img")
     imgFull.src = "../assets/images/icon-max-normal.svg"
@@ -68,21 +65,14 @@ const favoriteTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName}) => {
     imgFull.addEventListener("click", async (event) => {
         console.log('click')
         openMaximize(_urlOrig)
-        // aca pones la logica de hacer grande
-
     })
-    // element.classList.contains(className);
     
-
-
     card.appendChild(imgGif)  
     icons.appendChild(imgFav)  
     icons.appendChild(imgDown)
     icons.appendChild(imgFull)
     card.appendChild(icons)
-    //console.log(card)
     return card
-
 }
 
 export {favoriteTemplate}

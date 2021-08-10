@@ -1,18 +1,15 @@
 import {Favorite} from "../../models/favorites.js";
 import {openMaximize} from './../maximize/maximize.js'
 
-
 const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
 
     let card = document.createElement("div")
-    //card.classList.add("div-gifo")
     card.classList.add("favorite-gifo")   
 
     let imgGif = document.createElement("img")
     imgGif.src = urlGifSmall;
     imgGif.setAttribute("alt", "gif-item");
     imgGif.classList.add("img-gif")
-    //
 
     let  icons= document.createElement("div")
     icons.classList.add("div-icons-gifo")
@@ -42,7 +39,6 @@ const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, g
         console.log('gifLocalStorage', localStorage)
     })
     
-//
     let imgDown = document.createElement("img")
     imgDown.src = `${patho}assets/images/icon-download.svg`;
     imgDown.setAttribute("alt", "icon-download");
@@ -55,12 +51,9 @@ const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, g
         a.download = gifId
         a.href = window.URL.createObjectURL(file);
         a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
-        // simulating link click
-        a.click();
-        
+        a.click();        
     })
     
-
     let imgFull = document.createElement("img")
     imgFull.src = `${patho}assets/images/icon-max-normal.svg`
     imgFull.setAttribute("alt", "icon-max-normal");
@@ -68,21 +61,14 @@ const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, g
     imgFull.addEventListener("click", async (event) => {
         console.log('click')
         openMaximize(urlGifBig)
-        // aca pones la logica de hacer grande
-
     })
-    // element.classList.contains(className);
-    
-
 
     card.appendChild(imgGif)  
     icons.appendChild(imgFav)  
     icons.appendChild(imgDown)
     icons.appendChild(imgFull)
     card.appendChild(icons)
-    //console.log(card)
     return card
-
 }
 
 export {gifcardTrendTemplate}
