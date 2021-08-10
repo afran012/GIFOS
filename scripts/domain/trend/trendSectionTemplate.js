@@ -1,4 +1,5 @@
 import {Favorite} from "../../models/favorites.js";
+import {openMaximize} from './../maximize/maximize.js'
 
 
 const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
@@ -66,6 +67,7 @@ const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, g
     imgFull.classList.add("icon-max-normal")
     imgFull.addEventListener("click", async (event) => {
         console.log('click')
+        openMaximize(urlGifBig)
         // aca pones la logica de hacer grande
 
     })

@@ -1,4 +1,5 @@
 import {Favorite} from "../../models/favorites.js";
+import {openMaximize} from './../maximize/maximize.js'
 
 
 const favoriteTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName}) => {
@@ -66,6 +67,7 @@ const favoriteTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName}) => {
     imgFull.classList.add("icon-max-normal")
     imgFull.addEventListener("click", async (event) => {
         console.log('click')
+        openMaximize(_urlOrig)
         // aca pones la logica de hacer grande
 
     })
