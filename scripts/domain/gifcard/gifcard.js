@@ -10,13 +10,13 @@ const createSearchSection = async (tag , limit , offset) => {
     
     try {
         let gifsSearchDiv = document.getElementById('favorites-section')
-        console.log("gifsSearchDiv" , gifsSearchDiv )
+        //console.log("gifsSearchDiv" , gifsSearchDiv )
         if (!gifsSearchDiv) {
             gifsSearchDiv =  document.createElement("div")
-            console.log("gifsSearchDiv" , gifsSearchDiv )   
+            //console.log("gifsSearchDiv" , gifsSearchDiv )   
             gifsSearchDiv.classList.add("favorites-section")
             gifsSearchDiv.setAttribute("id", "favorites-section")
-            console.log("gifsSearchDiv" , gifsSearchDiv )    
+            //console.log("gifsSearchDiv" , gifsSearchDiv )    
         }
         const gifs = await GifService.getGifSearch(tag,limit,offset)
 
@@ -28,7 +28,7 @@ const createSearchSection = async (tag , limit , offset) => {
                 urlGifOriginal: gif.images.original.url,
                 gifName: gif.slug,
             }
-            console.log(gif)
+            //console.log(gif)
             let cardGif = gifTemplate.gifcardTemplate(urlWrapper)
             gifsSearchDiv.appendChild(cardGif)
         })

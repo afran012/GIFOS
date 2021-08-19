@@ -13,6 +13,14 @@ let CREATE_GIF = {
     tags:'Acamica'
 }
 
+let SEARCH_SECTION = {
+    inputSearchValue : "",
+    limitSearch : 12,
+    offsetSearch : 0,
+    limitAutocomplete : 4,
+    offsetAutocomplete : 0
+}
 
 
-export {API_DETAILS , NOCTURNE_MODE , CREATE_GIF}
+
+export {API_DETAILS , NOCTURNE_MODE , CREATE_GIF, SEARCH_SECTION }
