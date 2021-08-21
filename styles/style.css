@@ -860,6 +860,10 @@ div.div-icons-gifo img {
   display: none;
 }
 
+.img-close-search {
+  display: none;
+}
+
 .img-full-size-mode {
   -ms-grid-row: 1;
   -ms-grid-row-span: 6;

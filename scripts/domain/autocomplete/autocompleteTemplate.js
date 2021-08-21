@@ -18,6 +18,9 @@ const autocompleteTemplate = (tags) => {
         searchAuto.appendChild(tagDiv)
         tagDiv.textContent = tag.name;
         tagDiv.addEventListener('click', async ()=>{
+            $("#search-btn").htmlElement.style.display = 'inline'
+            $("#img-close-search").htmlElement.style.display = 'none'
+            SEARCH_SECTION.currentSearch = 0
             searchIn.value = tag.name
             $("#autoContain").htmlElement.innerHTML = ""
             $("#gifs-search-container").htmlElement.innerHTML = ""

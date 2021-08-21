@@ -18,7 +18,8 @@ let SEARCH_SECTION = {
     limitSearch : 12,
     offsetSearch : 0,
     limitAutocomplete : 4,
-    offsetAutocomplete : 0
+    offsetAutocomplete : 0,
+    currentSearch : 0
 }
 
 
