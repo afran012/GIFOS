@@ -2,6 +2,7 @@
 import {darkMode} from '../domain/darkMode/darkMode.js'
 import {closeMaximize} from '../domain/maximize/maximize.js'
 
+/////  
 
 import {createContainerAutocomplete} from '../domain/autocomplete/autocomplete.js'
 import {createTrendSection} from '../domain/trend/trend.js'
@@ -11,25 +12,29 @@ import { $ } from "../utils/domUtils.js";
 import { SEARCH_SECTION } from "../configs/config.js"
 
 /////// Trend 
+
 await trendGifsSection();
 createTrendSection(4 , 0);
+
 /////////////////  DOM  ///////////////////////////////////
+
 const searchBtn = document.getElementById('search-btn')
 const pInputSearch = document.getElementById('search-gif')
 const viewMoreBtn = document.getElementById('search-more')
 
 ///////////////////////////////////////////////////////////
 
-
 $("#img-close-search").on("click", (event)=>{
+    $("#search-btn").htmlElement.style.gridArea = '1/3/2/4'
     $("#search-gif").htmlElement.value = ""
     $("#autoContain").htmlElement.innerHTML = ""
     $("#search-btn").htmlElement.style.display = 'inline'
     $("#img-close-search").htmlElement.style.display = 'none'
 })
 
-
 const searchGifs = async (value, limitSearch , offsetSearch) => {
+    $("#search-btn").htmlElement.style.gridArea = '1/3/2/4'
+    $("#img-close-search").htmlElement.style.display = 'none'
     SEARCH_SECTION.currentSearch = 0
     $("#autoContain").htmlElement.innerHTML = ""
     $("#gifs-search-container").htmlElement.innerHTML = "" 
@@ -56,12 +61,13 @@ pInputSearch.addEventListener('input', async (event) => {
     await createContainerAutocomplete(pInputSearch.value, SEARCH_SECTION.limitAutocomplete , SEARCH_SECTION.offsetAutocomplete )
     let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
     console.log( "vw" , vw )
-    if ( vw > 500 & pInputSearch.value != "") {
-        $("#search-btn").htmlElement.style.display = 'none'
+    if ( pInputSearch.value != "") {
+        $("#search-btn").htmlElement.style.gridArea = '1/1/2/2'
         $("#img-close-search").htmlElement.style.display = 'inline'
     }
     if (pInputSearch.value == ""){
         $("#search-btn").htmlElement.style.display = 'inline'
+        $("#search-btn").htmlElement.style.gridArea = '1/3/2/4'
         $("#img-close-search").htmlElement.style.display = 'none'        
     }
 
