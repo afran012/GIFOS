@@ -43,6 +43,8 @@ const searchGifs = async (value, limitSearch , offsetSearch) => {
     $("#search-gif").htmlElement.value = ""
 }
 
+//searchGifs("value", SEARCH_SECTION.limitSearch , SEARCH_SECTION.offsetSearch)
+
 pInputSearch.addEventListener('keypress', async e => {
     if(e.keyCode == 13) {
         $("#search-btn").htmlElement.style.display = 'inline'

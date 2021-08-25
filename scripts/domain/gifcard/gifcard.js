@@ -27,6 +27,8 @@ const createSearchSection = async (tag , limit , offset) => {
                 urlGifBig: gif.images.fixed_width.url,
                 urlGifOriginal: gif.images.original.url,
                 gifName: gif.slug,
+                gifUser: gif.username,
+                gifTitle: gif.title
             }
             //console.log(gif)
             let cardGif = gifTemplate.gifcardTemplate(urlWrapper)
