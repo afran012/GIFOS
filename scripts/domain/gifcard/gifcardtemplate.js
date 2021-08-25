@@ -1,5 +1,7 @@
 import {openMaximize} from './../maximize/maximize.js'
 import {Favorite} from "../../models/favorites.js";
+import { GIFMAX } from "../../configs/config.js";
+import { $ } from "../../utils/domUtils.js";
 
 const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUser , gifTitle}) => {
 
@@ -86,7 +88,21 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUs
     imgFull.setAttribute("alt", "icon-max-normal");
     imgFull.classList.add("icon-max-normal")
     imgFull.addEventListener("click", async (event) => {
-        console.log('click')
+
+        let urlWrapper = {
+            gifId: gifId,
+            urlGifSmall: urlGifSmall,
+            urlGifBig: urlGifBig,
+            urlGifOriginal: urlGifOriginal,
+            gifUser: gifUser,
+            gifTitle: gifTitle
+        }
+        
+        $("#user-title").htmlElement.innerHTML = gifTitle
+        $("#gif-title").htmlElement.innerHTML = gifUser
+        
+        GIFMAX.gifMax = urlWrapper
+        //console.log('click',urlWrapper)
         openMaximize(urlGifBig)
     })
 

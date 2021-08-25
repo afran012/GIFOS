@@ -84,4 +84,14 @@ viewMoreBtn.addEventListener('click', async (event) => {
     const  searchSection = await createSearchSection(SEARCH_SECTION.inputSearchValue, SEARCH_SECTION.limitSearch, SEARCH_SECTION.currentSearch)
 })
 
+viewMoreBtn.addEventListener('mouseover', async (event) => {
+    viewMoreBtn.src = "./assets/images/CTA-ver-mas-hover.svg"
+
+})
+
+viewMoreBtn.addEventListener('mouseout', async (event) => {
+    viewMoreBtn.src = "./assets/images/CTA-ver-mas.svg"
+})
+
+
     

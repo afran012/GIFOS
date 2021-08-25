@@ -19,6 +19,15 @@ const createSearchSection = async (tag , limit , offset) => {
             //console.log("gifsSearchDiv" , gifsSearchDiv )    
         }
         const gifs = await GifService.getGifSearch(tag,limit,offset)
+        console.log(gifs)
+        console.log(gifs.length)
+        if (gifs.length==0) {
+            console.log("entro")
+            $("#search-more").hide()
+        }
+        else{
+            $("#search-more").show()
+        }
 
         gifs.forEach(gif => {
             let urlWrapper = {

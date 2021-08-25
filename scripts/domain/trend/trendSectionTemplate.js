@@ -133,12 +133,14 @@ const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, g
 
     elementsListHover.forEach((element) => {
         element.addEventListener("mouseover", e =>{
+            addImgFavSource()
             icons.style.display = "grid"  
             cardHover.style.display = "inline"  
             userText.style.display = "inline"  
             tittleText.style.display = "inline"
         });
         element.addEventListener("mouseout", e =>{
+            addImgFavSource(1)
             icons.style.display = "none"
             cardHover.style.display = "none" 
             userText.style.display = "none"  

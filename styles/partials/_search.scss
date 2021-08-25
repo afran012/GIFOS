@@ -33,6 +33,8 @@
 }
 
 .gifs-search-section-full {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 7%;
   margin-top: 7%;
   //@extend %border-test;
@@ -61,6 +63,7 @@
   width: 90%;
   opacity: 0.5;
   background-color: #9cafc3;*/
+  align-self: center;
   display: none;
 }
 

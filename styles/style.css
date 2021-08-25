@@ -822,6 +822,13 @@ div.trendgif-section {
 }
 
 .gifs-search-section-full {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin-bottom: 7%;
   margin-top: 7%;
 }
@@ -844,6 +851,9 @@ div.trendgif-section {
   width: 90%;
   opacity: 0.5;
   background-color: #9cafc3;*/
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   display: none;
 }
 
