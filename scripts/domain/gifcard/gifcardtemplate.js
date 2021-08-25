@@ -13,13 +13,13 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUs
         let favLocalStorage = JSON.parse(localStorage.getItem('favorites'))
         let found = favLocalStorage.find( (gifo) => gifo._gifId == gifId);
         if (found) {
-            imgFav.src = `../assets/images/icon-fav-active.svg`
+            imgFav.src = `./assets/images/icon-fav-active.svg`
         }
         else {
-            imgFav.src = `../assets/images/icon-fav-hover.svg`
+            imgFav.src = `./assets/images/icon-fav-hover.svg`
         }
         if (!found && flag == 1) {
-            imgFav.src = `../assets/images/icon-fav.svg`
+            imgFav.src = `./assets/images/icon-fav.svg`
         }
     }
 
@@ -55,11 +55,11 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUs
         let arrayIndex = favLocalStorage.indexOf(found)
         if ( !found ) {
             favLocalStorage.push(favoriteGif)
-            imgFav.src = `../assets/images/icon-fav-active.svg`
+            imgFav.src = `./assets/images/icon-fav-active.svg`
         }
         else {
             favLocalStorage.splice(arrayIndex,1)
-            imgFav.src = `../assets/images/icon-fav-hover.svg`
+            imgFav.src = `./assets/images/icon-fav-hover.svg`
               
         }
         localStorage.setItem( 'favorites' , JSON.stringify(favLocalStorage))      
@@ -143,17 +143,17 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUs
     });
 
     imgDown.addEventListener("mouseover", e => {
-        imgDown.src = `../assets/images/icon-download-hover.svg`;
+        imgDown.src = `./assets/images/icon-download-hover.svg`;
     });
     imgDown.addEventListener("mouseout", e =>{
-        imgDown.src = `../assets/images/icon-download.svg`;
+        imgDown.src = `./assets/images/icon-download.svg`;
     });
 
     imgFull.addEventListener("mouseover", e => {
-        imgFull.src = `../assets/images/icon-max-hover.svg`;
+        imgFull.src = `./assets/images/icon-max-hover.svg`;
     });
     imgFull.addEventListener("mouseout", e =>{
-        imgFull.src = `../assets/images/icon-max-normal.svg`;
+        imgFull.src = `./assets/images/icon-max-normal.svg`;
     });
 
     

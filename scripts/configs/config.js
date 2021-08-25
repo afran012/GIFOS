@@ -22,6 +22,10 @@ let SEARCH_SECTION = {
     currentSearch : 0
 }
 
+let GIFMAX = {
+    gifMax : []
+}
 
 
-export {API_DETAILS , NOCTURNE_MODE , CREATE_GIF, SEARCH_SECTION }
+
+export {API_DETAILS , NOCTURNE_MODE , CREATE_GIF, SEARCH_SECTION , GIFMAX } 

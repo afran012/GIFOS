@@ -1,11 +1,12 @@
 import {Favorite} from "../../models/favorites.js";
-import {openMaximize} from './../maximize/maximize.js'
+import {openMaximize} from './../maximize/maximize.js';
+import { GIFMAX } from "../../configs/config.js";
+import { $ } from "../../utils/domUtils.js";
 
 const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUser , gifTitle}) => {
 
     let addImgFavSource = (flag=0) => {
         let favLocal = JSON.parse(localStorage.getItem('favorites'))
-        //console.log( "favLocal" , favLocal )
         if ( !favLocal ) {
             localStorage.setItem( 'favorites' , JSON.stringify([]))
         }     
@@ -67,6 +68,7 @@ const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, g
     imgDown.src = `${patho}assets/images/icon-download.svg`;
     imgDown.setAttribute("alt", "icon-download");
     imgDown.classList.add("icon-download");
+
     imgDown.addEventListener("click", async (event) => {
         let a = document.createElement('a');
         let response = await fetch(urlGifOriginal)
@@ -83,9 +85,23 @@ const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, g
     imgFull.setAttribute("alt", "icon-max-normal");
     imgFull.classList.add("icon-max-normal")
     imgFull.addEventListener("click", async (event) => {
-        console.log('click')
+        let urlWrapper = {
+            gifId: gifId,
+            urlGifSmall: urlGifSmall,
+            urlGifBig: urlGifBig,
+            urlGifOriginal: urlGifOriginal,
+            gifUser: gifUser,
+            gifTitle: gifTitle
+        }
+        
+        $("#user-title").htmlElement.innerHTML = gifTitle
+        $("#gif-title").htmlElement.innerHTML = gifUser
+        
+        GIFMAX.gifMax = urlWrapper
+        //console.log('click',urlWrapper)
         openMaximize(urlGifBig)
     })
+
 
     card.appendChild(imgGif)  
     icons.appendChild(imgFav)  
