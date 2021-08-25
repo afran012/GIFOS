@@ -58,11 +58,9 @@ searchBtn.addEventListener('click', async (event) => {
     await searchGifs(pInputSearch.value, SEARCH_SECTION.limitSearch , SEARCH_SECTION.offsetSearch)
 })
 
-
+//createContainerAutocomplete("a", SEARCH_SECTION.limitAutocomplete , SEARCH_SECTION.offsetAutocomplete )
 pInputSearch.addEventListener('input', async (event) => {
     await createContainerAutocomplete(pInputSearch.value, SEARCH_SECTION.limitAutocomplete , SEARCH_SECTION.offsetAutocomplete )
-    let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-    console.log( "vw" , vw )
     if ( pInputSearch.value != "") {
         $("#search-btn").htmlElement.style.gridArea = '1/1/2/2'
         $("#img-close-search").htmlElement.style.display = 'inline'

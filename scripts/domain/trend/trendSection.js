@@ -7,7 +7,7 @@ const trendGifsSection = async ( patho = './', limit = 3 ,offset = 0) => {
     
     try {
         const gifs = await trendSection( limit ,offset )
-        console.log("gifs",gifs)
+        //console.log("gifs",gifs)
 
         gifs.forEach(gif => {
             let urlWrapper = {

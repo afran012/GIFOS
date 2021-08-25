@@ -19,7 +19,7 @@ $("#close-full-size-mode").on("click", closeMaximize)
 
 
 let download = $("#download-full-size-mode").htmlElement
-console.log(download)
+//console.log(download)
 download.addEventListener("click", async (event) => {
     try{
         console.log('urlGifOriginal', GIFMAX.gifMax.urlGifOriginal)

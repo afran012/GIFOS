@@ -14,7 +14,7 @@
 
 .div-search {
   @extend %grid-center;
-  grid-template-columns: 10% 80% 10%;
+  grid-template-columns: 15% 65% 20%;
   height: 3.13rem;
 }
 
@@ -45,9 +45,22 @@
 }
 
 .autocomplete {
+  display: grid;
+  grid-template-columns: 20 % 80%;
+  grid-template-rows: 100%;
   @extend %style-search-autocomplete;
   height: 2.5rem;
   width: 90%;
+}
+
+
+.img-search-auto {
+  grid-area: 1/1/2/2;
+}
+
+.tagDivText{
+  grid-area: 1/2/2/3;
+
 }
 
 .separator {

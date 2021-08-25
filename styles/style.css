@@ -524,7 +524,6 @@ ul.navbar_menu li a, ul.navbar_menu li div {
   font-family: "Roboto-Regular";
   font-size: 16px;
   color: #9cafc3;
-  text-align: left;
 }
 
 .h2-trend {
@@ -802,8 +801,8 @@ div.trendgif-section {
 }
 
 .div-search {
-  -ms-grid-columns: 10% 80% 10%;
-      grid-template-columns: 10% 80% 10%;
+  -ms-grid-columns: 15% 65% 20%;
+      grid-template-columns: 15% 65% 20%;
   height: 3.13rem;
 }
 
@@ -834,8 +833,30 @@ div.trendgif-section {
 }
 
 .autocomplete {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20%;
+      grid-template-columns: 20%;
+  -ms-grid-rows: 100%;
+      grid-template-rows: 100%;
   height: 2.5rem;
   width: 90%;
+}
+
+.img-search-auto {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-area: 1/1/2/2;
+}
+
+.tagDivText {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-area: 1/2/2/3;
 }
 
 .separator {
