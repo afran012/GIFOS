@@ -24,9 +24,23 @@ const createSearchSection = async (tag , limit , offset) => {
         if (gifs.length==0) {
             console.log("entro")
             $("#search-more").hide()
+            $("#trending").htmlElement.style.display = "grid"
+            $("#search-not-found").show()
+            $("#result-found").htmlElement.innerHTML = `"${tag}"`
+            $("#p-result-not-found").show()
         }
         else{
+            $("#trending").hide()
             $("#search-more").show()
+            $("#search-not-found").hide()
+            $("#result-found").show()
+            $("#result-found").htmlElement.innerHTML = `"${tag}"`
+            $("#p-result-not-found ").hide()
+
+        }
+
+        if (gifs.length<limit) {
+            $("#search-more").hide()
         }
 
         gifs.forEach(gif => {

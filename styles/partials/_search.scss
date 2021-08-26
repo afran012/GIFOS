@@ -98,3 +98,36 @@
 .input-search{
   grid-area: 1/2/2/3 ;
 }
+
+.gifos-not-found {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+.trending{
+  justify-items: center;
+  align-items: center;
+}
+
+.result-found{
+  display: none;
+  margin: 1.5rem;
+  font-family: "Montserrat-Bold";
+  font-size: 30px;
+  color: #572EE5;
+  text-align: center;
+  line-height: 30px;
+}
+
+.search-not-found {
+  display: none;
+}
+
+.p-result-not-found {
+  display: none;
+  font-family: "Montserrat-Bold";
+  font-size: 22px;
+  color: #50E3C2;
+  text-align: center;
+  line-height: 25px;
+}
