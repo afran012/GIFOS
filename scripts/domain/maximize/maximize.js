@@ -2,7 +2,7 @@ import { $ } from "./../../utils/domUtils.js";
 import { GIFMAX } from "../../configs/config.js";
 import {Favorite} from "../../models/favorites.js";
 import { addImgFavSource } from "../favorites/favorites.js"
-let patho = "./"
+let patho = "./../"
 
 addImgFavSource(1, GIFMAX.gifMax.gifId , $("#favorite-full-size-mode").htmlElement , patho)
 
