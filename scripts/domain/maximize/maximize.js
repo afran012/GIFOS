@@ -2,7 +2,7 @@ import { $ } from "./../../utils/domUtils.js";
 import { GIFMAX } from "../../configs/config.js";
 import {Favorite} from "../../models/favorites.js";
 import { addImgFavSource } from "../favorites/favorites.js"
-let patho = "./../"
+let patho = "./"
 
 addImgFavSource(1, GIFMAX.gifMax.gifId , $("#favorite-full-size-mode").htmlElement , patho)
 
@@ -95,7 +95,7 @@ $("#favorite-full-size-mode").on( "mouseout" , async (changeFavIcon) => {
 
 $("#download-full-size-mode").on( "mouseover" , async (changeFavIcon) => {
     try {
-        await $("#download-full-size-mode").attr( "src" , "./../assets/images/icon-download-hover.svg" )
+        await $("#download-full-size-mode").attr( "src" , "./assets/images/icon-download-hover.svg" )
     }
     catch (error) {
         console.log(error)
@@ -104,7 +104,7 @@ $("#download-full-size-mode").on( "mouseover" , async (changeFavIcon) => {
 
 $("#download-full-size-mode").on( "mouseout" , async (changeFavIcon) => {
     try {
-        await $("#download-full-size-mode").attr( "src" , "./../assets/images/icon-download.svg" )
+        await $("#download-full-size-mode").attr( "src" , "./assets/images/icon-download.svg" )
     }
     catch (error) {
         console.log(error)
@@ -116,7 +116,7 @@ $("#download-full-size-mode").on( "mouseout" , async (changeFavIcon) => {
 
 $("#close-full-size-mode").on( "mouseover" , async (changeFavIcon) => {
     try {
-        await $("#close-full-size-mode").attr( "src" , "./../assets/images/Button-close-hover-modo-noc.svg" )
+        await $("#close-full-size-mode").attr( "src" , "./assets/images/Button-close-hover-modo-noc.svg" )
     }
     catch (error) {
         console.log(error)
@@ -125,7 +125,7 @@ $("#close-full-size-mode").on( "mouseover" , async (changeFavIcon) => {
 
 $("#close-full-size-mode").on( "mouseout" , async (changeFavIcon) => {
     try {
-        await $("#close-full-size-mode").attr( "src" , "./../assets/images/close.svg" )
+        await $("#close-full-size-mode").attr( "src" , "./assets/images/close.svg" )
     }
     catch (error) {
         console.log(error)
