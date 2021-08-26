@@ -23,4 +23,23 @@ const createFavoritesSection = async (favoritos=[]) => {
     }
 }
 
-export {createFavoritesSection}
+
+const addImgFavSource = (flag=0, gifId , imgFav , patho) => {
+    let favLocal = JSON.parse(localStorage.getItem('favorites'))
+    if ( !favLocal ) {
+        localStorage.setItem( 'favorites' , JSON.stringify([]))
+    }     
+    let favLocalStorage = JSON.parse(localStorage.getItem('favorites'))
+    let found = favLocalStorage.find( (gifo) => gifo._gifId == gifId);
+    if (found) {
+        imgFav.src = `${patho}assets/images/icon-fav-active.svg`
+    }
+    else {
+        imgFav.src = `${patho}assets/images/icon-fav-hover.svg`
+    }
+    if (!found && flag == 1) {
+        imgFav.src = `${patho}assets/images/icon-fav.svg`
+    }
+}
+
+export {createFavoritesSection , addImgFavSource }

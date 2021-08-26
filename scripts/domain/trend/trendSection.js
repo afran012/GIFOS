@@ -7,6 +7,7 @@ const trendGifsSection = async ( patho = './', limit = 3 ,offset = 0) => {
     
     try {
         const gifs = await trendSection( limit ,offset )
+        //console.log("gifs",gifs)
 
         gifs.forEach(gif => {
             let urlWrapper = {
@@ -15,6 +16,8 @@ const trendGifsSection = async ( patho = './', limit = 3 ,offset = 0) => {
                 urlGifBig: gif.images.fixed_width.url,
                 urlGifOriginal: gif.images.original.url,
                 gifName: gif.slug,
+                gifUser: gif.username,
+                gifTitle: gif.title
             }
             let cardGif = gifTemplate.gifcardTrendTemplate(patho,urlWrapper)
             cardGif.classList.add("trendgif-section")

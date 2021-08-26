@@ -10,7 +10,7 @@ const createContainerAutocomplete = async (tag , limit , offset) =>{
             searchAuto.innerHTML = ""
             return
         }
-        console.log(autocompleteTags)
+        //console.log(autocompleteTags)
 
         return await AutoTempleate.autocompleteTemplate(autocompleteTags)
     } catch (error){

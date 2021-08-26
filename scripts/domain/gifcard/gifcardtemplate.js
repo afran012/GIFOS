@@ -1,10 +1,34 @@
 import {openMaximize} from './../maximize/maximize.js'
 import {Favorite} from "../../models/favorites.js";
+import { GIFMAX } from "../../configs/config.js";
+import { $ } from "../../utils/domUtils.js";
+import { addImgFavSource } from "../favorites/favorites.js"
+let patho = "./"
 
-const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
+const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUser , gifTitle}) => {
 
+/*
+    let addImgFavSource = (flag=0) => {
+        let favLocal = JSON.parse(localStorage.getItem('favorites'))
+        //console.log( "favLocal" , favLocal )
+        if ( !favLocal ) {
+            localStorage.setItem( 'favorites' , JSON.stringify([]))
+        }     
+        let favLocalStorage = JSON.parse(localStorage.getItem('favorites'))
+        let found = favLocalStorage.find( (gifo) => gifo._gifId == gifId);
+        if (found) {
+            imgFav.src = `./assets/images/icon-fav-active.svg`
+        }
+        else {
+            imgFav.src = `./assets/images/icon-fav-hover.svg`
+        }
+        if (!found && flag == 1) {
+            imgFav.src = `./assets/images/icon-fav.svg`
+        }
+    }
+*/
     let card = document.createElement("div")
-    card.classList.add("favorite-gifo")   
+    card.classList.add("favorite-gifo") 
 
     let imgGif = document.createElement("img")
     imgGif.src = urlGifSmall;
@@ -13,11 +37,13 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
     
     let  icons= document.createElement("div")
     icons.classList.add("div-icons-gifo")
+    icons.style.display = "none"
 
     let imgFav = document.createElement("img")
     imgFav.src = "./assets/images/icon-fav.svg";
     imgFav.classList.add("img-fav")
     imgGif.setAttribute("gifId", gifId);
+    addImgFavSource(1 , gifId , imgFav , patho)
 
     imgFav.addEventListener("click", (event) => {
         let favLocal = JSON.parse(localStorage.getItem('favorites'))
@@ -30,14 +56,17 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
         let favLocalStorage = JSON.parse(localStorage.getItem('favorites'))
         let found = favLocalStorage.find( (gifo) => gifo._gifId == favoriteGif.gifId);
         console.log( "found" , found )
+        let arrayIndex = favLocalStorage.indexOf(found)
         if ( !found ) {
             favLocalStorage.push(favoriteGif)
+            imgFav.src = `./assets/images/icon-fav-active.svg`
         }
         else {
-            favLocalStorage.pop( (gifo) => gifo.gifId === favoriteGif.gifId)     
+            favLocalStorage.splice(arrayIndex,1)
+            imgFav.src = `./assets/images/icon-fav-hover.svg`
+              
         }
         localStorage.setItem( 'favorites' , JSON.stringify(favLocalStorage))      
-        console.log('gifLocalStorage', localStorage)
     })
     
     let imgDown = document.createElement("img")
@@ -61,7 +90,21 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
     imgFull.setAttribute("alt", "icon-max-normal");
     imgFull.classList.add("icon-max-normal")
     imgFull.addEventListener("click", async (event) => {
-        console.log('click')
+
+        let urlWrapper = {
+            gifId: gifId,
+            urlGifSmall: urlGifSmall,
+            urlGifBig: urlGifBig,
+            urlGifOriginal: urlGifOriginal,
+            gifUser: gifUser,
+            gifTitle: gifTitle
+        }
+        
+        $("#user-title").htmlElement.innerHTML = gifTitle
+        $("#gif-title").htmlElement.innerHTML = gifUser
+        
+        GIFMAX.gifMax = urlWrapper
+        //console.log('click',urlWrapper)
         openMaximize(urlGifBig)
     })
 
@@ -70,6 +113,68 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId}) => {
     icons.appendChild(imgDown)
     icons.appendChild(imgFull)
     card.appendChild(icons)
+
+
+    let cardHover = document.createElement("div")
+    let userText = document.createElement("div")
+    let tittleText = document.createElement("div")
+    userText.classList.add("user-text")
+    tittleText.classList.add("tittle-text")
+
+    userText.innerHTML = gifUser
+    tittleText.innerHTML = gifTitle
+    userText.style.display = "none"
+    tittleText.style.display = "none"
+
+    card.appendChild(userText)
+    card.appendChild(tittleText)
+
+    card.appendChild(cardHover)
+    cardHover.classList.add("hover-gif")
+    cardHover.style.display = "none"
+
+
+
+    let elementsListHover = [imgGif,cardHover , icons , tittleText , userText]
+
+    elementsListHover.forEach((element) => {
+        element.addEventListener("mouseover", e =>{
+            icons.style.display = "grid"  
+            cardHover.style.display = "inline"  
+            userText.style.display = "inline"  
+            tittleText.style.display = "inline"
+        });
+        element.addEventListener("mouseout", e =>{
+            icons.style.display = "none"
+            cardHover.style.display = "none" 
+            userText.style.display = "none"  
+            tittleText.style.display = "none"
+        });
+    })
+
+
+    imgFav.addEventListener("mouseover", e => {
+        addImgFavSource(0, gifId , imgFav , patho)
+    });
+    imgFav.addEventListener("mouseout", e =>{
+        addImgFavSource(1, gifId , imgFav , patho)
+    });
+
+    imgDown.addEventListener("mouseover", e => {
+        imgDown.src = `./assets/images/icon-download-hover.svg`;
+    });
+    imgDown.addEventListener("mouseout", e =>{
+        imgDown.src = `./assets/images/icon-download.svg`;
+    });
+
+    imgFull.addEventListener("mouseover", e => {
+        imgFull.src = `./assets/images/icon-max-hover.svg`;
+    });
+    imgFull.addEventListener("mouseout", e =>{
+        imgFull.src = `./assets/images/icon-max-normal.svg`;
+    });
+
+    
     return card
 }
 

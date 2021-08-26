@@ -8,7 +8,7 @@
 }
 
 .img-gif{
-  grid-area: 1 / 1 / 6 / 6 ;
+  grid-area: 1 / 1 / 11 / 11 ;
   width: 100%;
   height: 100%;
 
@@ -42,17 +42,4 @@ div.trendgif-section {
 
 
 
-div.div-icons-gifo img {
-  width: 100%;
-  height: 100%;
-}
 
-.div-icons-gifo {
-  grid-area: 1 / 3 / 1 / 6 ;
-  //@extend %border-test;
-  display: grid;
-  grid-template-columns: 30% 30% 30%;
-  grid-template-rows: 100%;
-  //width: 7%;
-  //height: 3%;
-}

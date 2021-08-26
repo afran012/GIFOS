@@ -58,7 +58,7 @@
         <section class="full-size-gif" id="full-size-gif">
 
 
-            <img src="./assets/images/check.svg" alt="full size mode" class="img-full-size-mode" id="img-full-size-mode">
+            <img src="https://media0.giphy.com/media/K2OkBIFxW9KWm1cxMF/giphy.gif?cid=85081a00wti0m7gnakyrzwhly610nv1aku7kt06wzx5w9pyq&rid=giphy.gif&ct=g" alt="full size mode" class="img-full-size-mode" id="img-full-size-mode">
 
             
             <h1 class="user-title" id="user-title">User</h1>
@@ -79,24 +79,31 @@
 
                 <section class="search light-mode-3" id="search">
                     <div class="div-search ">
-                        <input type="text" placeholder="Busca GIFOS y más" name="input-gif" id="search-gif" class="light-mode-2">
+                        <input type="text"  autocomplete="off" placeholder="Busca GIFOS y más" name="input-gif" id="search-gif" class="input-search light-mode-2">
                         <img src="./assets/images/icon-search.svg" alt="img-search" class="img-search" id="search-btn">
+                        <img src="./assets/images/close.svg" alt="img-close-search" class="img-close-search" id="img-close-search">
                     </div>
                     <div class="autocompleteContainer" id="autoContain" ></div>
                 </section>
-                
             </form>
-            <section class="gifs-search-section-full" id="gifs-search-section">
-                <div id="gifs-search-container"></div>
-                <button id="search-more" class="search-more-btn">
-                    Buscar más
-                </button>
+
+            <section class="trending light-mode-2">
+                <h2 class="h2-trend">Trending:</h2>
+                <p class="p-trend light-mode-2" id="p-trend-id"></p>
             </section>
+
+            <section class="gifs-search-section-full" id="gifs-search-section">
+                <section class="gifos-not-found" id="gifos-not-found">
+                    <h2>Resultado no encontrado</h2>
+                    <img src="./assets/images/icon-busqueda-sin-resultado.svg" alt="" class="search-not-found" id="search-not-found">
+
+                </section>
+                <div id="gifs-search-container"></div>
+                <img src="./assets/images/CTA-ver-mas.svg" alt="Buscar más" id="search-more" class="search-more-btn" >
+            </section>
+
         </section>
-        <section class="trending light-mode-2">
-            <h2 class="h2-trend">Trending:</h2>
-            <p class="p-trend light-mode-2" id="p-trend-id"></p>
-        </section>
+
         <section class="trending-gifos light-mode-5">
             <h2 class="h2-trend-gif">Trending GIFOS</h2>
             <p class="p-trend-gif">Mira los últimos GIFOS de nuestra comunidad.</p>
