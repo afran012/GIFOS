@@ -1,5 +1,9 @@
+import { SEARCH_SECTION } from "../../configs/config.js"
+import { searchGifs } from "./../search/search.js"
+
 const searchIn = document.getElementById("search-gif")
 const pTrendData = document.getElementById('p-trend-id')
+
 
 const initTrend = 0;
 const endTrend = 5;
@@ -14,7 +18,10 @@ const trendTemplate = (tags) => {
         let wordTrend = document.createElement('span');
         wordTrend.textContent = ` ${trend} ${dotOrComma}`;
         pTrendData.appendChild(wordTrend)        
-        wordTrend.addEventListener('click' , ()=>{searchIn.value = trend})
+        wordTrend.addEventListener('click' , async ()=>{
+            searchIn.value = trend
+            await searchGifs( trend , SEARCH_SECTION.limitSearch , SEARCH_SECTION.offsetSearch)
+        })
         flagTrend += 1
     })    
 }
