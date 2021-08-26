@@ -95,7 +95,7 @@ $("#favorite-full-size-mode").on( "mouseout" , async (changeFavIcon) => {
 
 $("#download-full-size-mode").on( "mouseover" , async (changeFavIcon) => {
     try {
-        await $("#download-full-size-mode").attr( "src" , "./../assets/images/icon-download-hover.svg" )
+        await $("#download-full-size-mode").attr( "src" , "./assets/images/icon-download-hover.svg" )
     }
     catch (error) {
         console.log(error)
@@ -104,7 +104,7 @@ $("#download-full-size-mode").on( "mouseover" , async (changeFavIcon) => {
 
 $("#download-full-size-mode").on( "mouseout" , async (changeFavIcon) => {
     try {
-        await $("#download-full-size-mode").attr( "src" , "../assets/images/icon-download.svg" )
+        await $("#download-full-size-mode").attr( "src" , "./assets/images/icon-download.svg" )
     }
     catch (error) {
         console.log(error)
@@ -116,7 +116,7 @@ $("#download-full-size-mode").on( "mouseout" , async (changeFavIcon) => {
 
 $("#close-full-size-mode").on( "mouseover" , async (changeFavIcon) => {
     try {
-        await $("#close-full-size-mode").attr( "src" , "../assets/images/Button-close-hover-modo-noc.svg" )
+        await $("#close-full-size-mode").attr( "src" , "./assets/images/Button-close-hover-modo-noc.svg" )
     }
     catch (error) {
         console.log(error)
