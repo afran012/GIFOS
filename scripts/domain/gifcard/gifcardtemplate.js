@@ -2,10 +2,12 @@ import {openMaximize} from './../maximize/maximize.js'
 import {Favorite} from "../../models/favorites.js";
 import { GIFMAX } from "../../configs/config.js";
 import { $ } from "../../utils/domUtils.js";
+import { addImgFavSource } from "../favorites/favorites.js"
+let patho = "./"
 
 const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUser , gifTitle}) => {
 
-
+/*
     let addImgFavSource = (flag=0) => {
         let favLocal = JSON.parse(localStorage.getItem('favorites'))
         //console.log( "favLocal" , favLocal )
@@ -24,7 +26,7 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUs
             imgFav.src = `./assets/images/icon-fav.svg`
         }
     }
-
+*/
     let card = document.createElement("div")
     card.classList.add("favorite-gifo") 
 
@@ -41,7 +43,7 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUs
     imgFav.src = "./assets/images/icon-fav.svg";
     imgFav.classList.add("img-fav")
     imgGif.setAttribute("gifId", gifId);
-    addImgFavSource(1)
+    addImgFavSource(1 , gifId , imgFav , patho)
 
     imgFav.addEventListener("click", (event) => {
         let favLocal = JSON.parse(localStorage.getItem('favorites'))
@@ -152,10 +154,10 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUs
 
 
     imgFav.addEventListener("mouseover", e => {
-        addImgFavSource()
+        addImgFavSource(0, gifId , imgFav , patho)
     });
     imgFav.addEventListener("mouseout", e =>{
-        addImgFavSource(1)
+        addImgFavSource(1, gifId , imgFav , patho)
     });
 
     imgDown.addEventListener("mouseover", e => {

@@ -2,9 +2,10 @@ import {Favorite} from "../../models/favorites.js";
 import {openMaximize} from './../maximize/maximize.js';
 import { GIFMAX } from "../../configs/config.js";
 import { $ } from "../../utils/domUtils.js";
+import { addImgFavSource } from "../favorites/favorites.js"
 
 const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUser , gifTitle}) => {
-
+/*
     let addImgFavSource = (flag=0) => {
         let favLocal = JSON.parse(localStorage.getItem('favorites'))
         if ( !favLocal ) {
@@ -22,7 +23,7 @@ const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, g
             imgFav.src = `${patho}assets/images/icon-fav.svg`
         }
     }
-    
+*/
 
     let card = document.createElement("div")
     card.classList.add("favorite-gifo")   
@@ -41,7 +42,7 @@ const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, g
     imgFav.classList.add("img-fav")
     imgGif.setAttribute("gifId", gifId);
 
-    addImgFavSource(1)
+    addImgFavSource(1, gifId , imgFav , patho)
     imgFav.addEventListener("click", async (event) => {        
         let favLocal = JSON.parse(localStorage.getItem('favorites'))
         console.log( "favLocal" , favLocal )
@@ -133,14 +134,14 @@ const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, g
 
     elementsListHover.forEach((element) => {
         element.addEventListener("mouseover", e =>{
-            addImgFavSource()
+            //addImgFavSource(0, gifId , imgFav , patho)
             icons.style.display = "grid"  
             cardHover.style.display = "inline"  
             userText.style.display = "inline"  
             tittleText.style.display = "inline"
         });
         element.addEventListener("mouseout", e =>{
-            addImgFavSource(1)
+            //addImgFavSource(1, gifId , imgFav , patho)
             icons.style.display = "none"
             cardHover.style.display = "none" 
             userText.style.display = "none"  
@@ -150,10 +151,10 @@ const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, g
 
 
     imgFav.addEventListener("mouseover", e => {
-        addImgFavSource()
+        addImgFavSource(0, gifId , imgFav , patho)
     });
     imgFav.addEventListener("mouseout", e =>{
-        addImgFavSource(1)
+        addImgFavSource(1, gifId , imgFav , patho)
     });
 
     imgDown.addEventListener("mouseover", e => {
@@ -176,6 +177,24 @@ const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, g
     return card
 }
 
-
+/*
+const addImgFavSource = (flag=0, gifId , imgFav , patho) => {
+    let favLocal = JSON.parse(localStorage.getItem('favorites'))
+    if ( !favLocal ) {
+        localStorage.setItem( 'favorites' , JSON.stringify([]))
+    }     
+    let favLocalStorage = JSON.parse(localStorage.getItem('favorites'))
+    let found = favLocalStorage.find( (gifo) => gifo._gifId == gifId);
+    if (found) {
+        imgFav.src = `${patho}assets/images/icon-fav-active.svg`
+    }
+    else {
+        imgFav.src = `${patho}assets/images/icon-fav-hover.svg`
+    }
+    if (!found && flag == 1) {
+        imgFav.src = `${patho}assets/images/icon-fav.svg`
+    }
+}
+*/
 
 export {gifcardTrendTemplate}

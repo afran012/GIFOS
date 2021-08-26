@@ -930,28 +930,38 @@ div.trendgif-section {
   -ms-grid-rows: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
       grid-template-rows: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
   min-height: 80vh;
-  height: 80vh;
+  height: 90vh;
   width: 100%;
   top: 15%;
   z-index: 2;
-  background: rgba(255, 255, 255, 0.9);
-  opacity: 100%;
+  background: white;
+  opacity: 99%;
 }
 
 .user-title {
-  -ms-grid-row: 5;
-  -ms-grid-row-span: 1;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 4;
-  grid-area: 5 / 2 / 6 / 6;
-}
-
-.gif-title {
   -ms-grid-row: 6;
   -ms-grid-row-span: 1;
   -ms-grid-column: 2;
-  -ms-grid-column-span: 4;
-  grid-area: 6 / 2 / 7 / 6;
+  -ms-grid-column-span: 7;
+  grid-area: 6 / 2 / 7 / 9;
+  font-family: "Roboto-Regular";
+  font-size: 15px;
+  color: #000000;
+  text-align: start;
+}
+
+.gif-title {
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
+  grid-area: 5 / 2 / 6 / 5;
+  font-family: "Roboto-Bold";
+  font-size: 16px;
+  color: #000000;
+  text-align: start;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
 
 .close-full-size-mode {

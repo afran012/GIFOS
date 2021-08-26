@@ -1,6 +1,10 @@
 import { $ } from "./../../utils/domUtils.js";
 import { GIFMAX } from "../../configs/config.js";
 import {Favorite} from "../../models/favorites.js";
+import { addImgFavSource } from "../favorites/favorites.js"
+let patho = "./"
+
+addImgFavSource(1, GIFMAX.gifMax.gifId , $("#favorite-full-size-mode").htmlElement , patho)
 
 const closeMaximize = async () => {
     let close = $("#full-size-gif").htmlElement
@@ -11,6 +15,7 @@ const openMaximize = async (urlGif) => {
     let close = $("#full-size-gif").htmlElement
     $("#img-full-size-mode").attr("src", urlGif)
     close.style.display = "grid" 
+    addImgFavSource(1, GIFMAX.gifMax.gifId , $("#favorite-full-size-mode").htmlElement , patho)
 }
 
 
@@ -67,5 +72,74 @@ favorite.addEventListener("click", async (event) => {
     }
     localStorage.setItem( 'favorites' , JSON.stringify(favLocalStorage))
 })
+
+$("#favorite-full-size-mode").on( "mouseover" , async (changeFavIcon) => {
+    try {
+        //await $("#favorite-full-size-mode").attr( "src" , "./../assets/images/icon-fav-hover.svg" )
+        addImgFavSource(0, GIFMAX.gifMax.gifId , $("#favorite-full-size-mode").htmlElement , patho)
+    }
+    catch (error) {
+        console.log(error)
+    }
+})
+
+$("#favorite-full-size-mode").on( "mouseout" , async (changeFavIcon) => {
+    try {
+        addImgFavSource(1, GIFMAX.gifMax.gifId , $("#favorite-full-size-mode").htmlElement , patho)
+        //await $("#favorite-full-size-mode").attr( "src" , "./../assets/images/icon-fav.svg" )
+    }
+    catch (error) {
+        console.log(error)
+    }
+})
+
+$("#download-full-size-mode").on( "mouseover" , async (changeFavIcon) => {
+    try {
+        await $("#download-full-size-mode").attr( "src" , "./../assets/images/icon-download-hover.svg" )
+    }
+    catch (error) {
+        console.log(error)
+    }
+})
+
+$("#download-full-size-mode").on( "mouseout" , async (changeFavIcon) => {
+    try {
+        await $("#download-full-size-mode").attr( "src" , "./../assets/images/icon-download.svg" )
+    }
+    catch (error) {
+        console.log(error)
+    }
+})
+
+
+
+
+$("#close-full-size-mode").on( "mouseover" , async (changeFavIcon) => {
+    try {
+        await $("#close-full-size-mode").attr( "src" , "./../assets/images/Button-close-hover-modo-noc.svg" )
+    }
+    catch (error) {
+        console.log(error)
+    }
+})
+
+$("#close-full-size-mode").on( "mouseout" , async (changeFavIcon) => {
+    try {
+        await $("#close-full-size-mode").attr( "src" , "./../assets/images/close.svg" )
+    }
+    catch (error) {
+        console.log(error)
+    }
+})
+
+
+
+
+
+
+$("#favorite-full-size-mode").on( "click" , async (changeFavIcon) => {
+    addImgFavSource(0, GIFMAX.gifMax.gifId , $("#favorite-full-size-mode").htmlElement , patho)
+})
+
 
 export {closeMaximize, openMaximize}
