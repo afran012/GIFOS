@@ -7,26 +7,6 @@ let patho = "./"
 
 const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUser , gifTitle}) => {
 
-/*
-    let addImgFavSource = (flag=0) => {
-        let favLocal = JSON.parse(localStorage.getItem('favorites'))
-        //console.log( "favLocal" , favLocal )
-        if ( !favLocal ) {
-            localStorage.setItem( 'favorites' , JSON.stringify([]))
-        }     
-        let favLocalStorage = JSON.parse(localStorage.getItem('favorites'))
-        let found = favLocalStorage.find( (gifo) => gifo._gifId == gifId);
-        if (found) {
-            imgFav.src = `./assets/images/icon-fav-active.svg`
-        }
-        else {
-            imgFav.src = `./assets/images/icon-fav-hover.svg`
-        }
-        if (!found && flag == 1) {
-            imgFav.src = `./assets/images/icon-fav.svg`
-        }
-    }
-*/
     let card = document.createElement("div")
     card.classList.add("favorite-gifo") 
 
@@ -43,6 +23,7 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUs
     imgFav.src = "./assets/images/icon-fav.svg";
     imgFav.classList.add("img-fav")
     imgGif.setAttribute("gifId", gifId);
+
     addImgFavSource(1 , gifId , imgFav , patho)
 
     imgFav.addEventListener("click", (event) => {
@@ -151,6 +132,21 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUs
             tittleText.style.display = "none"
         });
     })
+
+
+
+
+    let elementsListImgHover = [imgGif,cardHover ]
+
+    elementsListImgHover.forEach((element) => {
+        element.addEventListener("mouseover", e =>{
+            addImgFavSource(1, gifId , imgFav , patho)
+        });
+        element.addEventListener("mouseout", e =>{
+            addImgFavSource(1, gifId , imgFav , patho)
+        });
+    })
+
 
 
     imgFav.addEventListener("mouseover", e => {
