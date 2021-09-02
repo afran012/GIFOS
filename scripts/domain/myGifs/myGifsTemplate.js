@@ -1,8 +1,13 @@
 import {Favorite} from "../../models/favorites.js";
 import {MyGif} from "../../models/myGifs.js";
 import {openMaximize} from './../maximize/maximize.js'
+import { GIFMAX } from "../../configs/config.js";
+import { $ } from "../../utils/domUtils.js";
+import { addImgFavSource } from "../favorites/favorites.js"
+let patho = "./"
+GIFMAX.pathPage = "../"
 
-const myGifTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName}) => {
+const myGifTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName  , _urlGifBig  , _gifUser , _gifTitle }) => {
 
     let card = document.createElement("div")
     card.classList.add("favorite-gifo")   
@@ -21,24 +26,25 @@ const myGifTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName}) => {
     imgGif.setAttribute("gifId", _gifId);
     imgFav.addEventListener("click", (event) => {
         
-        let favLocal = JSON.parse(localStorage.getItem('favorites'))
-        console.log( "favLocal" , favLocal )
-        if ( !favLocal ) {
-            localStorage.setItem( 'favorites' , JSON.stringify([]))
+        let myGifLocal = JSON.parse(localStorage.getItem('myGifs'))
+        console.log( "myGifLocal" , myGifLocal )
+        if ( !myGifLocal ) {
+            localStorage.setItem( 'myGifs' , JSON.stringify([]))
         }
-        let favoriteGif = new MyGif(_gifId, _urlOrig, _urlSmall, _gifName)
-        console.log( `favoriteGif ${favoriteGif._gifId} ` , typeof(favoriteGif._gifId) )
-        let favLocalStorage = JSON.parse(localStorage.getItem('favorites'))
-        let found = favLocalStorage.find( (gifo) => gifo._gifId == favoriteGif._gifId);
+        let myGif = new MyGif(_gifId, _urlOrig, _urlSmall, _gifName , _urlGifBig  , _gifUser , _gifTitle)
+        console.log( `myGifLocal ${myGif._gifId} ` , typeof(myGif._gifId) )
+        let myGifLocalStorage = JSON.parse(localStorage.getItem('myGifs'))
+        let found = myGifLocalStorage.find( (gifo) => gifo._gifId == myGif._gifId);
         console.log( "found" , found )
+        let arrayIndex = myGifLocalStorage.indexOf(found)
         if ( !found ) {
-            favLocalStorage.push(favoriteGif)
+            myGifLocalStorage.push(myGif)
         }
         else {
-            favLocalStorage.pop( (gifo) => gifo.gifId === _gifId)  
+            myGifLocalStorage.splice(arrayIndex,1)
             card.style.display = 'none'   
         }
-        localStorage.setItem( 'favorites' , JSON.stringify(favLocalStorage))      
+        localStorage.setItem( 'myGifs' , JSON.stringify(myGifLocalStorage))      
     })    
 
     let imgDown = document.createElement("img")
@@ -63,14 +69,116 @@ const myGifTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName}) => {
     imgFull.classList.add("icon-max-normal")
     
     imgFull.addEventListener("click", async (event) => {
-        console.log('click')
-        openMaximize(_urlOrig)
+        try {
+            console.log('click')
+            let urlWrapper = {
+                gifId: _gifId,
+                urlGifSmall: _urlSmall,
+                urlGifBig: _urlGifBig,
+                urlGifOriginal: _urlOrig,
+                gifUser: _gifUser,
+                gifTitle: _gifTitle
+            }
+            console.log("_gifTitle" , _gifTitle)
+            
+            $("#user-title").htmlElement.innerHTML = _gifTitle
+            $("#gif-title").htmlElement.innerHTML = _gifUser
+            
+            GIFMAX.gifMax = urlWrapper
+            //console.log('click',urlWrapper)
+            openMaximize(_urlOrig)
+            
+        } catch (error) {
+            console.log(error)
+            
+        }
+
     })
     card.appendChild(imgGif)  
     icons.appendChild(imgFav)  
     icons.appendChild(imgDown)
     icons.appendChild(imgFull)
     card.appendChild(icons)
+
+
+    let cardHover = document.createElement("div")
+    let userText = document.createElement("div")
+    let tittleText = document.createElement("div")
+    userText.classList.add("user-text")
+    tittleText.classList.add("tittle-text")
+
+    userText.innerHTML = _gifUser
+    tittleText.innerHTML = _gifTitle
+    userText.style.display = "none"
+    tittleText.style.display = "none"
+
+    card.appendChild(userText)
+    card.appendChild(tittleText)
+
+    card.appendChild(cardHover)
+    cardHover.classList.add("hover-gif")
+    cardHover.style.display = "none"
+
+
+
+    let elementsListHover = [imgGif,cardHover , icons , tittleText , userText]
+
+    elementsListHover.forEach((element) => {
+        element.addEventListener("mouseover", e =>{
+            icons.style.display = "grid"  
+            cardHover.style.display = "inline"  
+            userText.style.display = "inline"  
+            tittleText.style.display = "inline"
+        });
+        element.addEventListener("mouseout", e =>{
+            icons.style.display = "none"
+            cardHover.style.display = "none" 
+            userText.style.display = "none"  
+            tittleText.style.display = "none"
+        });
+    })
+
+
+
+
+    let elementsListImgHover = [imgGif,cardHover ]
+
+    elementsListImgHover.forEach((element) => {
+        element.addEventListener("mouseover", e =>{
+            imgFav.src = "../assets/images/icon-trash-normal.svg";
+        });
+        element.addEventListener("mouseout", e =>{
+            imgFav.src = "../assets/images/icon-trash-normal.svg";
+        });
+    })
+
+
+
+    imgFav.addEventListener("mouseover", e => {
+        imgFav.src = "../assets/images/icon-trash-hover.svg";
+    });
+    imgFav.addEventListener("mouseout", e =>{
+        imgFav.src = "../assets/images/icon-trash-normal.svg";
+    });
+
+    imgDown.addEventListener("mouseover", e => {
+        imgDown.src = `../assets/images/icon-download-hover.svg`;
+    });
+    imgDown.addEventListener("mouseout", e =>{
+        imgDown.src = `../assets/images/icon-download.svg`;
+    });
+
+    imgFull.addEventListener("mouseover", e => {
+        imgFull.src = `../assets/images/icon-max-hover.svg`;
+    });
+    imgFull.addEventListener("mouseout", e =>{
+        imgFull.src = `../assets/images/icon-max-normal.svg`;
+    });
+
+    
+
+
+
     return card
 }
 
