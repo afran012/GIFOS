@@ -6,6 +6,7 @@ import { addImgFavSource } from "../favorites/favorites.js"
 //let patho = "./"
 GIFMAX.pathPage = "./"
 let patho = GIFMAX.pathPage
+console.log("patho  , " , patho )
 
 const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUser , gifTitle , gifName }) => {
 

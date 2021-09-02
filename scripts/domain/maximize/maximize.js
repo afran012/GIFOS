@@ -111,9 +111,6 @@ $("#download-full-size-mode").on( "mouseout" , async (changeFavIcon) => {
     }
 })
 
-
-
-
 $("#close-full-size-mode").on( "mouseover" , async (changeFavIcon) => {
     try {
         await $("#close-full-size-mode").attr( "src" , `${patho}assets/images/Button-close-hover-modo-noc.svg` )
