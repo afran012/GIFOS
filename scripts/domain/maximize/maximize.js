@@ -3,7 +3,7 @@ import { GIFMAX } from "../../configs/config.js";
 import {Favorite} from "../../models/favorites.js";
 import { addImgFavSource } from "../favorites/favorites.js"
 
-addImgFavSource(1, GIFMAX.gifMax.gifId , $("#favorite-full-size-mode").htmlElement , GIFMAX.pathPage)
+//addImgFavSource(1, GIFMAX.gifMax.gifId , $("#favorite-full-size-mode").htmlElement , GIFMAX.pathPage)
 
 const closeMaximize = async () => {
     let close = $("#full-size-gif").htmlElement
