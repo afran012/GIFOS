@@ -2,9 +2,8 @@ import { $ } from "./../../utils/domUtils.js";
 import { GIFMAX } from "../../configs/config.js";
 import {Favorite} from "../../models/favorites.js";
 import { addImgFavSource } from "../favorites/favorites.js"
-let patho = GIFMAX.pathPage
 
-addImgFavSource(1, GIFMAX.gifMax.gifId , $("#favorite-full-size-mode").htmlElement , patho)
+addImgFavSource(1, GIFMAX.gifMax.gifId , $("#favorite-full-size-mode").htmlElement , GIFMAX.pathPage)
 
 const closeMaximize = async () => {
     let close = $("#full-size-gif").htmlElement
@@ -12,10 +11,11 @@ const closeMaximize = async () => {
 }
 
 const openMaximize = async (urlGif) => {
+    console.log ( "GIFMAX.pathPage" , GIFMAX.pathPage)
     let close = $("#full-size-gif").htmlElement
     $("#img-full-size-mode").attr("src", urlGif)
     close.style.display = "grid" 
-    addImgFavSource(1, GIFMAX.gifMax.gifId , $("#favorite-full-size-mode").htmlElement , patho)
+    addImgFavSource(1, GIFMAX.gifMax.gifId , $("#favorite-full-size-mode").htmlElement , GIFMAX.pathPage)
 }
 
 
@@ -76,7 +76,7 @@ favorite.addEventListener("click", async (event) => {
 $("#favorite-full-size-mode").on( "mouseover" , async (changeFavIcon) => {
     try {
         //await $("#favorite-full-size-mode").attr( "src" , "./../assets/images/icon-fav-hover.svg" )
-        addImgFavSource(0, GIFMAX.gifMax.gifId , $("#favorite-full-size-mode").htmlElement , patho)
+        addImgFavSource(0, GIFMAX.gifMax.gifId , $("#favorite-full-size-mode").htmlElement , GIFMAX.pathPage)
     }
     catch (error) {
         console.log(error)
@@ -85,7 +85,7 @@ $("#favorite-full-size-mode").on( "mouseover" , async (changeFavIcon) => {
 
 $("#favorite-full-size-mode").on( "mouseout" , async (changeFavIcon) => {
     try {
-        addImgFavSource(1, GIFMAX.gifMax.gifId , $("#favorite-full-size-mode").htmlElement , patho)
+        addImgFavSource(1, GIFMAX.gifMax.gifId , $("#favorite-full-size-mode").htmlElement , GIFMAX.pathPage)
         //await $("#favorite-full-size-mode").attr( "src" , "./../assets/images/icon-fav.svg" )
     }
     catch (error) {
@@ -95,7 +95,7 @@ $("#favorite-full-size-mode").on( "mouseout" , async (changeFavIcon) => {
 
 $("#download-full-size-mode").on( "mouseover" , async (changeFavIcon) => {
     try {
-        await $("#download-full-size-mode").attr( "src" , `${patho}assets/images/icon-download-hover.svg` )
+        await $("#download-full-size-mode").attr( "src" , `${GIFMAX.pathPage}assets/images/icon-download-hover.svg` )
     }
     catch (error) {
         console.log(error)
@@ -104,7 +104,7 @@ $("#download-full-size-mode").on( "mouseover" , async (changeFavIcon) => {
 
 $("#download-full-size-mode").on( "mouseout" , async (changeFavIcon) => {
     try {
-        await $("#download-full-size-mode").attr( "src" , `${patho}assets/images/icon-download.svg` )
+        await $("#download-full-size-mode").attr( "src" , `${GIFMAX.pathPage}assets/images/icon-download.svg` )
     }
     catch (error) {
         console.log(error)
@@ -113,7 +113,7 @@ $("#download-full-size-mode").on( "mouseout" , async (changeFavIcon) => {
 
 $("#close-full-size-mode").on( "mouseover" , async (changeFavIcon) => {
     try {
-        await $("#close-full-size-mode").attr( "src" , `${patho}assets/images/Button-close-hover-modo-noc.svg` )
+        await $("#close-full-size-mode").attr( "src" , `${GIFMAX.pathPage}assets/images/Button-close-hover-modo-noc.svg` )
     }
     catch (error) {
         console.log(error)
@@ -122,7 +122,7 @@ $("#close-full-size-mode").on( "mouseover" , async (changeFavIcon) => {
 
 $("#close-full-size-mode").on( "mouseout" , async (changeFavIcon) => {
     try {
-        await $("#close-full-size-mode").attr( "src" , `${patho}assets/images/close.svg` )
+        await $("#close-full-size-mode").attr( "src" , `${GIFMAX.pathPage}assets/images/close.svg` )
     }
     catch (error) {
         console.log(error)
@@ -135,7 +135,7 @@ $("#close-full-size-mode").on( "mouseout" , async (changeFavIcon) => {
 
 
 $("#favorite-full-size-mode").on( "click" , async (changeFavIcon) => {
-    addImgFavSource(0, GIFMAX.gifMax.gifId , $("#favorite-full-size-mode").htmlElement , patho)
+    addImgFavSource(0, GIFMAX.gifMax.gifId , $("#favorite-full-size-mode").htmlElement , GIFMAX.pathPage)
 })
 
 
