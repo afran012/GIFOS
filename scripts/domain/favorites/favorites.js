@@ -1,4 +1,5 @@
 import * as favoritesTemplate from "../favorites/favoritesTemplate.js";
+import { GIFMAX } from "../../configs/config.js";
 
 const createFavoritesSection = async (favoritos=[]) => {
     const gifsFavoriteSection= document.getElementById('favorites-container');
@@ -27,7 +28,7 @@ const createFavoritesSection = async (favoritos=[]) => {
 
 
 
-const addImgFavSource = (flag=0, gifId , imgFav , patho) => {
+const addImgFavSource = (flag=0, gifId , imgFav , patho = GIFMAX.pathPage) => {
     let favLocal = JSON.parse(localStorage.getItem('favorites'))
     if ( !favLocal  ) {
         localStorage.setItem( 'favorites' , JSON.stringify([]))
