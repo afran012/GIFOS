@@ -5,6 +5,7 @@ import { $ } from "../../utils/domUtils.js";
 import { addImgFavSource } from "../favorites/favorites.js"
 //let patho = "./"
 GIFMAX.pathPage = "./"
+patho = GIFMAX.pathPage
 
 const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUser , gifTitle , gifName }) => {
 
