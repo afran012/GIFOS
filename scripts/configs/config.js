@@ -23,7 +23,8 @@ let SEARCH_SECTION = {
 }
 
 let GIFMAX = {
-    gifMax : []
+    gifMax : [],
+    pathPage : "../"
 }
 
 

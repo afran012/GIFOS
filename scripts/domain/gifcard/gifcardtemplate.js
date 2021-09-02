@@ -3,9 +3,10 @@ import {Favorite} from "../../models/favorites.js";
 import { GIFMAX } from "../../configs/config.js";
 import { $ } from "../../utils/domUtils.js";
 import { addImgFavSource } from "../favorites/favorites.js"
-let patho = "./"
+//let patho = "./"
+GIFMAX.pathPage = "./"
 
-const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUser , gifTitle}) => {
+const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUser , gifTitle , gifName }) => {
 
     let card = document.createElement("div")
     card.classList.add("favorite-gifo") 
@@ -32,7 +33,7 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUs
         if ( !favLocal ) {
             localStorage.setItem( 'favorites' , JSON.stringify([]))
         }
-        let favoriteGif = new Favorite(gifId, urlGifOriginal, urlGifSmall, urlGifBig , gifId)
+        let favoriteGif = new Favorite(gifId, urlGifOriginal, urlGifSmall, urlGifBig , gifUser , gifTitle , gifName )
         console.log( `favoriteGif ${favoriteGif.gifId} ` , typeof(favoriteGif.gifId) )
         let favLocalStorage = JSON.parse(localStorage.getItem('favorites'))
         let found = favLocalStorage.find( (gifo) => gifo._gifId == favoriteGif.gifId);

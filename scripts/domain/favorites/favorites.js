@@ -24,6 +24,9 @@ const createFavoritesSection = async (favoritos=[]) => {
 }
 
 
+
+
+
 const addImgFavSource = (flag=0, gifId , imgFav , patho) => {
     let favLocal = JSON.parse(localStorage.getItem('favorites'))
     if ( !favLocal  ) {
