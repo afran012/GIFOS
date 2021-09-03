@@ -496,7 +496,6 @@ template {
 ul.navbar_menu li a, ul.navbar_menu li div {
   font-family: "Montserrat-SemiBold";
   font-size: 15px;
-  color: #ffffff;
   text-align: center;
   line-height: 30px;
 }
@@ -599,12 +598,12 @@ ul.navbar_menu li a, ul.navbar_menu li div {
   opacity: 0.9;
 }
 
+/*
 .nav {
-  -ms-grid-column: 2;
-      grid-column-start: 2;
+  grid-column-start: 2;
   grid-row-end: 3;
 }
-
+*/
 .logo {
   z-index: 1;
   -ms-flex-item-align: center;
@@ -911,6 +910,45 @@ div.trendgif-section {
   grid-area: 1/2/2/3;
 }
 
+.gifos-not-found {
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.trending {
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.result-found {
+  display: none;
+  margin: 1.5rem;
+  font-family: "Montserrat-Bold";
+  font-size: 30px;
+  color: #572EE5;
+  text-align: center;
+  line-height: 30px;
+}
+
+.search-not-found {
+  display: none;
+}
+
+.p-result-not-found {
+  display: none;
+  font-family: "Montserrat-Bold";
+  font-size: 22px;
+  color: #50E3C2;
+  text-align: center;
+  line-height: 25px;
+}
+
 .img-full-size-mode {
   -ms-grid-row: 2;
   -ms-grid-row-span: 3;
@@ -1056,6 +1094,139 @@ section.icons-shared img {
 
 .p-footer {
   margin-bottom: 3%;
+}
+
+@media screen and (max-width: 900px) {
+  .dark-mode-1 {
+    background: #000000;
+  }
+  .light-mode-1 {
+    background: #572ee5;
+  }
+  ul.dark-mode-1 li a {
+    color: #ffffff;
+  }
+  ul.dark-mode-1 li div {
+    color: #ffffff;
+  }
+  ul.light-mode-1 li div {
+    color: #ffffff;
+  }
+  ul.light-mode-1 li a {
+    color: #ffffff;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  header.header nav.nav_section ul.navbar_menu li div, header.header nav.nav_section ul.navbar_menu li a {
+    font-family: "Montserrat-Bold";
+    font-size: 13px;
+    letter-spacing: 0;
+    text-align: center;
+  }
+  .nav_section {
+    display: -ms-grid;
+    display: grid;
+    justify-items: flex-end;
+  }
+  .navbar_menu {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (25%)[4];
+        grid-template-columns: repeat(4, 25%);
+    -ms-grid-rows: 100%;
+        grid-template-rows: 100%;
+    height: 100%;
+    width: 65%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    background: #FFFFFF;
+  }
+  .nav-div1,
+  .nav-div2,
+  .nav-div3,
+  .nav-div4 {
+    display: none;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-area: 1/1/2/2;
+  }
+  .nav-div {
+    display: none;
+  }
+  .nav-noct {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-area: 1/1/2/2;
+  }
+  .nav-fav {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-area: 1/2/2/3;
+  }
+  .nav-gif {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+    grid-area: 1/3/2/4;
+  }
+  .nav-crea {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 4;
+    -ms-grid-column-span: 1;
+    grid-area: 1/4/2/5;
+  }
+  .menu {
+    display: none;
+  }
+  #btn-nav {
+    display: none;
+  }
+  .header {
+    -ms-grid-columns: 10% 90%;
+        grid-template-columns: 10% 90%;
+    -ms-grid-rows: 100%;
+        grid-template-rows: 100%;
+  }
+  /*
+    .nav-desktop {
+        background: #37383C;  
+        color: $font-color2;        
+    }*/
+  .dark-mode-1 {
+    background: #37383C;
+    color: #ffffff;
+  }
+  .light-mode-1 {
+    background: #FFFFFF;
+    color: #572ee5;
+  }
+  ul.dark-mode-1 li a {
+    background: #37383C;
+    color: #ffffff;
+  }
+  ul.light-mode-1 li div {
+    background: #FFFFFF;
+    color: #572ee5;
+  }
+  ul.dark-mode-1 li div {
+    background: #37383C;
+    color: #ffffff;
+  }
+  ul.light-mode-1 li a {
+    background: #FFFFFF;
+    color: #572ee5;
+  }
 }
 
 /*.checkbox {
@@ -1582,14 +1753,14 @@ section.icons-shared img {
   display: none;
 }
 
-.dark-mode-1 {
-  background: #000000;
+/*.dark-mode-1 {
+    background: $bg-color-1-dm ; 
+    
 }
 
 .light-mode-1 {
-  background: #572ee5;
-}
-
+    background: $bg-color-1-lm ;     
+}*/
 .dark-mode-2 {
   background: #37383C;
   color: #ffffff;

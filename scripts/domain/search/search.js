@@ -45,6 +45,7 @@ pInputSearch.addEventListener('keypress', async e => {
         $("#img-close-search").htmlElement.style.display = 'none'
         e.preventDefault();
         await searchGifs(pInputSearch.value, SEARCH_SECTION.limitSearch , SEARCH_SECTION.offsetSearch)
+        $("#autoContain").htmlElement.innerHTML = ""
     }
 }) 
 

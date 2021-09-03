@@ -5,27 +5,8 @@ import { $ } from "../../utils/domUtils.js";
 import { addImgFavSource } from "../favorites/favorites.js"
 
 const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUser , gifTitle}) => {
-/*
-    let addImgFavSource = (flag=0) => {
-        let favLocal = JSON.parse(localStorage.getItem('favorites'))
-        if ( !favLocal ) {
-            localStorage.setItem( 'favorites' , JSON.stringify([]))
-        }     
-        let favLocalStorage = JSON.parse(localStorage.getItem('favorites'))
-        let found = favLocalStorage.find( (gifo) => gifo._gifId == gifId);
-        if (found) {
-            imgFav.src = `${patho}assets/images/icon-fav-active.svg`
-        }
-        else {
-            imgFav.src = `${patho}assets/images/icon-fav-hover.svg`
-        }
-        if (!found && flag == 1) {
-            imgFav.src = `${patho}assets/images/icon-fav.svg`
-        }
-    }
-*/
 
-    let card = document.createElement("div")
+    let card = document.createElement( "div" ) 
     card.classList.add("favorite-gifo")   
 
     let imgGif = document.createElement("img")
@@ -99,7 +80,6 @@ const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, g
         $("#gif-title").htmlElement.innerHTML = gifUser
         
         GIFMAX.gifMax = urlWrapper
-        //console.log('click',urlWrapper)
         openMaximize(urlGifBig)
     })
 
@@ -134,14 +114,12 @@ const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, g
 
     elementsListHover.forEach((element) => {
         element.addEventListener("mouseover", e =>{
-            //addImgFavSource(0, gifId , imgFav , patho)
             icons.style.display = "grid"  
             cardHover.style.display = "inline"  
             userText.style.display = "inline"  
             tittleText.style.display = "inline"
         });
         element.addEventListener("mouseout", e =>{
-            //addImgFavSource(1, gifId , imgFav , patho)
             icons.style.display = "none"
             cardHover.style.display = "none" 
             userText.style.display = "none"  
@@ -149,6 +127,16 @@ const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, g
         });
     })
 
+    let elementsListImgHover = [imgGif,cardHover ]
+
+    elementsListImgHover.forEach((element) => {
+        element.addEventListener("mouseover", e =>{
+            addImgFavSource(1, gifId , imgFav , patho)
+        });
+        element.addEventListener("mouseout", e =>{
+            addImgFavSource(1, gifId , imgFav , patho)
+        });
+    })
 
     imgFav.addEventListener("mouseover", e => {
         addImgFavSource(0, gifId , imgFav , patho)
@@ -171,30 +159,7 @@ const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, g
         imgFull.src = `${patho}assets/images/icon-max-normal.svg`;
     });
 
-
-    
-
     return card
 }
-
-/*
-const addImgFavSource = (flag=0, gifId , imgFav , patho) => {
-    let favLocal = JSON.parse(localStorage.getItem('favorites'))
-    if ( !favLocal ) {
-        localStorage.setItem( 'favorites' , JSON.stringify([]))
-    }     
-    let favLocalStorage = JSON.parse(localStorage.getItem('favorites'))
-    let found = favLocalStorage.find( (gifo) => gifo._gifId == gifId);
-    if (found) {
-        imgFav.src = `${patho}assets/images/icon-fav-active.svg`
-    }
-    else {
-        imgFav.src = `${patho}assets/images/icon-fav-hover.svg`
-    }
-    if (!found && flag == 1) {
-        imgFav.src = `${patho}assets/images/icon-fav.svg`
-    }
-}
-*/
 
 export {gifcardTrendTemplate}

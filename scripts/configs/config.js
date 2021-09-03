@@ -23,9 +23,12 @@ let SEARCH_SECTION = {
 }
 
 let GIFMAX = {
-    gifMax : []
+    gifMax : [],
+    pathPage : "../"
 }
 
+let CREATEGIF = {
+    action : "openVideo"
+}
 
-
-export {API_DETAILS , NOCTURNE_MODE , CREATE_GIF, SEARCH_SECTION , GIFMAX } 
+export {API_DETAILS , NOCTURNE_MODE , CREATE_GIF, SEARCH_SECTION , GIFMAX , CREATEGIF } 

@@ -1,4 +1,5 @@
 import * as favoritesTemplate from "../favorites/favoritesTemplate.js";
+import { GIFMAX } from "../../configs/config.js";
 
 const createFavoritesSection = async (favoritos=[]) => {
     const gifsFavoriteSection= document.getElementById('favorites-container');
@@ -23,22 +24,25 @@ const createFavoritesSection = async (favoritos=[]) => {
     }
 }
 
-
-const addImgFavSource = (flag=0, gifId , imgFav , patho) => {
+const addImgFavSource = (flag=0, gifId , imgFav , patho = GIFMAX.pathPage) => {
     let favLocal = JSON.parse(localStorage.getItem('favorites'))
-    if ( !favLocal ) {
+    if ( !favLocal  ) {
         localStorage.setItem( 'favorites' , JSON.stringify([]))
     }     
     let favLocalStorage = JSON.parse(localStorage.getItem('favorites'))
     let found = favLocalStorage.find( (gifo) => gifo._gifId == gifId);
-    if (found) {
+    if (found && flag == 0) {
         imgFav.src = `${patho}assets/images/icon-fav-active.svg`
     }
-    else {
+    else if (!found && flag == 0) {
         imgFav.src = `${patho}assets/images/icon-fav-hover.svg`
     }
-    if (!found && flag == 1) {
+    else if (found && flag == 1) {
+        imgFav.src = `${patho}assets/images/icon-fav-active.svg`
+    }
+    else if (!found && flag == 1) {
         imgFav.src = `${patho}assets/images/icon-fav.svg`
+
     }
 }
 

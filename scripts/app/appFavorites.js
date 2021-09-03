@@ -2,6 +2,19 @@ import {darkMode} from '../domain/darkMode/darkMode.js'
 import {closeMaximize} from '../domain/maximize/maximize.js'
 import {createFavoritesSection} from '../domain/favorites/favorites.js'
 import {trendGifsSection} from '../domain/trend/trendSection.js'
+import { $ } from "../utils/domUtils.js";
+
+$("#dark-mode").on("click", ()=>{
+    let darkLocal = JSON.parse(localStorage.getItem('darkLocal'))
+    console.log( "darkLocal" , darkLocal)
+    
+    if (darkLocal=="light" ) {
+        $("#dark-mode").htmlElement.innerHTML = "MODO NOCTURNO"     
+        
+    } else {
+        $("#dark-mode").htmlElement.innerHTML = "MODO DIURNO"       
+    }
+})
 
 let patho
 

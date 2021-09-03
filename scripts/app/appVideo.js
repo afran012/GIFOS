@@ -1,39 +1,59 @@
 import {darkMode} from '../domain/darkMode/darkMode.js'
 import {openVideo , recordVideo , stopVideo , uploadGif , pauseVideo} from '../domain/createvideo/createVideo.js';
+import { $ } from "../utils/domUtils.js";
+import {CREATEGIF} from "../configs/config.js"
+
+$("#dark-mode").on("click", ()=>{
+   let darkLocal = JSON.parse(localStorage.getItem('darkLocal'))
+   console.log( "darkLocal" , darkLocal)
+   
+   if (darkLocal=="light" ) {
+       $("#dark-mode").htmlElement.innerHTML = "MODO NOCTURNO"     
+       
+   } else {
+       $("#dark-mode").htmlElement.innerHTML = "MODO DIURNO"       
+   }
+})
+
+
 
 const btnVideo = document.getElementById ("btn-create-begin");
-let action = "openVideo";
+CREATEGIF.action = "openVideo";
 
 const step1 = document.getElementById ("button-step1")
 const step2 = document.getElementById ("button-step2")
 const step3 = document.getElementById ("button-step3")
+//$("#msg-step-1").htmlElement.style.display = "grid"
+$("#msg-step-1").htmlElement.classList.add("msg-active");
+$("#msg-step-1").htmlElement.classList.remove("msg-inactive");
+
 
 
 
  btnVideo.addEventListener("click" , async (event) => {
-    console.log(action)
-     if ( action === "openVideo") {
-        await openVideo();
-        action = "recordVideo"
+    console.log(CREATEGIF.action)
+     if ( CREATEGIF.action === "openVideo") {
+      CREATEGIF.action = "recordVideo"  
+      await openVideo();
+        
      }
 
-     else if ( action === "recordVideo") {
+     else if ( CREATEGIF.action === "recordVideo") {
+         CREATEGIF.action = "stopVideo"
          await recordVideo();
-         action = "stopVideo"
-        
-        
-     }
+      }
 
-     else if ( action === "stopVideo") {
+     else if ( CREATEGIF.action === "stopVideo") {
         //await pauseVideo();
+        CREATEGIF.action = "uploadVideo"
         await stopVideo();
-        action = "uploadVideo"
+        
      }
 
-     else if ( action === "uploadVideo") {
+     else if ( CREATEGIF.action === "uploadVideo") {
+      CREATEGIF.action = "openVideo"
       await uploadGif();
-      action = "openVideo"
    }
 })
 
-export {action}
+//export {action}

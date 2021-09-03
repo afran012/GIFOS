@@ -2,5 +2,22 @@
 import {darkMode} from '../domain/darkMode/darkMode.js'
 import {closeMaximize} from '../domain/maximize/maximize.js'
 import {searchGifs} from '../domain/search/search.js'
+import { GIFMAX } from "../configs/config.js";
+import { $ } from "../utils/domUtils.js";
+
+$("#dark-mode").on("click", ()=>{
+    let darkLocal = JSON.parse(localStorage.getItem('darkLocal'))
+    console.log( "darkLocal" , darkLocal)
+    
+    if (darkLocal=="light" ) {
+        $("#dark-mode").htmlElement.innerHTML = "MODO NOCTURNO"     
+        
+    } else {
+        $("#dark-mode").htmlElement.innerHTML = "MODO DIURNO"       
+    }
+})
 
 /////  
+GIFMAX.pathPage = "./"
+let patho = GIFMAX.pathPage
+console.log ( "patho" , patho)

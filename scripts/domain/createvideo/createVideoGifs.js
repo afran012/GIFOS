@@ -4,13 +4,15 @@ import {Favorite} from "../../models/favorites.js";
 const localStorageCreatedGif = async (myGifId) => {
     try {
         let myGifData = await getMyGifs(myGifId)
-        let gifId = myGifData.id
-        let urlGifSmall = myGifData.images.original_still.url
-        let urlGifBig = myGifData.images.fixed_width.url
-        let urlGifOriginal = myGifData.images.original.url
-        let gifName = myGifData.slug
+        let _gifId = myGifData.id
+        let _urlGifSmall = myGifData.images.original_still.url
+        let _urlGifBig = myGifData.images.fixed_width.url
+        let _urlGifOriginal = myGifData.images.original.url
+        let _gifName = myGifData.slug
+        let _gifUser = myGifData.username
+        let _gifTitle =  myGifData.title
 
-        let myGif = new Favorite( gifId , urlGifSmall , urlGifBig , urlGifOriginal , gifName )
+        let myGif = new Favorite( _gifId , _urlGifSmall , _urlGifBig , _urlGifOriginal , _gifName , _gifUser , _gifTitle)
 
         let myGifLocal = JSON.parse(localStorage.getItem('myGifs'))
         if ( !myGifLocal ) {

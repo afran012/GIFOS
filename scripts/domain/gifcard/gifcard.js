@@ -12,11 +12,9 @@ const createSearchSection = async (tag , limit , offset) => {
         let gifsSearchDiv = document.getElementById('favorites-section')
         //console.log("gifsSearchDiv" , gifsSearchDiv )
         if (!gifsSearchDiv) {
-            gifsSearchDiv =  document.createElement("div")
-            //console.log("gifsSearchDiv" , gifsSearchDiv )   
+            gifsSearchDiv =  document.createElement("div")  
             gifsSearchDiv.classList.add("favorites-section")
-            gifsSearchDiv.setAttribute("id", "favorites-section")
-            //console.log("gifsSearchDiv" , gifsSearchDiv )    
+            gifsSearchDiv.setAttribute("id", "favorites-section")   
         }
         const gifs = await GifService.getGifSearch(tag,limit,offset)
         console.log(gifs)
@@ -24,9 +22,23 @@ const createSearchSection = async (tag , limit , offset) => {
         if (gifs.length==0) {
             console.log("entro")
             $("#search-more").hide()
+            $("#trending").htmlElement.style.display = "grid"
+            $("#search-not-found").show()
+            $("#result-found").htmlElement.innerHTML = `"${tag}"`
+            $("#p-result-not-found").show()
         }
         else{
+            $("#trending").hide()
             $("#search-more").show()
+            $("#search-not-found").hide()
+            $("#result-found").show()
+            $("#result-found").htmlElement.innerHTML = `"${tag}"`
+            $("#p-result-not-found ").hide()
+
+        }
+
+        if (gifs.length<limit) {
+            $("#search-more").hide()
         }
 
         gifs.forEach(gif => {
