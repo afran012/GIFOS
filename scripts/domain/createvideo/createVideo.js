@@ -1,6 +1,8 @@
 import { createGif } from '../../services/giftService.js'
 import { API_DETAILS , CREATE_GIF } from '../../configs/config.js'
 import {localStorageCreatedGif} from '../createvideo/createVideoGifs.js'
+import { $ } from "../../utils/domUtils.js";
+import {CREATEGIF} from "../../configs/config.js"
 
 const step1 = document.getElementById ("button-step1")
 const step2 = document.getElementById ("button-step2")
@@ -22,9 +24,54 @@ let constraints = window.constraints = {
   video: { width: 360 , height: 200 }
 };
 
+
+const defaultTemplate = async () => {
+  //msgStep2.classList.remove("msg-active");
+  //msgStep2.classList.add("msg-inactive");
+  //$("#msg-step-1").htmlElement.classList.add("msg-active");
+  //$("#msg-step-1").htmlElement.classList.remove("msg-inactive");
+  //msgStep1.classList.remove("msg-inactive");
+  //msgStep1.classList.add("msg-active");
+
+  btnVideo.style.display="grid";
+  btnVideo.textContent = "Comenzar";
+  CREATEGIF.action = "openVideo";
+  window.alert("Se debe brindar permisos para acceder a la camara")
+}
+
+const controlError = async () => {
+  try {
+
+    CREATEGIF.action = "recordVideo"
+    btnVideo.textContent = "Grabar"
+    //recordVideo()
+    
+  } catch (error) {
+    console.log(error)
+    
+  }
+}
+
+const controlErrorStop = async () => {
+  try {
+
+    CREATEGIF.action = "stopVideo"
+    btnVideo.textContent = "Finalizar"
+    //recordVideo()
+    
+  } catch (error) {
+    console.log(error)
+    
+  }
+}
+
+
 const openVideo =  async function getMedia() {
   let stream = null;
   try {
+    msgStep4.classList.remove("msg-active");
+    msgStep4.classList.add("msg-inactive");
+    $("#msg-step-1").htmlElement.style.display = "none"
     btnVideo.style.display="none";
     msgStep1.classList.remove("msg-active");
     msgStep1.classList.add("msg-inactive");
@@ -50,13 +97,15 @@ const openVideo =  async function getMedia() {
   } 
   catch(err) {
     /* handle the error */
-    action = "openVideo";
+    //await openVideo();
     console.log(err)
+    defaultTemplate()
   }
 }
 
+
 const recordVideo = async () =>{
-  btnVideo.textContent = "Finalizar"
+ 
   btnVideo.style.display="none";
   
     await navigator.mediaDevices.getUserMedia(constraints)
@@ -77,11 +126,16 @@ const recordVideo = async () =>{
           }
         });
         recorder.startRecording();
-        btnVideo.style.display="grid";
-    })
+        
+        setTimeout(function() {
+          btnVideo.style.display="grid";
+          btnVideo.textContent = "Finalizar";
+        }, 1000);
+
+      })
     //.catch(function(err) { console.log(err.name); }); // always check for errors at the end. 
     .catch(function(err) { 
-      action = "recordVideo"
+
       console.log(err); });
 }
 
@@ -98,7 +152,10 @@ const pauseVideo = async () =>{
     btnVideo.textContent = "Detener"
     btnVideo.style.display="grid";
   };
-}).catch(function(err) { console.log(err.name); }); // always check for errors at the end.
+}).catch(function(err) { 
+  CREATEGIF.action = "recordVideo"
+  console.log(err.name); 
+}); // always check for errors at the end.
 }
 
 const stopVideo = async () =>{ 
@@ -108,10 +165,8 @@ const stopVideo = async () =>{
   .then(function(mediaStream) {
     video.srcObject = mediaStream;
     video.onloadedmetadata = function(e) {
-
       video.play()
       console.log('stop recording')
-      btnVideo.textContent = "Grabar"
       recorder.stopRecording();
       console.log('recorder', recorder)
       //video.pause()
@@ -120,7 +175,10 @@ const stopVideo = async () =>{
       let recordFile = recorder.getBlob()
 
   };
-}).catch(function(err) { console.log(err); }); // always check for errors at the end.
+}).catch(function(err) {
+  console.log(err); 
+  controlErrorStop()  
+}); // always check for errors at the end.
 }
 
 const uploadGif = async () => {
@@ -146,12 +204,16 @@ const uploadGif = async () => {
 
     btnVideo.style.display="grid"; 
     recorder = null
-    btnVideo.textContent = "Subir"
+    btnVideo.textContent = "Comenzar"
 
     msgStep3.classList.remove("msg-active");
     msgStep3.classList.add("msg-inactive");
     msgStep4.classList.remove("msg-inactive");
     msgStep4.classList.add("msg-active");
+
+    btnVideo.style.display="grid";
+    btnVideo.textContent = "Comenzar";
+    CREATEGIF.action = "openVideo"
   }
   catch (error){
     console.error(error);
