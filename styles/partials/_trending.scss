@@ -21,10 +21,10 @@
   grid-gap: 4%;
   grid-template-rows: 100%;
   padding: 5%;
-  width: 100%;
-  //height: 100%;
-  //@extend %border-test;
+  width: 150%;
+  height: 100%;
   margin-bottom: 7%;
+  overflow: scroll;
   
 /*
   display: flex;

@@ -15,8 +15,6 @@ $("#dark-mode").on("click", ()=>{
    }
 })
 
-
-
 const btnVideo = document.getElementById ("btn-create-begin");
 CREATEGIF.action = "openVideo";
 
@@ -55,5 +53,3 @@ $("#msg-step-1").htmlElement.classList.remove("msg-inactive");
       await uploadGif();
    }
 })
-
-//export {action}
