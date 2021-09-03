@@ -3,6 +3,20 @@ import {openVideo , recordVideo , stopVideo , uploadGif , pauseVideo} from '../d
 import { $ } from "../utils/domUtils.js";
 import {CREATEGIF} from "../configs/config.js"
 
+$("#dark-mode").on("click", ()=>{
+   let darkLocal = JSON.parse(localStorage.getItem('darkLocal'))
+   console.log( "darkLocal" , darkLocal)
+   
+   if (darkLocal=="light" ) {
+       $("#dark-mode").htmlElement.innerHTML = "MODO NOCTURNO"     
+       
+   } else {
+       $("#dark-mode").htmlElement.innerHTML = "MODO DIURNO"       
+   }
+})
+
+
+
 const btnVideo = document.getElementById ("btn-create-begin");
 CREATEGIF.action = "openVideo";
 
