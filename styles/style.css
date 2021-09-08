@@ -646,6 +646,18 @@ ul.navbar_menu li div {
   grid-area: 1/1/2/2;
 }
 
+.nav-noct:hover, .nav-fav:hover, .nav-crea:hover, .nav-gif:hover {
+  border-bottom: 2px solid #5ED7C6;
+}
+
+.nav-noct:active, .nav-fav:active, .nav-crea:active, .nav-gif:active {
+  font-family: "Montserrat-Bold";
+  font-size: 13px;
+  color: #9CAFC3;
+  letter-spacing: 0;
+  text-align: center;
+}
+
 .nav-div1 {
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;

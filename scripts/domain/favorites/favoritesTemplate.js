@@ -6,7 +6,6 @@ import { addImgFavSource } from "../favorites/favorites.js"
 let patho = "./"
 GIFMAX.pathPage = "../"
 
-
 const favoriteTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName , _urlGifBig  , _gifUser , _gifTitle}) => {
 
     let card = document.createElement("div")
@@ -15,8 +14,7 @@ const favoriteTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName , _urlGifBig  
     let imgGif = document.createElement("img")
     imgGif.src = _urlSmall;
     imgGif.setAttribute("alt", "gif-item");
-    imgGif.classList.add("img-gif")
-    
+    imgGif.classList.add("img-gif")    
 
     let  icons= document.createElement("div")
     icons.classList.add("div-icons-gifo")
@@ -29,15 +27,12 @@ const favoriteTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName , _urlGifBig  
     imgFav.addEventListener("click", (event) => {
         
         let favLocal = JSON.parse(localStorage.getItem('favorites'))
-        console.log( "favLocal" , favLocal )
         if ( !favLocal ) {
             localStorage.setItem( 'favorites' , JSON.stringify([]))
         }
         let favoriteGif = new Favorite(_gifId, _urlOrig, _urlSmall, _gifName , _urlGifBig  , _gifUser , _gifTitle)
-        console.log( `favoriteGif ${favoriteGif._gifId} ` , typeof(favoriteGif._gifId) )
         let favLocalStorage = JSON.parse(localStorage.getItem('favorites'))
         let found = favLocalStorage.find( (gifo) => gifo._gifId == favoriteGif._gifId);
-        console.log( "found" , found )
         let arrayIndex = favLocalStorage.indexOf(found)
         if ( !found ) {
             favLocalStorage.push(favoriteGif)
@@ -48,8 +43,7 @@ const favoriteTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName , _urlGifBig  
             card.innerHTML = ""
         }
         localStorage.setItem( 'favorites' , JSON.stringify(favLocalStorage))      
-    })
-    
+    })    
 
     let imgDown = document.createElement("img")
     imgDown.src = "../assets/images/icon-download.svg";
@@ -58,7 +52,6 @@ const favoriteTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName , _urlGifBig  
     imgDown.addEventListener("click", async (event) => {
         let a = document.createElement('a');
         let response = await fetch(_urlOrig)
-        console.log('response', response)
         let file = await response.blob();
         a.download = _gifName
         a.href = window.URL.createObjectURL(file);
@@ -71,7 +64,6 @@ const favoriteTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName , _urlGifBig  
     imgFull.setAttribute("alt", "icon-max-normal");
     imgFull.classList.add("icon-max-normal")
     imgFull.addEventListener("click", async (event) => {
-        console.log('click')
         let urlWrapper = {
             gifId: _gifId,
             urlGifSmall: _urlSmall,
@@ -85,7 +77,6 @@ const favoriteTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName , _urlGifBig  
         $("#gif-title").htmlElement.innerHTML = _gifUser
         
         GIFMAX.gifMax = urlWrapper
-        //console.log('click',urlWrapper)
         openMaximize(_urlGifBig)
     })
     
@@ -94,7 +85,6 @@ const favoriteTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName , _urlGifBig  
     icons.appendChild(imgDown)
     icons.appendChild(imgFull)
     card.appendChild(icons)
-
 
     let cardHover = document.createElement("div")
     let userText = document.createElement("div")
@@ -114,8 +104,6 @@ const favoriteTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName , _urlGifBig  
     cardHover.classList.add("hover-gif")
     cardHover.style.display = "none"
 
-
-
     let elementsListHover = [imgGif,cardHover , icons , tittleText , userText]
 
     elementsListHover.forEach((element) => {
@@ -133,9 +121,6 @@ const favoriteTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName , _urlGifBig  
         });
     })
 
-
-
-
     let elementsListImgHover = [imgGif,cardHover ]
 
     elementsListImgHover.forEach((element) => {
@@ -147,32 +132,24 @@ const favoriteTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName , _urlGifBig  
         });
     })
 
-
-
     imgFav.addEventListener("mouseover", e => {
         imgFav.src = "../assets/images/icon-trash-hover.svg";
     });
     imgFav.addEventListener("mouseout", e =>{
         imgFav.src = "../assets/images/icon-trash-normal.svg";
     });
-
     imgDown.addEventListener("mouseover", e => {
         imgDown.src = `../assets/images/icon-download-hover.svg`;
     });
     imgDown.addEventListener("mouseout", e =>{
         imgDown.src = `../assets/images/icon-download.svg`;
     });
-
     imgFull.addEventListener("mouseover", e => {
         imgFull.src = `../assets/images/icon-max-hover.svg`;
     });
     imgFull.addEventListener("mouseout", e =>{
         imgFull.src = `../assets/images/icon-max-normal.svg`;
     });
-
-    
-
-
     return card
 }
 

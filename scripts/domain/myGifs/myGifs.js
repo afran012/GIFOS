@@ -2,8 +2,7 @@ import * as myGifsTemplate from "../myGifs/myGifsTemplate.js";
 
 
 const createMyGifsSection = async (favoritos=[]) => {
-    const gifsFavoriteSection= document.getElementById('favorites-container');
-    
+    const gifsFavoriteSection= document.getElementById('favorites-container');    
     try {
         let gifsFavoritesDiv = document.getElementById('favorites-section')
         if (!gifsFavoritesDiv) {
@@ -17,16 +16,11 @@ const createMyGifsSection = async (favoritos=[]) => {
                 gifsFavoritesDiv.appendChild(cardGif)
             })
             gifsFavoriteSection.appendChild(gifsFavoritesDiv)
-
         }
-
     }
     catch (error) {
         console.error(error);
     }
-
 }
-
-
 
 export {createMyGifsSection}

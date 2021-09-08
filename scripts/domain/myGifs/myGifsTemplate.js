@@ -27,15 +27,12 @@ const myGifTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName  , _urlGifBig  , 
     imgFav.addEventListener("click", (event) => {
         
         let myGifLocal = JSON.parse(localStorage.getItem('myGifs'))
-        console.log( "myGifLocal" , myGifLocal )
         if ( !myGifLocal ) {
             localStorage.setItem( 'myGifs' , JSON.stringify([]))
         }
         let myGif = new MyGif(_gifId, _urlOrig, _urlSmall, _gifName , _urlGifBig  , _gifUser , _gifTitle)
-        console.log( `myGifLocal ${myGif._gifId} ` , typeof(myGif._gifId) )
         let myGifLocalStorage = JSON.parse(localStorage.getItem('myGifs'))
         let found = myGifLocalStorage.find( (gifo) => gifo._gifId == myGif._gifId);
-        console.log( "found" , found )
         let arrayIndex = myGifLocalStorage.indexOf(found)
         if ( !found ) {
             myGifLocalStorage.push(myGif)
@@ -54,7 +51,6 @@ const myGifTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName  , _urlGifBig  , 
     imgDown.addEventListener("click", async (event) => {
         let a = document.createElement('a');
         let response = await fetch(_urlOrig)
-        console.log('response', response)
         let file = await response.blob();
         a.download = _gifName
         a.href = window.URL.createObjectURL(file);
@@ -70,7 +66,6 @@ const myGifTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName  , _urlGifBig  , 
     
     imgFull.addEventListener("click", async (event) => {
         try {
-            console.log('click')
             let urlWrapper = {
                 gifId: _gifId,
                 urlGifSmall: _urlSmall,
@@ -79,13 +74,11 @@ const myGifTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName  , _urlGifBig  , 
                 gifUser: _gifUser,
                 gifTitle: _gifTitle
             }
-            console.log("_gifTitle" , _gifTitle)
             
             $("#user-title").htmlElement.innerHTML = _gifTitle
             $("#gif-title").htmlElement.innerHTML = _gifUser
             
             GIFMAX.gifMax = urlWrapper
-            //console.log('click',urlWrapper)
             openMaximize(_urlOrig)
             
         } catch (error) {
@@ -99,7 +92,6 @@ const myGifTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName  , _urlGifBig  , 
     icons.appendChild(imgDown)
     icons.appendChild(imgFull)
     card.appendChild(icons)
-
 
     let cardHover = document.createElement("div")
     let userText = document.createElement("div")
@@ -119,8 +111,6 @@ const myGifTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName  , _urlGifBig  , 
     cardHover.classList.add("hover-gif")
     cardHover.style.display = "none"
 
-
-
     let elementsListHover = [imgGif,cardHover , icons , tittleText , userText]
 
     elementsListHover.forEach((element) => {
@@ -138,9 +128,6 @@ const myGifTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName  , _urlGifBig  , 
         });
     })
 
-
-
-
     let elementsListImgHover = [imgGif,cardHover ]
 
     elementsListImgHover.forEach((element) => {
@@ -151,8 +138,6 @@ const myGifTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName  , _urlGifBig  , 
             imgFav.src = "../assets/images/icon-trash-normal.svg";
         });
     })
-
-
 
     imgFav.addEventListener("mouseover", e => {
         imgFav.src = "../assets/images/icon-trash-hover.svg";
@@ -174,10 +159,6 @@ const myGifTemplate = ( {_urlSmall, _urlOrig, _gifId, _gifName  , _urlGifBig  , 
     imgFull.addEventListener("mouseout", e =>{
         imgFull.src = `../assets/images/icon-max-normal.svg`;
     });
-
-    
-
-
 
     return card
 }

@@ -26,14 +26,11 @@ const localStorageCreatedGif = async (myGifId) => {
         else {
             myGifLocalStorage.pop( (gifo) => gifo.gifId === myGif.gifId)     
         }
-        localStorage.setItem( 'myGifs' , JSON.stringify(myGifLocalStorage))      
-        console.log('gifLocalStorage', localStorage)
-
+        localStorage.setItem( 'myGifs' , JSON.stringify(myGifLocalStorage))
     }
     catch (error) {
         console.error(error);
     }
-
 }
 
 export {localStorageCreatedGif  }
