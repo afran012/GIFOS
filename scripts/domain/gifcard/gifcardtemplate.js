@@ -3,10 +3,8 @@ import {Favorite} from "../../models/favorites.js";
 import { GIFMAX } from "../../configs/config.js";
 import { $ } from "../../utils/domUtils.js";
 import { addImgFavSource } from "../favorites/favorites.js"
-//let patho = "./"
 GIFMAX.pathPage = "./"
 let patho = GIFMAX.pathPage
-console.log("patho  , " , patho )
 
 const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUser , gifTitle , gifName }) => {
 
@@ -31,15 +29,12 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUs
 
     imgFav.addEventListener("click", (event) => {
         let favLocal = JSON.parse(localStorage.getItem('favorites'))
-        console.log( "favLocal" , favLocal )
         if ( !favLocal ) {
             localStorage.setItem( 'favorites' , JSON.stringify([]))
         }
         let favoriteGif = new Favorite(gifId, urlGifOriginal, urlGifSmall, urlGifBig , gifUser , gifTitle , gifName )
-        console.log( `favoriteGif ${favoriteGif.gifId} ` , typeof(favoriteGif.gifId) )
         let favLocalStorage = JSON.parse(localStorage.getItem('favorites'))
         let found = favLocalStorage.find( (gifo) => gifo._gifId == favoriteGif.gifId);
-        console.log( "found" , found )
         let arrayIndex = favLocalStorage.indexOf(found)
         if ( !found ) {
             favLocalStorage.push(favoriteGif)
@@ -60,12 +55,10 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUs
     imgDown.addEventListener("click", async (event) => {
         let a = document.createElement('a');
         let response = await fetch(urlGifOriginal)
-        console.log('response', response)
         let file = await response.blob();
         a.download = gifId
         a.href = window.URL.createObjectURL(file);
         a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
-        // simulating link click
         a.click();   
     })
     
@@ -88,7 +81,6 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUs
         $("#gif-title").htmlElement.innerHTML = gifUser
         
         GIFMAX.gifMax = urlWrapper
-        //console.log('click',urlWrapper)
         openMaximize(urlGifBig)
     })
 
@@ -97,7 +89,6 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUs
     icons.appendChild(imgDown)
     icons.appendChild(imgFull)
     card.appendChild(icons)
-
 
     let cardHover = document.createElement("div")
     let userText = document.createElement("div")
@@ -116,8 +107,6 @@ const gifcardTemplate = ( {urlGifSmall, urlGifBig, urlGifOriginal, gifId , gifUs
     card.appendChild(cardHover)
     cardHover.classList.add("hover-gif")
     cardHover.style.display = "none"
-
-
 
     let elementsListHover = [imgGif,cardHover , icons , tittleText , userText]
 

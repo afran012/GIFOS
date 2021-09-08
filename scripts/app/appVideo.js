@@ -5,7 +5,6 @@ import {CREATEGIF} from "../configs/config.js"
 
 $("#dark-mode").on("click", ()=>{
    let darkLocal = JSON.parse(localStorage.getItem('darkLocal'))
-   console.log( "darkLocal" , darkLocal)
    
    if (darkLocal=="light" ) {
        $("#dark-mode").htmlElement.innerHTML = "MODO NOCTURNO"     
@@ -14,8 +13,6 @@ $("#dark-mode").on("click", ()=>{
        $("#dark-mode").htmlElement.innerHTML = "MODO DIURNO"       
    }
 })
-
-
 
 const btnVideo = document.getElementById ("btn-create-begin");
 CREATEGIF.action = "openVideo";
@@ -31,7 +28,6 @@ $("#msg-step-1").htmlElement.classList.remove("msg-inactive");
 
 
  btnVideo.addEventListener("click" , async (event) => {
-    console.log(CREATEGIF.action)
      if ( CREATEGIF.action === "openVideo") {
       CREATEGIF.action = "recordVideo"  
       await openVideo();
@@ -55,5 +51,3 @@ $("#msg-step-1").htmlElement.classList.remove("msg-inactive");
       await uploadGif();
    }
 })
-
-//export {action}

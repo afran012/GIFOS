@@ -18,23 +18,15 @@ const autocompleteTemplate = (tags) => {
 
         let  tagDivText = document.createElement("div")
         tagDivText.classList.add("tagDivText")
-
         
         let imgSearch = document.createElement("img")
         imgSearch.src = `./assets/images/icon-search.svg`;
         imgSearch.classList.add("img-search-auto")
         
         tagDiv.appendChild(imgSearch)
-        
-        //imgSearch.setAttribute("gifId", gifId);
-
-
         tagDiv.appendChild(tagDivText)
-
         searchAuto.appendChild(tagDiv)
-
         tagDivText.textContent = tag.name;
-        //tagDiv.textContent = tag.name;
         tagDiv.addEventListener('click', async ()=>{
             $("#search-btn").htmlElement.style.gridArea = '1/3/2/4'
             $("#search-btn").htmlElement.style.display = 'inline'
@@ -47,10 +39,7 @@ const autocompleteTemplate = (tags) => {
             await createSearchSection(pInputSearch.value, SEARCH_SECTION.limitSearch , SEARCH_SECTION.offsetSearch)
             SEARCH_SECTION.inputSearchValue = pInputSearch.value
             pInputSearch.value = ""
-        })
-
-    
-    
+        })    
     }); 
     return searchDiv.appendChild(searchAuto)
 }

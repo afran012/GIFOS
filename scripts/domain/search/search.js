@@ -37,8 +37,6 @@ const searchGifs = async (value, limitSearch , offsetSearch) => {
     $("#search-gif").htmlElement.value = ""
 }
 
-//searchGifs("value", SEARCH_SECTION.limitSearch , SEARCH_SECTION.offsetSearch)
-
 pInputSearch.addEventListener('keypress', async e => {
     if(e.keyCode == 13) {
         $("#search-btn").htmlElement.style.display = 'inline'
@@ -53,7 +51,6 @@ searchBtn.addEventListener('click', async (event) => {
     await searchGifs(pInputSearch.value, SEARCH_SECTION.limitSearch , SEARCH_SECTION.offsetSearch)
 })
 
-//createContainerAutocomplete("a", SEARCH_SECTION.limitAutocomplete , SEARCH_SECTION.offsetAutocomplete )
 pInputSearch.addEventListener('input', async (event) => {
     await createContainerAutocomplete(pInputSearch.value, SEARCH_SECTION.limitAutocomplete , SEARCH_SECTION.offsetAutocomplete )
     if ( pInputSearch.value != "") {
@@ -65,27 +62,20 @@ pInputSearch.addEventListener('input', async (event) => {
         $("#search-btn").htmlElement.style.gridArea = '1/3/2/4'
         $("#img-close-search").htmlElement.style.display = 'none'        
     }
-
-
 })
-
-
 
 viewMoreBtn.addEventListener('click', async (event) => {
     SEARCH_SECTION.currentSearch += 12
-    console.log( "currentSearch" , SEARCH_SECTION.currentSearch)
     const  searchSection = await createSearchSection(SEARCH_SECTION.inputSearchValue, SEARCH_SECTION.limitSearch, SEARCH_SECTION.currentSearch)
 })
 
 viewMoreBtn.addEventListener('mouseover', async (event) => {
     viewMoreBtn.src = "./assets/images/CTA-ver-mas-hover.svg"
-
 })
 
 viewMoreBtn.addEventListener('mouseout', async (event) => {
     viewMoreBtn.src = "./assets/images/CTA-ver-mas.svg"
 })
-
 
 export {searchGifs};
     

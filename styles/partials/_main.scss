@@ -39,6 +39,7 @@ p.p-trend span::first-letter {
 }
 
 .trending-gifos {
+  overflow: scroll;
   @extend %grid-center;
   //background: #f3f5f8;
 }

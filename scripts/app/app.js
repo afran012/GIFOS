@@ -7,7 +7,6 @@ import { $ } from "../utils/domUtils.js";
 
 $("#dark-mode").on("click", ()=>{
     let darkLocal = JSON.parse(localStorage.getItem('darkLocal'))
-    console.log( "darkLocal" , darkLocal)
     
     if (darkLocal=="light" ) {
         $("#dark-mode").htmlElement.innerHTML = "MODO NOCTURNO"     
@@ -20,4 +19,3 @@ $("#dark-mode").on("click", ()=>{
 /////  
 GIFMAX.pathPage = "./"
 let patho = GIFMAX.pathPage
-console.log ( "patho" , patho)

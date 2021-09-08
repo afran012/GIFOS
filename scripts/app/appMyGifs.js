@@ -8,7 +8,6 @@ import { $ } from "../utils/domUtils.js";
 
 $("#dark-mode").on("click", ()=>{
     let darkLocal = JSON.parse(localStorage.getItem('darkLocal'))
-    console.log( "darkLocal" , darkLocal)
     
     if (darkLocal=="light" ) {
         $("#dark-mode").htmlElement.innerHTML = "MODO NOCTURNO"     
@@ -32,10 +31,3 @@ if (!gifsLocal || gifsLocal.length == 0){
 createMyGifsSection(gifsLocal)
 
 let myGifsLocal = JSON.parse(localStorage.getItem('myGifs'))
-console.log( "myGifsLocal" , myGifsLocal )
-
-let algo = getMyGifs("4pzwqgJX4xel5VG8pj").then( (algo) => {
-    console.log( "algo" , algo   )
-    
-})
-console.log( "algo" , algo   )

@@ -3,12 +3,9 @@ import * as gifTemplate from "../trend/trendSectionTemplate.js";
 
 const trendGifsSection = async ( patho = './', limit = 3 ,offset = 0) => {
     
-    const gifsTrendSectios= document.getElementById('div-trend-gif');
-    
+    const gifsTrendSectios= document.getElementById('div-trend-gif');    
     try {
         const gifs = await trendSection( limit ,offset )
-        //console.log("gifs",gifs)
-
         gifs.forEach(gif => {
             let urlWrapper = {
                 gifId: gif.id,
@@ -27,6 +24,6 @@ const trendGifsSection = async ( patho = './', limit = 3 ,offset = 0) => {
     catch (error) {
         console.error(error);
     }
-
 }
+
 export {trendGifsSection}

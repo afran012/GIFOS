@@ -646,6 +646,18 @@ ul.navbar_menu li div {
   grid-area: 1/1/2/2;
 }
 
+.nav-noct:hover, .nav-fav:hover, .nav-crea:hover, .nav-gif:hover {
+  border-bottom: 2px solid #5ED7C6;
+}
+
+.nav-noct:active, .nav-fav:active, .nav-crea:active, .nav-gif:active {
+  font-family: "Montserrat-Bold";
+  font-size: 13px;
+  color: #9CAFC3;
+  letter-spacing: 0;
+  text-align: center;
+}
+
 .nav-div1 {
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
@@ -734,6 +746,10 @@ p.p-trend span::first-letter {
   min-width: 100%;
 }
 
+.trending-gifos {
+  overflow: scroll;
+}
+
 .h2-trend-gif {
   margin-top: 7%;
   margin-bottom: 2%;
@@ -774,8 +790,10 @@ p.p-trend span::first-letter {
   -ms-grid-rows: 100%;
       grid-template-rows: 100%;
   padding: 5%;
-  width: 100%;
+  width: 150%;
+  height: 100%;
   margin-bottom: 7%;
+  overflow: scroll;
   /*
   display: flex;
   justify-content: space-around;

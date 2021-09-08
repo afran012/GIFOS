@@ -26,12 +26,6 @@ let constraints = window.constraints = {
 
 
 const defaultTemplate = async () => {
-  //msgStep2.classList.remove("msg-active");
-  //msgStep2.classList.add("msg-inactive");
-  //$("#msg-step-1").htmlElement.classList.add("msg-active");
-  //$("#msg-step-1").htmlElement.classList.remove("msg-inactive");
-  //msgStep1.classList.remove("msg-inactive");
-  //msgStep1.classList.add("msg-active");
 
   btnVideo.style.display="grid";
   btnVideo.textContent = "Comenzar";
@@ -41,27 +35,19 @@ const defaultTemplate = async () => {
 
 const controlError = async () => {
   try {
-
     CREATEGIF.action = "recordVideo"
     btnVideo.textContent = "Grabar"
-    //recordVideo()
-    
   } catch (error) {
-    console.log(error)
-    
+    console.log(error)    
   }
 }
 
 const controlErrorStop = async () => {
   try {
-
     CREATEGIF.action = "stopVideo"
-    btnVideo.textContent = "Finalizar"
-    //recordVideo()
-    
+    btnVideo.textContent = "Finalizar"    
   } catch (error) {
-    console.log(error)
-    
+    console.log(error)    
   }
 }
 
@@ -97,17 +83,14 @@ const openVideo =  async function getMedia() {
   } 
   catch(err) {
     /* handle the error */
-    //await openVideo();
     console.log(err)
     defaultTemplate()
   }
 }
 
 
-const recordVideo = async () =>{
- 
-  btnVideo.style.display="none";
-  
+const recordVideo = async () =>{ 
+  btnVideo.style.display="none";  
     await navigator.mediaDevices.getUserMedia(constraints)
     .then(function(mediaStream) {
         video.srcObject = mediaStream;
@@ -132,16 +115,13 @@ const recordVideo = async () =>{
           btnVideo.textContent = "Finalizar";
         }, 1000);
 
-      })
-    //.catch(function(err) { console.log(err.name); }); // always check for errors at the end. 
+      }) 
     .catch(function(err) { 
-
       console.log(err); });
 }
 
 const pauseVideo = async () =>{
   btnVideo.style.display="none";
-
   await navigator.mediaDevices.getUserMedia(constraints)
   .then(function(mediaStream) {
     video.srcObject = mediaStream;
@@ -197,7 +177,6 @@ const uploadGif = async () => {
     form.append('username', username);
     form.append('file', recordFile, 'myGif.gif');
     form.append('tags', tags);
-    console.log( "form" , form )
     
     let gifoIdCreated = await createGif(form);
     await localStorageCreatedGif(gifoIdCreated);

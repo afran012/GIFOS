@@ -26,12 +26,10 @@ const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, g
     addImgFavSource(1, gifId , imgFav , patho)
     imgFav.addEventListener("click", async (event) => {        
         let favLocal = JSON.parse(localStorage.getItem('favorites'))
-        console.log( "favLocal" , favLocal )
         if ( !favLocal ) {
             localStorage.setItem( 'favorites' , JSON.stringify([]))
         }
         let favoriteGif = new Favorite(gifId, urlGifOriginal, urlGifSmall, urlGifBig , gifId)
-        console.log( `favoriteGif ${favoriteGif.gifId} ` , typeof(favoriteGif.gifId) )
         let favLocalStorage = JSON.parse(localStorage.getItem('favorites'))
         let found = favLocalStorage.find( (gifo) => gifo._gifId == favoriteGif.gifId);
         let arrayIndex = favLocalStorage.indexOf(found)
@@ -54,7 +52,6 @@ const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, g
     imgDown.addEventListener("click", async (event) => {
         let a = document.createElement('a');
         let response = await fetch(urlGifOriginal)
-        console.log('response', response)
         let file = await response.blob();
         a.download = gifId
         a.href = window.URL.createObjectURL(file);
@@ -107,8 +104,6 @@ const gifcardTrendTemplate = ( patho ,{urlGifSmall, urlGifBig, urlGifOriginal, g
     card.appendChild(cardHover)
     cardHover.classList.add("hover-gif")
     cardHover.style.display = "none"
-
-
 
     let elementsListHover = [imgGif,cardHover , icons , tittleText , userText]
 

@@ -10,17 +10,13 @@ const createSearchSection = async (tag , limit , offset) => {
     
     try {
         let gifsSearchDiv = document.getElementById('favorites-section')
-        //console.log("gifsSearchDiv" , gifsSearchDiv )
         if (!gifsSearchDiv) {
             gifsSearchDiv =  document.createElement("div")  
             gifsSearchDiv.classList.add("favorites-section")
             gifsSearchDiv.setAttribute("id", "favorites-section")   
         }
         const gifs = await GifService.getGifSearch(tag,limit,offset)
-        console.log(gifs)
-        console.log(gifs.length)
         if (gifs.length==0) {
-            console.log("entro")
             $("#search-more").hide()
             $("#trending").htmlElement.style.display = "grid"
             $("#search-not-found").show()
@@ -36,11 +32,9 @@ const createSearchSection = async (tag , limit , offset) => {
             $("#p-result-not-found ").hide()
 
         }
-
         if (gifs.length<limit) {
             $("#search-more").hide()
         }
-
         gifs.forEach(gif => {
             let urlWrapper = {
                 gifId: gif.id,
@@ -51,16 +45,13 @@ const createSearchSection = async (tag , limit , offset) => {
                 gifUser: gif.username,
                 gifTitle: gif.title
             }
-            //console.log(gif)
             let cardGif = gifTemplate.gifcardTemplate(urlWrapper)
             gifsSearchDiv.appendChild(cardGif)
         })
         gifsSearchSectios.appendChild(gifsSearchDiv)
-
     }
     catch (error) {
         console.error(error);
     }
-
 }
 export {createSearchSection , gifLocalStorage}
